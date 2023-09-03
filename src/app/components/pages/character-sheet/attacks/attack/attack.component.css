@@ -1,0 +1,51 @@
+.attack {
+    padding: 6px 3px 3px 6px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 20% 30% auto;
+    row-gap: 3px;
+    column-gap: 6px;
+    align-items: center;
+}
+
+.attack mat-card {
+    height: 27px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    display: grid;
+}
+
+.attack mat-card p {
+    justify-self: center;
+    align-self: center;
+    margin: 0px;
+    color: rgb(20, 20, 20);
+    font-size: 16px;
+}
+
+.attack .name {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-right: 3px;
+}
+
+.attack .name p {
+    justify-self: start;
+    margin-left: 6px;
+    font-style: italic;
+}
+
+.attack .name p span {
+    font-weight: bold;
+}
+
+.attack .damage-type {
+    height: 33px;
+    padding: 3px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 20% auto;
+    gap: 3px;
+}

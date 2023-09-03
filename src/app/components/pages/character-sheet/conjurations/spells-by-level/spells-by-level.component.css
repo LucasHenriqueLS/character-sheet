@@ -1,0 +1,53 @@
+.spells-by-level {
+    padding: 3px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.spells-by-level mat-card {
+    height: 28px;
+    margin: 3px;
+    padding: 3px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 8px;
+    display: grid;
+}
+
+.spells-by-level mat-card p {
+    justify-self: center;
+    align-self: center;
+    margin: 0px;
+    color: rgb(20, 20, 20);
+    font-size: 16px;
+}
+
+.spells-by-level .level-stats {
+    width: 102px;
+    height: 36px;
+    margin: 0px 3px 0px 0px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3px;
+}
+
+.spells-by-level .level-stats mat-card {
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(240, 240, 240);
+    display: grid;
+}
+
+.spells-by-level .level-stats mat-card p {
+    font-size: 22px;
+}
+
+.spells-by-level .level-stats mat-card p span {
+    font-weight: bold;
+}

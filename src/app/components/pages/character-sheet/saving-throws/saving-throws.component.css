@@ -1,0 +1,22 @@
+.saving-throws {
+    width: 252px;
+    margin: 10px;
+    padding: 3px;
+    background-color: rgb(180, 180, 180);
+    border-radius:15px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+.saving-throws h1 {
+    margin: 5px 0px;
+    color: rgb(20, 20, 20);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.saving-throws div {
+    display: grid;
+    gap: 3px;
+}

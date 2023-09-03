@@ -1,0 +1,7 @@
+.combat-stats {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(180, 180, 180);
+    border-radius:15px;
+    display: grid;
+}
