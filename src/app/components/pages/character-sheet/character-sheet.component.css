@@ -1,4 +1,4 @@
-.ability-scores {
+/* .ability-scores {
     background-color: rgb(140, 140, 140);
     width: 130px;
     padding: 15px;
@@ -7,4 +7,28 @@
     gap: 20px;
 
     margin: 10px;
+} */
+
+.section_2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: start;
+    align-items: start;
 }
+
+.section_2__2 {
+    display: grid;
+    justify-content: start;
+    align-items: start;
+}
+
+.section_2__1___1 {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: start;
+}
+
+/* .section_1__1___1____2 {
+    display: grid;
+} */

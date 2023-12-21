@@ -1,11 +1,10 @@
-<mat-card class="ability-card">
-    <div class="ability">
-        <h4>Força</h4>
-    </div>
-    <div class="modifier">
-        <h2>-1</h2>
-        <div class="score">
-            <h3>8</h3>
-        </div>
+<mat-card class="ability-scores">
+    <div>
+        <app-ability-score [ability]="'Força'"></app-ability-score>
+        <app-ability-score [ability]="'Destreza'"></app-ability-score>
+        <app-ability-score [ability]="'Constituição'"></app-ability-score>
+        <app-ability-score [ability]="'Inteligência'"></app-ability-score>
+        <app-ability-score [ability]="'Sabedoria'"></app-ability-score>
+        <app-ability-score [ability]="'Carisma'"></app-ability-score>
     </div>
 </mat-card>

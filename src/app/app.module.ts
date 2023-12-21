@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +28,7 @@ import { AttacksComponent } from './components/pages/character-sheet/attacks/att
 import { AttackComponent } from './components/pages/character-sheet/attacks/attack/attack.component';
 import { ConjurationsComponent } from './components/pages/character-sheet/conjurations/conjurations.component';
 import { SpellsByLevelComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spells-by-level.component';
+import { AbilityScoreComponent } from './components/pages/character-sheet/ability-scores/ability-score/ability-score.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +48,19 @@ import { SpellsByLevelComponent } from './components/pages/character-sheet/conju
     AttacksComponent,
     AttackComponent,
     ConjurationsComponent,
-    SpellsByLevelComponent
+    SpellsByLevelComponent,
+    AbilityScoreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

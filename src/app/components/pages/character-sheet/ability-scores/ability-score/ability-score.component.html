@@ -1,0 +1,13 @@
+<mat-card class="ability-card">
+    <div class="ability">
+        <h4>{{ ability }}</h4>
+    </div>
+    <div class="modifier">
+        <h2>-1</h2>
+        <div class="score">
+            <form #seuFormulario="ngForm" class="modifier-form-field">
+                <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="value" (input)="save()" required>
+            </form>
+        </div>
+    </div>
+</mat-card>
