@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CharacterService } from 'src/app/services/character.service';
+import { calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-ability-score',
@@ -10,8 +11,9 @@ export class AbilityScoreComponent {
 
   constructor(private characterService: CharacterService) { }
   
+  score: number = 0;
   @Input() ability!: string;
-  value: string = '';
+  @Input() modifier: number = Math.floor((this.score - 10) / 2);
 
   abilityMap: Map<string, string> = new Map([
     ["Força", "strength"],
@@ -20,12 +22,13 @@ export class AbilityScoreComponent {
     ["Inteligência", "intelligence"],
     ["Sabedoria", "wisdom"],
     ["Carisma", "charisma"],
-  ])
+  ]);
 
-  save() {
+  update() {
+    this.score = Number(this.score);
+    this.modifier = calculateAbilityModifier(this.score);
+    this.characterService.character.abilities.set(this.abilityMap.get(this.ability)!, this.score);
 
-    this.characterService.seuObjeto[this.abilityMap.get(this.ability)!] = this.value;
-
-    console.log(this.characterService.seuObjeto)
+    this.characterService.save();
   }
 }

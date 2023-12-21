@@ -1,12 +1,15 @@
 <mat-card class="skill-card">
     <div class="proficiency-bonus">
-        <p>+3</p>
+      <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
+        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="proficiencyBonus" (input)="update()" required>
+      </form>
+        <!-- <p>+3</p> -->
     </div>
     <div class="modifier">
-        <p>+6</p>
+        <p>{{ '+' + modifier }}</p>
     </div>
     <div class="skill">
-        <p>Acrobacia<p>
+        <p>{{ skill }}<p>
     </div>
 </mat-card>
 

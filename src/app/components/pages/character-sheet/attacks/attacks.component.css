@@ -4,4 +4,5 @@
     background-color: rgb(180, 180, 180);
     border-radius:15px;
     display: grid;
+    gap: 5px;
 }

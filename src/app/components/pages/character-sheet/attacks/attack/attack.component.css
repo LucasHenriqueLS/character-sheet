@@ -24,10 +24,16 @@
     font-size: 16px;
 }
 
+.attack .name-and-edit-buttons {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-right: 3px;
+  display: grid;
+  grid-template-columns: auto 20%;
+}
+
 .attack .name {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-right: 3px;
+    
 }
 
 .attack .name p {
@@ -38,6 +44,11 @@
 
 .attack .name p span {
     font-weight: bold;
+}
+
+.attack .edit-buttons {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .attack .damage-type {
