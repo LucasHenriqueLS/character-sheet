@@ -1,3 +1,5 @@
+import { Weapon } from "./pages/character-sheet/attacks/attack-options/attack-options.component";
+
 export class Character {
   public id: string = '';
   public name: string = '';
@@ -21,4 +23,5 @@ export class Character {
     ["deception", 0],
     ["intimidation", 0],
   ]);
+  public weapons: Weapon[] = []
 }

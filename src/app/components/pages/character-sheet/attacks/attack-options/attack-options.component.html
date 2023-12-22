@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Develop across all platforms</h3>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let weapon">{{ weapon.name }}</td>
+    </ng-container>
+  
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Tipo</th>
+      <td mat-cell *matCellDef="let weapon">{{ weapon.type + '; ' + weapon.hands}}</td>
+    </ng-container>
+  
+    <!-- Range Column -->
+    <ng-container matColumnDef="range">
+      <th mat-header-cell *matHeaderCellDef>Alcance</th>
+      <td mat-cell *matCellDef="let weapon">{{'Alcance' + weapon.range + ', ' + weapon.targets}}</td>
+    </ng-container>
+  
+    <!-- Damage Column -->
+    <ng-container matColumnDef="damage">
+      <th mat-header-cell *matHeaderCellDef>Dano</th>
+      <td mat-cell *matCellDef="let weapon">{{weapon.damageDie + ' ' + weapon.damateType}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="selection.toggle(row)">
+    </tr>
+  </table>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

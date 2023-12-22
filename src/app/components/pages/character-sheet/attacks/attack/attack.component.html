@@ -1,7 +1,7 @@
 <mat-card class="attack">
     <div class="name-and-edit-buttons">
         <mat-card class="name">
-            <p><span>Adaga.</span> Arma Corpo a Corpo; Uma mão</p>
+            <p><span>{{ weapon.name }}</span> {{ weapon.type + '; ' + weapon.hands }}</p>
         </mat-card>
         <mat-card class="edit-buttons">
           <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
@@ -11,17 +11,17 @@
         <p>+5</p>
     </mat-card>
     <mat-card>
-        <p>1,5 m, um alvo</p>
+        <p>{{ weapon.range + ', ' + weapon.targets }}</p>
     </mat-card>
     <mat-card class="damage-type">
         <mat-card>
-            <p>1d4</p>
+            <p>{{ weapon.damageDie }}</p>
         </mat-card>
         <mat-card>
             <p>+3</p>
         </mat-card>
         <mat-card>
-            <p>cortante</p>
+            <p>{{ weapon.damateType }}</p>
         </mat-card>
     </mat-card>
 </mat-card>

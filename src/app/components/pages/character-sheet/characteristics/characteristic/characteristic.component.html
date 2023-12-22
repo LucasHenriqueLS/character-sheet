@@ -1,0 +1,35 @@
+<mat-card class="characteristic">
+  <mat-card-header>
+    <mat-card-title>
+      <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
+        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristicName" (input)="update()" required>
+      </form>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
+        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristicSource" (input)="update()" required>
+      </form>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
+      <textarea type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristicDescription" (input)="update()" required></textarea>
+    </form>
+    <!-- <p>
+      Nenhum tipo de magia pode colocá-lo para dormir, e você tem vantagem em salvaguardas contra ser enfeitiçado.
+    </p> -->
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="characteristic">
+  <mat-card-header>
+    <mat-card-title>Ancestralidade Feérica</mat-card-title>
+    <mat-card-subtitle>Meio-Elfo</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Nenhum tipo de magia pode colocá-lo para dormir, e você tem vantagem em salvaguardas contra ser enfeitiçado.
+    </p>
+  </mat-card-content>
+</mat-card>
+

@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +34,9 @@ import { AttackComponent } from './components/pages/character-sheet/attacks/atta
 import { ConjurationsComponent } from './components/pages/character-sheet/conjurations/conjurations.component';
 import { SpellsByLevelComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spells-by-level.component';
 import { AbilityScoreComponent } from './components/pages/character-sheet/ability-scores/ability-score/ability-score.component';
+import { AttackOptionsComponent } from './components/pages/character-sheet/attacks/attack-options/attack-options.component';
+import { CharacteristicComponent } from './components/pages/character-sheet/characteristics/characteristic/characteristic.component';
+import { CharacteristicsComponent } from './components/pages/character-sheet/characteristics/characteristics.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,10 @@ import { AbilityScoreComponent } from './components/pages/character-sheet/abilit
     AttackComponent,
     ConjurationsComponent,
     SpellsByLevelComponent,
-    AbilityScoreComponent
+    AbilityScoreComponent,
+    AttackOptionsComponent,
+    CharacteristicComponent,
+    CharacteristicsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +74,9 @@ import { AbilityScoreComponent } from './components/pages/character-sheet/abilit
     MatFormFieldModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
