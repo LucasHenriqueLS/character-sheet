@@ -29,11 +29,8 @@
   grid-column-end: 4;
   margin-right: 3px;
   display: grid;
-  grid-template-columns: auto 20%;
-}
-
-.attack .name {
-    
+  grid-template-columns: auto 7.5%;
+  gap: 3px;
 }
 
 .attack .name p {
@@ -46,9 +43,19 @@
     font-weight: bold;
 }
 
-.attack .edit-buttons {
+.attack .edit-buttons button {
+    height: 27px;
+    width: 27px;
+    padding: 0px;
+    margin: 0px;
     display: grid;
-    grid-template-columns: 50% 50%;
+    justify-self: center;
+    align-self: center;
+}
+
+.attack .edit-buttons button mat-icon {
+    justify-self: center;
+    align-self: center;
 }
 
 .attack .damage-type {
