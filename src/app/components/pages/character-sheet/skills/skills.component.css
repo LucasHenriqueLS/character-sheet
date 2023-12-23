@@ -21,17 +21,11 @@
     gap: 10px;
 }
 
-.skills div mat-card {
+/* .skills div mat-card {
     width: 244px;
     padding: 3px;
     background-color: rgb(200, 200, 200);
     border-radius: 15px;
-}
-
-.skills div mat-card div {
-    position: relative;
-    display: grid;
-    gap: 3px;
 }
 
 .skills div mat-card h2 {
@@ -42,3 +36,9 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.skills div mat-card div {
+    position: relative;
+    display: grid;
+    gap: 3px;
+} */

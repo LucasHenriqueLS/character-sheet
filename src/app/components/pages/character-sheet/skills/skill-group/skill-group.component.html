@@ -1,0 +1,8 @@
+<mat-card class="skill-group" [ngClass]="{
+    'specialized-skill-group': skillOrSpecializedSkillOrSavingThrows === 'specialized-skill',
+  }">
+    <h2>{{ groupName }}</h2>
+    <div>
+        <app-skill *ngFor="let skill of skills" [skill]="skill" [ability]="ability" [skillOrSpecializedSkillOrSavingThrows]="skillOrSpecializedSkillOrSavingThrows"></app-skill>
+    </div>
+</mat-card>

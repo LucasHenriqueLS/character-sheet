@@ -1,0 +1,9 @@
+<mat-card class="specialized-skills">
+    <h1>ESPECIALIDADES</h1>
+    <div>
+        <app-skill-group [groupName]="'Conhecimentos'" [skills]="toArray(characterService.character.knowledge.keys())" [ability]="'intelligence'" [skillOrSpecializedSkillOrSavingThrows]="'specialized-skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Ferramentas'" [skills]="toArray(characterService.character.tools.keys())" [ability]="'intelligence'" [skillOrSpecializedSkillOrSavingThrows]="'specialized-skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Profissões'" [skills]="toArray(characterService.character.professions.keys())" [ability]="'wisdom'" [skillOrSpecializedSkillOrSavingThrows]="'specialized-skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Atuações'" [skills]="toArray(characterService.character.performances.keys())" [ability]="'charisma'" [skillOrSpecializedSkillOrSavingThrows]="'specialized-skill'"></app-skill-group>
+    </div>
+</mat-card>

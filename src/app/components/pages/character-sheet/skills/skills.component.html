@@ -1,40 +1,10 @@
 <mat-card class="skills">
     <h1>PERÍCIAS</h1>
     <div>
-        <mat-card>
-            <h2>Força</h2>
-            <div>
-                <app-skill [skill]="'Atletismo'"></app-skill>
-            </div>
-        </mat-card>
-        <mat-card>
-            <h2>Destreza</h2>
-            <div>
-                <app-skill [skill]="'Acrobacia'"></app-skill>
-                <app-skill [skill]="'Habilidade Manual'"></app-skill>
-                <app-skill [skill]="'Furtividade'"></app-skill>
-            </div>
-        </mat-card>
-        <mat-card>
-            <h2>Inteligência</h2>
-            <div>
-                <app-skill [skill]="'Raciocínio'"></app-skill>
-            </div>
-        </mat-card>
-        <mat-card>
-            <h2>Sabedoria</h2>
-            <div>
-                <app-skill [skill]="'Intuição'"></app-skill>
-                <app-skill [skill]="'Sobrevivência'"></app-skill>
-            </div>
-        </mat-card>
-        <mat-card>
-            <h2>Carisma</h2>
-            <div>
-                <app-skill [skill]="'Eloquência'"></app-skill>
-                <app-skill [skill]="'Enganação'"></app-skill>
-                <app-skill [skill]="'Intimidação'"></app-skill>
-            </div>
-        </mat-card>
+        <app-skill-group [groupName]="'Força'" [skills]="['athletics']" [ability]="'strength'" [skillOrSpecializedSkillOrSavingThrows]="'skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Destreza'" [skills]="['acrobatics', 'sleightOfHand', 'stealth']" [ability]="'dexterity'" [skillOrSpecializedSkillOrSavingThrows]="'skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Inteligência'" [skills]="['reasoning']" [ability]="'intelligence'" [skillOrSpecializedSkillOrSavingThrows]="'skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Sabedoria'" [skills]="['insight', 'survival']" [ability]="'wisdom'" [skillOrSpecializedSkillOrSavingThrows]="'skill'"></app-skill-group>
+        <app-skill-group [groupName]="'Carisma'" [skills]="['eloquence', 'deception', 'intimidation']" [ability]="'charisma'" [skillOrSpecializedSkillOrSavingThrows]="'skill'"></app-skill-group>
     </div>
 </mat-card>

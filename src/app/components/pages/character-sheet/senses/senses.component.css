@@ -1,0 +1,10 @@
+.senses {
+    width: 395px;
+    margin: 5px;
+    padding: 3px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 23px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+}

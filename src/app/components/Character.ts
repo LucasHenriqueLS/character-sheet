@@ -9,7 +9,7 @@ export class Character {
     ["constitution", 0],
     ["intelligence", 0],
     ["wisdom", 0],
-    ["charisma", 0],
+    ["charisma", 0]
   ]);
   public skills: Map<string, number> = new Map([
     ["athletics", 0],
@@ -21,7 +21,36 @@ export class Character {
     ["survival", 0],
     ["eloquence", 0],
     ["deception", 0],
-    ["intimidation", 0],
+    ["intimidation", 0]
+  ]);
+  public knowledge: Map<string, number> = new Map([
+    ["arcana", 0],
+    ["history", 0],
+    ["nature", 0],
+    ["religion", 0]
+  ]);
+  public tools: Map<string, number> = new Map([
+    ["smith's tools", 0],
+    ["alchemist's supplies", 0],
+    ["poisoner's kits", 0],
+    ["thieves' tools", 0]
+  ]);
+  public professions: Map<string, number> = new Map([
+    ["brewer", 0],
+    ["chef", 0],
+    ["tanner", 0],
+    ["lumberjack", 0]
+  ]);
+  public performances: Map<string, number> = new Map([
+    ["dramaturgy", 0],
+    ["dance", 0],
+    ["oratory", 0],
+    ["string instruments", 0]
+  ]);
+  public senses: Map<string, number> = new Map([
+    ["vision", 0],
+    ["hearing", 0],
+    ["smell", 0]
   ]);
   public weapons: Weapon[] = [];
   public characteristics: Characteristic[] = [

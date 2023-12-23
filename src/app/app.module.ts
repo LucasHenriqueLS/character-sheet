@@ -38,6 +38,10 @@ import { AbilityScoreComponent } from './components/pages/character-sheet/abilit
 import { AttackOptionsComponent } from './components/pages/character-sheet/attacks/attack-options/attack-options.component';
 import { CharacteristicComponent } from './components/pages/character-sheet/characteristics/characteristic/characteristic.component';
 import { CharacteristicsComponent } from './components/pages/character-sheet/characteristics/characteristics.component';
+import { SensesComponent } from './components/pages/character-sheet/senses/senses.component';
+import { SenseComponent } from './components/pages/character-sheet/senses/sense/sense.component';
+import { SpecializedSkillsComponent } from './components/pages/character-sheet/specialized-skills/specialized-skills.component';
+import { SkillGroupComponent } from './components/pages/character-sheet/skills/skill-group/skill-group.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { CharacteristicsComponent } from './components/pages/character-sheet/cha
     AbilityScoreComponent,
     AttackOptionsComponent,
     CharacteristicComponent,
-    CharacteristicsComponent
+    CharacteristicsComponent,
+    SensesComponent,
+    SenseComponent,
+    SpecializedSkillsComponent,
+    SkillGroupComponent
   ],
   imports: [
     BrowserModule,
