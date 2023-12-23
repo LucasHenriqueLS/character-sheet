@@ -1,6 +1,10 @@
 <mat-card class="characteristics">
-  <app-characteristic></app-characteristic>
-  <app-characteristic></app-characteristic>
-  <app-characteristic></app-characteristic>
-  <app-characteristic></app-characteristic>
+  <div *ngFor="let characteristic of characterService.character.characteristics; let i = index">
+    <app-characteristic [characteristic]="characteristic" [position]="i"></app-characteristic>
+  </div>
+  <mat-card class="add-button-container">
+    <mat-card class="add-button">
+        <button mat-icon-button color="primary" (click)="addNewCharacteristic()"><mat-icon>add</mat-icon></button>
+    </mat-card>
+  </mat-card>
 </mat-card>

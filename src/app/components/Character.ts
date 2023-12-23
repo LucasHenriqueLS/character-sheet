@@ -23,5 +23,26 @@ export class Character {
     ["deception", 0],
     ["intimidation", 0],
   ]);
-  public weapons: Weapon[] = []
+  public weapons: Weapon[] = [];
+  public characteristics: Characteristic[] = [
+    {
+      name: 'Ancestralidade Feérica',
+      source: 'Raça',
+      sourceType: 'por ser meio-elfo',
+      description: 'Nenhum tipo de magia pode colocá-lo para dormir, e você tem vantagem em salvaguardas contra ser enfeitiçado.'
+    },
+    {
+      name: 'Visão no Escuro',
+      source: 'Raça',
+      sourceType: 'por ser meio-elfo',
+      description: 'Graças ao seu sangue élfico, você possui uma visão superior no escuro. Você consegue enxergar até 18 metros na meia-luz como se fosse dia e, na escuridão, como se fosse meia-luz. Na escuridão você só consegue discernir tons de cinza.'
+    }
+  ];
+}
+
+export class Characteristic {
+  public name: string = '';
+  public source: string = '';
+  public sourceType: string = '';
+  public description: string = '';
 }

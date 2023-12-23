@@ -3,13 +3,75 @@
   border-radius: 15px;
 }
 
-.characteristic mat-card-title {
-  display: none;
-} 
+.characteristic mat-card-header {
+  display: block;
+}
 
-.characteristic mat-card-title input {
+/* .characteristic mat-card-title form {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(0, 0, 0);
   font-size: 20px;
-} 
+} */
+
+.characteristic mat-card-title {
+  display: grid;
+  grid-template-columns: auto 32.5px;
+}
+
+.characteristic mat-card-title input {
+  box-sizing: border-box;
+  height: 32px;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  border: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.characteristic .delete-button {
+  display: grid;
+}
+
+.characteristic .delete-button button {
+  height: 27px;
+  width: 27px;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+
+.characteristic .delete-button button mat-icon {
+  justify-self: center;
+  align-self: center;
+}
+
+.characteristic mat-card-subtitle input {
+  box-sizing: border-box;
+  height: 21px;
+  width: 100%;
+  background-color: rgba(240, 240, 240);
+  border: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.characteristic mat-card-content form {
+  margin-top: 16px;
+}
+
+.characteristic mat-card-content textarea {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgba(240, 240, 240);
+  border: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+}

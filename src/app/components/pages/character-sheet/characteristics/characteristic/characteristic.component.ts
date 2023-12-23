@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Characteristic } from 'src/app/components/Character';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-characteristic',
@@ -7,13 +9,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CharacteristicComponent {
 
-  @Input() characteristicName!: string;
-  @Input() characteristicSource!: string;
-  @Input() characteristicDescription!: string;
+  constructor(
+    public characterService: CharacterService
+  ) {}
 
-  update() {
-    console.log(this.characteristicName);
-    console.log(this.characteristicSource);
-    console.log(this.characteristicDescription);
+  @Input() characteristic!: Characteristic;
+  @Input() position!: number;
+  
+  removeCharacteristic() {
+    this.characterService.character.characteristics.splice(this.position, 1);
   }
 }

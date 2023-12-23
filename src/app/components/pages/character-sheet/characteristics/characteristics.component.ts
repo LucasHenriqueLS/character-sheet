@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Characteristic } from 'src/app/components/Character';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-characteristics',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CharacteristicsComponent {
 
+  constructor(
+    public characterService: CharacterService
+  ) {}
+
+  addNewCharacteristic() {
+    this.characterService.character.characteristics.push(new Characteristic);
+  }
 }

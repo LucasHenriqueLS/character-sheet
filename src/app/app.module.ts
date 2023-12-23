@@ -12,6 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,7 +77,8 @@ import { CharacteristicsComponent } from './components/pages/character-sheet/cha
     MatDividerModule,
     MatButtonModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TextFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
