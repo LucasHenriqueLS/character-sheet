@@ -1,0 +1,11 @@
+<mat-card class="specialized-skill-group">
+    <h2>{{ groupName }}</h2>
+    <div>
+        <app-specialized-skill *ngFor="let specializedSkill of specializedSkills; let i = index" [specializedSkill]="specializedSkill" [ability]="ability"></app-specialized-skill>
+    </div>
+    <mat-card class="add-button-container">
+        <mat-card class="add-button">
+            <button mat-icon-button color="primary" (click)="addNewSpecializedSkill()"><mat-icon>add</mat-icon></button>
+        </mat-card>
+    </mat-card>
+</mat-card>

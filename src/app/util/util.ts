@@ -24,7 +24,12 @@ export function translateSkillFromENToPT(skill: string): string | undefined {
       return "Enganação";
     case "intimidation":
       return "Intimidação";
-    
+  }
+  return undefined;
+}
+
+export function translateSpcializedSkillFromENToPT(specializedSkill: string): string | undefined {
+  switch (specializedSkill) {
     case "arcana":
       return "Arcano";
     case "history":

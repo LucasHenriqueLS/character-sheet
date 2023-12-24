@@ -42,6 +42,8 @@ import { SensesComponent } from './components/pages/character-sheet/senses/sense
 import { SenseComponent } from './components/pages/character-sheet/senses/sense/sense.component';
 import { SpecializedSkillsComponent } from './components/pages/character-sheet/specialized-skills/specialized-skills.component';
 import { SkillGroupComponent } from './components/pages/character-sheet/skills/skill-group/skill-group.component';
+import { SpecializedSkillGroupComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill-group.component';
+import { SpecializedSkillComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill/specialized-skill.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { SkillGroupComponent } from './components/pages/character-sheet/skills/s
     SensesComponent,
     SenseComponent,
     SpecializedSkillsComponent,
-    SkillGroupComponent
+    SkillGroupComponent,
+    SpecializedSkillGroupComponent,
+    SpecializedSkillComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Weapon } from "./pages/character-sheet/attacks/attack-options/attack-options.component";
 
 export class Character {
+  [key: string]: any;
   public id: string = '';
   public name: string = '';
   public abilities: Map<string, number> = new Map([

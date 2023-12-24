@@ -1,0 +1,58 @@
+.specialized-skill-group div {
+  display: grid;
+  gap: 10px;
+}
+
+.specialized-skill-group {
+  width: 394px;
+  padding: 3px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 15px;
+}
+
+.specialized-skill-group h2 {
+  margin: 2px 0px 5px 7px;
+  color: rgb(160, 160, 160);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(20, 20, 20);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.specialized-skill-group div {
+  position: relative;
+  display: grid;
+  gap: 3px;
+}
+
+.add-button-container {
+  background-color: rgb(200, 200, 200);
+  height: 33px;
+  width: 33px;
+  padding: 3px;
+  border-radius: 11px;
+  display: grid;
+}
+
+.add-button {
+  background-color: rgb(220, 220, 220);
+  height: 27px;
+  width: 27px;
+  border-radius: 8px;
+  display: grid;
+}
+
+.add-button button {
+  height: 24px;
+  width: 24px;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+
+.add-button button mat-icon {
+  justify-self: center;
+  align-self: center;
+}

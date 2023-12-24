@@ -1,19 +1,11 @@
-.skill-card {
+.specialized-skill-card {
     left: -6px;
-    width: 250px;
+    width: 400px;
     height: 40px;
     background-color: rgb(220, 220, 220);
     border-radius: 20px;
     display: grid;
     grid-template-columns: 40px 40px auto;
-}
-
-.specialized-skill {
-    width: 400px;
-}
-
-.saving-throws {
-    left: 0px;
 }
 
 .proficiency-bonus {
@@ -50,14 +42,14 @@
     font-weight: bold;
 }
 
-.skill {
+.specialized-skill {
     justify-self: start;
     align-self: end;
     margin: 0px 0px 10px 5px;
     display: grid;
 }
 
-.skill p {
+.specialized-skill p {
     justify-self: center;
     align-self: center;
     margin: 0px;
