@@ -1,61 +1,30 @@
 .specialized-skill-card {
-    left: -6px;
-    width: 400px;
-    height: 40px;
-    background-color: rgb(220, 220, 220);
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 40px 40px auto;
+  left: -6px;
+  width: 400px;
+  height: 40px;
+  background-color: rgb(220, 220, 220);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 40px 40px auto 40px;
 }
 
 .proficiency-bonus {
-    width: 30px;
-    height: 30px;
-    background-color: rgb(240, 240, 240);
-    border-radius: 30px;
-    border: 2px solid rgb(100, 100, 100);
-    justify-self: center;
-    align-self: center;
-    display: grid;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 30px;
+  border: 2px solid rgb(100, 100, 100);
+  justify-self: center;
+  align-self: center;
+  display: grid;
 }
 
 .proficiency-bonus p {
-    justify-self: center;
-    align-self: center;
-    margin: 0px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.modifier {
-    justify-self: center;
-    align-self: center;
-    border-bottom: 3px solid rgb(100, 100, 100);
-    display: grid;
-}
-
-.modifier p {
-    justify-self: center;
-    align-self: center;
-    margin: 0px;
-    font-size: 23px;
-    font-weight: bold;
-}
-
-.specialized-skill {
-    justify-self: start;
-    align-self: end;
-    margin: 0px 0px 10px 5px;
-    display: grid;
-}
-
-.specialized-skill p {
-    justify-self: center;
-    align-self: center;
-    margin: 0px;
-    color: rgb(20, 20, 20);
-    font-size: 16px;
-    font-weight: bold;
+  justify-self: center;
+  align-self: center;
+  margin: 0px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .proficiency-bonus-form-field {
@@ -64,9 +33,8 @@
   display: grid;
   justify-self: center;
   align-self: center;
-  
 }
-
+  
 .proficiency-bonus-form-field input {
   background-color: rgb(240, 240, 240);
   width: 80%;
@@ -77,6 +45,64 @@
   font-size: 16px;
   font-weight: bold;
   text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.modifier {
+  justify-self: center;
+  align-self: center;
+  border-bottom: 3px solid rgb(100, 100, 100);
+  display: grid;
+}
+
+.modifier p {
+  justify-self: center;
+  align-self: center;
+  margin: 0px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.specialized-skill {
+  width: calc(100% - 5px);
+  justify-self: start;
+  align-self: end;
+  margin: 0px 0px 10px 5px;
+  display: grid;
+}
+
+.specialized-skill input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0px;
+  background-color: rgb(220, 220, 220);
+  border: 0px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  font-weight: bold;
+  justify-self: center;
+  align-self: center;
+}
+
+.delete-button {
+  height: 30px;
+  display: grid;
+  justify-self: start;
+  align-self: center;
+}
+  
+.delete-button button {
+  height: 27px;
+  width: 27px;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+  
+.delete-button button mat-icon {
   justify-self: center;
   align-self: center;
 }

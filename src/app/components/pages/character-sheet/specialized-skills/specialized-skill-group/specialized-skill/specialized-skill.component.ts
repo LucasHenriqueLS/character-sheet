@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CharacterService } from 'src/app/services/character.service';
-import { calculateAbilityModifier } from 'src/app/util/util';
+import { MapUtils, TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-specialized-skill',
@@ -13,41 +13,39 @@ export class SpecializedSkillComponent {
     private characterService: CharacterService
   ) { }
 
+  @Input() groupName!: string;
   @Input() specializedSkill!: string;
   @Input() ability!: string;
-  @Input() skillOrSpecializedSkillOrSavingThrows!: string;
-  modifier: number = 0;
+
+  public modifier!: number;
+
+  private privateSpecializedSkill!: string;
 
   get proficiencyBonus(): number {
-    return this.characterService.character.skills.get(this.specializedSkill)!;
+    return this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!].get(this.privateSpecializedSkill)!;
   }
 
   set proficiencyBonus(proficiencyBonus: number) {
-    this.characterService.character.senses.set(this.specializedSkill, proficiencyBonus);
+    this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!].set(this.specializedSkill, proficiencyBonus);
   }
 
-  get updatedSpecializedSkill(): string {
-    return this.specializedSkill;
+  ngOnInit() {
+    this.privateSpecializedSkill = this.specializedSkill;
+    this.updateModifier();
   }
 
-  set updatedSpecializedSkill(specializedSkill: string) {
-    this.characterService.character.knowledge.set(specializedSkill, this.characterService.character.knowledge.get(this.specializedSkill)!);
-    this.characterService.character.knowledge.delete(this.specializedSkill);
-    this.specializedSkill = specializedSkill;
+  changeSpecializedSkill(): void {
+    this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!] = MapUtils.changeKey(this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!], this.privateSpecializedSkill, this.specializedSkill);
+    this.privateSpecializedSkill = this.specializedSkill;
   }
 
-  updateSpecializedSkill(): void {
-    console.log(this.characterService.character.knowledge.has(this.specializedSkill));
-    console.log(this.specializedSkill);
-  }
-
-  update() {
+  updateModifier() {
     this.proficiencyBonus = Number(this.proficiencyBonus);
     this.modifier = this.proficiencyBonus + calculateAbilityModifier(this.characterService.character.abilities.get(this.ability)!);
     this.characterService.save();
   }
 
-  translateSpecializedSkillFromENToPT(specializedSkill: string): string {
-    return this.translateSpecializedSkillFromENToPT(specializedSkill)!;
+  removeSpecializedSkill() {
+    this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!].delete(this.privateSpecializedSkill);
   }
 }

@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,7 @@ import { SkillsComponent } from './components/pages/character-sheet/skills/skill
 import { SkillComponent } from './components/pages/character-sheet/skills/skill/skill.component';
 import { SavingThrowsComponent } from './components/pages/character-sheet/saving-throws/saving-throws.component';
 import { SavingThrowComponent } from './components/pages/character-sheet/saving-throws/saving-throw/saving-throw.component';
-import { LifeBarComponent } from './components/pages/character-sheet/combat-stats/life-bar/life-bar.component';
+import { LifePointsComponent } from './components/pages/character-sheet/combat-stats/life-points/life-points.component';
 import { CombatStatsComponent } from './components/pages/character-sheet/combat-stats/combat-stats.component';
 import { AttacksComponent } from './components/pages/character-sheet/attacks/attacks.component';
 import { AttackComponent } from './components/pages/character-sheet/attacks/attack/attack.component';
@@ -44,6 +45,7 @@ import { SpecializedSkillsComponent } from './components/pages/character-sheet/s
 import { SkillGroupComponent } from './components/pages/character-sheet/skills/skill-group/skill-group.component';
 import { SpecializedSkillGroupComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill-group.component';
 import { SpecializedSkillComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill/specialized-skill.component';
+import { HitDiceComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-dice.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,7 @@ import { SpecializedSkillComponent } from './components/pages/character-sheet/sp
     SkillComponent,
     SavingThrowsComponent,
     SavingThrowComponent,
-    LifeBarComponent,
+    LifePointsComponent,
     CombatStatsComponent,
     AttacksComponent,
     AttackComponent,
@@ -73,7 +75,8 @@ import { SpecializedSkillComponent } from './components/pages/character-sheet/sp
     SpecializedSkillsComponent,
     SkillGroupComponent,
     SpecializedSkillGroupComponent,
-    SpecializedSkillComponent
+    SpecializedSkillComponent,
+    HitDiceComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { SpecializedSkillComponent } from './components/pages/character-sheet/sp
     MatButtonModule,
     MatDialogModule,
     MatCheckboxModule,
-    TextFieldModule
+    TextFieldModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

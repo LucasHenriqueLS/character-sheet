@@ -1,15 +1,18 @@
 <mat-card class="specialized-skill-card">
     <div class="proficiency-bonus">
         <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
-            <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="proficiencyBonus" required>
+            <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="proficiencyBonus" (input)="updateModifier()" required>
         </form>
     </div>
     <div class="modifier">
-        <p>{{ '+' + modifier }}</p>
+        <p>{{ (modifier >= 0 ? '+' : '') + modifier }}</p>
     </div>
     <div class="specialized-skill">
         <form #seuFormulario="ngForm" class="specialized-skill-form-field">
-            <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="updatedSpecializedSkill" required>
+            <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="specializedSkill" (change)="changeSpecializedSkill()" required>
         </form>
     </div>
+    <mat-card class="delete-button">
+        <button mat-icon-button color="warn" (click)="removeSpecializedSkill()"><mat-icon>delete</mat-icon></button>
+    </mat-card>
 </mat-card>

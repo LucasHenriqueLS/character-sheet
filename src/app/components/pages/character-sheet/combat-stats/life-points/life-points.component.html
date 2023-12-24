@@ -1,0 +1,41 @@
+<div class="life-bar-area">
+    <div class="current-life-points">
+        <div class="current-life-points-value">
+            <form>
+                <input type="text" placeholder="-" name="current-life-points-value-input" [(ngModel)]="currentLifePoints" required>
+            </form>
+        </div>
+        <div class="current-life-points-title">
+            <h6>PONTOS DE VIDA ATUAIS</h6>
+        </div>
+    </div>
+
+    <div>
+        <div class="life-bar" [style.width.%]="((currentLifePoints <= maxLifePoints) ? (currentLifePoints / maxLifePoints * 100) : (100))"></div>
+    
+        <div class="temporary-life-bar" [style.width.%]="((currentTemporaryLifePoints <= maxTemporaryLifePoints) ? (currentTemporaryLifePoints / maxTemporaryLifePoints * 100) : (100))" [style.left.px]="((currentTemporaryLifePoints <= maxTemporaryLifePoints) ? (249.75 - 249.75 * (currentTemporaryLifePoints / maxTemporaryLifePoints)) : (0))"></div>
+    
+        <div class="temporary-life-points">
+            <div class="temporary-life-points-value">
+                <form>
+                    <input type="text" placeholder="-" name="temporary-life-points-value-input" [(ngModel)]="currentTemporaryLifePoints" (change)="onChangeTemporaryLifePoints()" required>
+                </form>
+            </div>
+            <div class="temporary-life-points-title">
+                <h6>PONTOS DE VIDA TEMPORÁRIOS</h6>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="max-life-points">
+        <div class="max-life-points-value">
+            <form>
+                <input type="text" placeholder="-" name="max-life-points-value-input" [(ngModel)]="maxLifePoints" required>
+            </form>
+        </div>
+        <div class="max-life-points-title">
+            <h6>PONTOS DE VIDA MÁXIMOS</h6>
+        </div>
+    </div>
+</div>

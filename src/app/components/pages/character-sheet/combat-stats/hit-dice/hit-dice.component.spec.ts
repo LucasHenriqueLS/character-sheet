@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LifeBarComponent } from './life-bar.component';
+import { HitDiceComponent } from './hit-dice.component';
 
-describe('LifeBarComponent', () => {
-  let component: LifeBarComponent;
-  let fixture: ComponentFixture<LifeBarComponent>;
+describe('HitDiceComponent', () => {
+  let component: HitDiceComponent;
+  let fixture: ComponentFixture<HitDiceComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LifeBarComponent]
+      declarations: [HitDiceComponent]
     });
-    fixture = TestBed.createComponent(LifeBarComponent);
+    fixture = TestBed.createComponent(HitDiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

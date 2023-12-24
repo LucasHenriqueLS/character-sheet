@@ -4,6 +4,9 @@ export class Character {
   [key: string]: any;
   public id: string = '';
   public name: string = '';
+  public maxLifePoints: number = 200;
+  public currentLifePoints: number = 100;
+  public temporaryLifePoints: number = 5;
   public abilities: Map<string, number> = new Map([
     ["strength", 0],
     ["dexterity", 0],

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CharacterService } from 'src/app/services/character.service';
-import { calculateAbilityModifier, translateSkillFromENToPT } from 'src/app/util/util';
+import { TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-skill',
@@ -46,7 +46,7 @@ export class SkillComponent {
   }
 
   translateSkillFromENToPT(skill: string): string {
-    return translateSkillFromENToPT(skill)!;
+    return TranslateFromTo.translateSkillFromENToPT(skill)!;
   }
 
   // private getAbilityBySkill(skill: string): number {
