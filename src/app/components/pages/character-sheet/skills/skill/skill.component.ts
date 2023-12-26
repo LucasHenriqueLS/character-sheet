@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 import { TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
 
@@ -8,61 +10,39 @@ import { TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent {
-
+  
   constructor(
     private characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   @Input() skill!: string;
   @Input() ability!: string;
-  @Input() skillOrSpecializedSkillOrSavingThrows!: string;
-  modifier: number = 0;
-
-  // skillMap: Map<string, string> = new Map([
-  //   ["Atletismo", "athletics"],
-  //   ["Acrobacia", "acrobatics"],
-  //   ["Habilidade Manual", "sleightOfHand"],
-  //   ["Furtividade", "stealth"],
-  //   ["Raciocínio", "reasoning"],
-  //   ["Intuição", "insight"],
-  //   ["Sobrevivência", "survival"],
-  //   ["Eloquência", "eloquence"],
-  //   ["Enganação", "deception"],
-  //   ["Intimidação", "intimidation"],
-  // ]);
+  @Input() skillOrOrSavingThrow!: string;
+  public modifier: number = 0;
 
   get proficiencyBonus(): number {
-    return this.characterService.character.skills.get(this.skill)!;
+    return this.character.skills.get(this.skill)!;
   }
 
   set proficiencyBonus(proficiencyBonus: number) {
-    this.characterService.character.senses.set(this.skill, proficiencyBonus);
+    this.character.skills.set(this.skill, Number(proficiencyBonus));
+    this.characterService.emitUpdate();
   }
 
-  update() {
-    this.proficiencyBonus = Number(this.proficiencyBonus);
-    this.modifier = this.proficiencyBonus + calculateAbilityModifier(this.characterService.character.abilities.get(this.ability)!);
-    this.characterService.save();
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+      this.updateSkillModifier();
+    });
+  }
+
+  updateSkillModifier() {
+    this.modifier = this.proficiencyBonus + calculateAbilityModifier(this.character.abilities.get(this.ability)!);
   }
 
   translateSkillFromENToPT(skill: string): string {
     return TranslateFromTo.translateSkillFromENToPT(skill)!;
   }
-
-  // private getAbilityBySkill(skill: string): number {
-  //   const abilities = this.characterService.character.abilities;
-  //   let ability: number = 0;
-  //   if (['Atletismo'].includes(skill)) {
-  //     ability = abilities.get('strength')!;
-  //   } else if (['Acrobacia', 'Habilidade Manual', 'Furtividade'].includes(skill)) {
-  //     ability = abilities.get('dexterity')!;
-  //   } else if (['Raciocínio'].includes(skill)) {
-  //     ability = abilities.get('intelligence')!;
-  //   } else if (['Intuição', 'Sobrevivência'].includes(skill)) {
-  //     ability = abilities.get('wisdom')!;
-  //   } else if (['Eloquência', 'Enganação', 'Intimidação'].includes(skill)) {
-  //     ability = abilities.get('charisma')!;
-  //   }
-  //   return ability;
-  // }
 }

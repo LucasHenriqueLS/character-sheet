@@ -1,10 +1,5 @@
 <mat-card class="ability-scores">
     <div>
-        <app-ability-score [ability]="'Força'"></app-ability-score>
-        <app-ability-score [ability]="'Destreza'"></app-ability-score>
-        <app-ability-score [ability]="'Constituição'"></app-ability-score>
-        <app-ability-score [ability]="'Inteligência'"></app-ability-score>
-        <app-ability-score [ability]="'Sabedoria'"></app-ability-score>
-        <app-ability-score [ability]="'Carisma'"></app-ability-score>
+        <app-ability-score *ngFor="let ability of abilities" [ability]="ability"></app-ability-score>
     </div>
 </mat-card>

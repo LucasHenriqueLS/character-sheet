@@ -1,14 +1,13 @@
 <mat-card class="skill-card" [ngClass]="{
-  'specialized-skill': skillOrSpecializedSkillOrSavingThrows === 'specialized-skill',
-  'saving-throws': skillOrSpecializedSkillOrSavingThrows === 'saving-throws'
+  'saving-throws': skillOrOrSavingThrow === 'saving-throws'
 }">
     <div class="proficiency-bonus">
-      <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
-        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="proficiencyBonus" (input)="update()" required>
+      <form class="proficiency-bonus-form-field">
+        <input type="text" placeholder="-" name="proficiency-bonus-form-field-input" [(ngModel)]="proficiencyBonus" required>
       </form>
     </div>
     <div class="modifier">
-        <p>{{ '+' + modifier }}</p>
+        <p>{{ (modifier >= 0 ? '+' : '') + modifier }}</p>
     </div>
     <div class="skill">
         <p>{{ translateSkillFromENToPT(skill) }}<p>

@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
-import { calculateAbilityModifier } from 'src/app/util/util';
+import { TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-ability-score',
@@ -9,26 +11,36 @@ import { calculateAbilityModifier } from 'src/app/util/util';
 })
 export class AbilityScoreComponent {
 
-  constructor(private characterService: CharacterService) { }
-  
-  score: number = 0;
+  constructor(
+    private characterService: CharacterService
+  ) { }
+
+  private character!: Character;
+
   @Input() ability!: string;
-  @Input() modifier: number = Math.floor((this.score - 10) / 2);
+  public modifier!: number;
 
-  abilityMap: Map<string, string> = new Map([
-    ["Força", "strength"],
-    ["Destreza", "dexterity"],
-    ["Constituição", "constitution"],
-    ["Inteligência", "intelligence"],
-    ["Sabedoria", "wisdom"],
-    ["Carisma", "charisma"],
-  ]);
+  get score(): number {
+    return this.character.abilities.get(this.ability!)!;
+  }
 
-  update() {
-    this.score = Number(this.score);
+  set score(score: number) {
+    this.character.abilities.set(this.ability!, Number(score));
+    this.characterService.emitUpdate();
+  }
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+      this.onUpdateAbilityScore();
+    });
+  }
+
+  onUpdateAbilityScore() {
     this.modifier = calculateAbilityModifier(this.score);
-    this.characterService.character.abilities.set(this.abilityMap.get(this.ability)!, this.score);
+  }
 
-    this.characterService.save();
+  translateAbilityFromENToPT(ability: string): string {
+    return TranslateFromTo.translateAbilityFromENToPT(ability)!;
   }
 }

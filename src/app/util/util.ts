@@ -4,6 +4,24 @@ export function calculateAbilityModifier(score: number): number {
 
 export class TranslateFromTo {
 
+  public static translateAbilityFromENToPT(ability: string): string | undefined {
+    switch (ability) {
+      case "strength":
+        return "Força";
+      case "dexterity":
+        return "Destreza";
+      case "constitution":
+        return "Constituição";
+      case "intelligence":
+        return "Inteligência";
+      case "wisdom":
+        return "Sabedoria";
+      case "charisma":
+        return "Carisma";
+    }
+    return undefined;
+  }
+
   public static translateSkillFromENToPT(skill: string): string | undefined {
     switch (skill) {
       case "athletics":

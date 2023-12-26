@@ -1,12 +1,12 @@
 <mat-card class="ability-card">
     <div class="ability">
-        <h4>{{ ability }}</h4>
+        <h4>{{ translateAbilityFromENToPT(ability) }}</h4>
     </div>
     <div class="modifier">
-        <h2>{{ modifier }}</h2>
+        <h2>{{ (modifier >= 0 ? '+' : '') + modifier }}</h2>
         <div class="score">
-            <form #seuFormulario="ngForm" class="modifier-form-field">
-                <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="score" (input)="update()" required>
+            <form class="modifier-form-field">
+                <input type="text" placeholder="-" name="modifier-form-field-input" [(ngModel)]="score" required>
             </form>
         </div>
     </div>

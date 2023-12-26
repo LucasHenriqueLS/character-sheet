@@ -10,5 +10,5 @@ export class SkillGroupComponent {
   @Input() groupName!: string;
   @Input() skills!: string[];
   @Input() ability!: string;
-  @Input() skillOrSpecializedSkillOrSavingThrows!: string;
+  @Input() skillOrOrSavingThrow!: string;
 }
