@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CharacterService } from 'src/app/services/character.service';
-import { TranslateFromTo } from 'src/app/util/util';
 
 @Component({
   selector: 'app-specialized-skill-group',
@@ -10,14 +9,18 @@ import { TranslateFromTo } from 'src/app/util/util';
 export class SpecializedSkillGroupComponent {
 
   constructor(
-    public characterService: CharacterService
-  ) {}
+    public readonly characterService: CharacterService
+  ) { }
 
-  @Input() groupName!: string;
-  @Input() specializedSkills!: string[];
   @Input() ability!: string;
+  @Input() groupName!: string;
+
+  get specializedSkills(): string[] {
+    return Array.from(this.characterService.character.specializedSkills.get(this.ability)!.get(this.groupName)!.keys());
+  }
 
   addNewSpecializedSkill() {
-    this.characterService.character[TranslateFromTo.translateSpecializedSkillGroupFromPTToEN(this.groupName)!].set("-", 0);
+    this.characterService.character.specializedSkills.get(this.ability)!.get(this.groupName)!.set("-", 0);
+    this.characterService.emitUpdate();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-skill-group',
@@ -7,8 +8,14 @@ import { Component, Input } from '@angular/core';
 })
 export class SkillGroupComponent {
 
-  @Input() groupName!: string;
-  @Input() skills!: string[];
+  constructor(
+    public readonly characterService: CharacterService
+  ) { }
+
   @Input() ability!: string;
   @Input() skillOrOrSavingThrow!: string;
+
+  get skills(): string[] {
+    return Array.from(this.characterService.character.skills.get(this.ability)!.keys());
+  }
 }

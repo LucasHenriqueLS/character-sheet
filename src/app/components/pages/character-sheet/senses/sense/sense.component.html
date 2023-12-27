@@ -1,11 +1,11 @@
 <mat-card class="sense-card">
     <div class="score">
-      <form #seuFormulario="ngForm" class="score-form-field">
-        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="score" (input)="update()" required>
+      <form class="score-form-field">
+        <input type="text" placeholder="-" name="score-form-field-input" [(ngModel)]="score" required>
       </form>
     </div>
     <div class="modifier">
-        <p>{{ '+' + modifier }}</p>
+        <p>{{ (modifier >= 0 ? '+' : '') + modifier }}</p>
     </div>
     <div class="sense">
         <img src="{{ src }}" alt="">

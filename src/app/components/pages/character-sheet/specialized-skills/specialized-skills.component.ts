@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -12,7 +12,13 @@ export class SpecializedSkillsComponent {
     public readonly characterService: CharacterService
   ) { }
 
-  toArray(keys: IterableIterator<string>): string[] {
-    return Array.from(keys);
+  public ability!: string;
+
+  get abilities(): string[] {
+    return Array.from(this.characterService.character.specializedSkills.keys());
+  }
+
+  public getGroupNames(ability: string): string[] {
+    return Array.from(this.characterService.character.specializedSkills.get(ability)!.keys());
   }
 }

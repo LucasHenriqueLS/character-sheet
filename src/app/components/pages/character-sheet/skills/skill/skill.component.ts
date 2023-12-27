@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
-import { TranslateFromTo, calculateAbilityModifier } from 'src/app/util/util';
+import { calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-skill',
@@ -20,14 +19,15 @@ export class SkillComponent {
   @Input() skill!: string;
   @Input() ability!: string;
   @Input() skillOrOrSavingThrow!: string;
+
   public modifier: number = 0;
 
   get proficiencyBonus(): number {
-    return this.character.skills.get(this.skill)!;
+    return this.character.skills.get(this.ability)!.get(this.skill)!;
   }
 
   set proficiencyBonus(proficiencyBonus: number) {
-    this.character.skills.set(this.skill, Number(proficiencyBonus));
+    this.character.skills.get(this.ability)!.set(this.skill, Number(proficiencyBonus));
     this.characterService.emitUpdate();
   }
 
@@ -40,9 +40,5 @@ export class SkillComponent {
 
   updateSkillModifier() {
     this.modifier = this.proficiencyBonus + calculateAbilityModifier(this.character.abilities.get(this.ability)!);
-  }
-
-  translateSkillFromENToPT(skill: string): string {
-    return TranslateFromTo.translateSkillFromENToPT(skill)!;
   }
 }

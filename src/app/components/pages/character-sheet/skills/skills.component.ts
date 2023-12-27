@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Character } from 'src/app/components/Character';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-skills',
@@ -8,5 +8,11 @@ import { Character } from 'src/app/components/Character';
 })
 export class SkillsComponent {
 
-  @Input() character!: Character;
+  constructor(
+    public readonly characterService: CharacterService
+  ) { }
+
+  get abilities(): string[] {
+    return Array.from(this.characterService.character.skills.keys());
+  }
 }

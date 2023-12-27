@@ -8,48 +8,74 @@ export class Character {
   public currentLifePoints: number = 100;
   public temporaryLifePoints: number = 5;
   public abilities: Map<string, number> = new Map([
-    ["strength", 0],
-    ["dexterity", 0],
-    ["constitution", 0],
-    ["intelligence", 0],
-    ["wisdom", 0],
-    ["charisma", 0]
+    ["Força", 0],
+    ["Destreza", 0],
+    ["Constituição", 0],
+    ["Inteligência", 0],
+    ["Sabedoria", 0],
+    ["Carisma", 0]
   ]);
-  public skills: Map<string, number> = new Map([
-    ["athletics", 0],
-    ["acrobatics", 0],
-    ["sleightOfHand", 0],
-    ["stealth", 0],
-    ["reasoning", 0],
-    ["insight", 0],
-    ["survival", 0],
-    ["eloquence", 0],
-    ["deception", 0],
-    ["intimidation", 0]
+  public skills: Map<string, Map<string, number>> = new Map([
+    ["Força", new Map([
+      ["Atletismo", 0]
+    ])],
+    ["Destreza", new Map([
+      ["Acrobacia", 0],
+      ["Habilidade Manual", 0],
+      ["Furtividade", 0]
+    ])],
+    ["Inteligência", new Map([
+      ["Raciocínio", 0]
+    ])],
+    ["Sabedoria", new Map([
+      ["Intuição", 0],
+      ["Sobrevivência", 0]
+    ])],
+    ["Carisma", new Map([
+      ["Eloquência", 0],
+      ["Enganação", 0],
+      ["Intimidação", 0]
+    ])],
   ]);
-  public knowledge: Map<string, number> = new Map([
-    ["arcana", 0],
-    ["history", 0],
-    ["nature", 0],
-    ["religion", 0]
-  ]);
-  public tools: Map<string, number> = new Map([
-    ["smith's tools", 0],
-    ["alchemist's supplies", 0],
-    ["poisoner's kits", 0],
-    ["thieves' tools", 0]
-  ]);
-  public professions: Map<string, number> = new Map([
-    ["brewer", 0],
-    ["chef", 0],
-    ["tanner", 0],
-    ["lumberjack", 0]
-  ]);
-  public performances: Map<string, number> = new Map([
-    ["dramaturgy", 0],
-    ["dance", 0],
-    ["oratory", 0],
-    ["string instruments", 0]
+  public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
+    ["Força", new Map([
+      ["Armas", new Map([
+        ["Lâminas (muito pequenas)", 0],  // Adagas
+        ["Lâminas (pequenas)", 0],        // Espadas Curtas
+        ["Lâminas (médias)", 0],          // Espadas Longas
+        ["Lâminas (grandes)", 0]          // Espadas Grandes
+      ])]
+    ])],
+    ["Inteligência", new Map([
+      ["Conhecimentos", new Map([
+        ["Arcano", 0],
+        ["História", 0],
+        ["Natureza", 0],
+        ["Religião", 0]
+      ])],
+      ["Ferramentas", new Map([
+        ["Ferramentas de Ferreiro", 0],
+        ["Suprimentos de Alquimista", 0],
+        ["Kits de Venenos", 0],
+        ["Ferramentas de Ladrão", 0]
+      ])]
+    ])],
+    ["Sabedoria", new Map([
+      ["Profissões", new Map([
+        ["Cervejeito", 0],
+        ["Cozinheiro", 0],
+        ["Curtidor", 0],
+        ["Lenhador", 0]
+      ])]
+    ])],
+    ["Carisma", new Map([
+      ["Atuações", new Map([
+        ["Dramaturgia", 0],
+        ["Dança", 0],
+        ["Oratória", 0],
+        ["Instrumentos de Corda", 0]
+      ])]
+    ])]
   ]);
   public senses: Map<string, number> = new Map([
     ["vision", 0],

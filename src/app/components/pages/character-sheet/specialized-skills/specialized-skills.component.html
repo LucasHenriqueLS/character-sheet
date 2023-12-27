@@ -1,9 +1,8 @@
 <mat-card class="specialized-skills">
     <h1>ESPECIALIDADES</h1>
     <div>
-        <app-specialized-skill-group [groupName]="'Conhecimentos'" [specializedSkills]="toArray(characterService.character.knowledge.keys())" [ability]="'intelligence'"></app-specialized-skill-group>
-        <app-specialized-skill-group [groupName]="'Ferramentas'" [specializedSkills]="toArray(characterService.character.tools.keys())" [ability]="'intelligence'"></app-specialized-skill-group>
-        <app-specialized-skill-group [groupName]="'Profissões'" [specializedSkills]="toArray(characterService.character.professions.keys())" [ability]="'wisdom'"></app-specialized-skill-group>
-        <app-specialized-skill-group [groupName]="'Atuações'" [specializedSkills]="toArray(characterService.character.performances.keys())" [ability]="'charisma'"></app-specialized-skill-group>
+        <div *ngFor="let ability of abilities">
+            <app-specialized-skill-group *ngFor="let groupName of getGroupNames(ability)" [ability]="ability" [groupName]="groupName"></app-specialized-skill-group>
+        </div>
     </div>
 </mat-card>

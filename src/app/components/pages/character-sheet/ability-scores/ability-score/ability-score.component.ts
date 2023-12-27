@@ -39,8 +39,4 @@ export class AbilityScoreComponent {
   onUpdateAbilityScore() {
     this.modifier = calculateAbilityModifier(this.score);
   }
-
-  translateAbilityFromENToPT(ability: string): string {
-    return TranslateFromTo.translateAbilityFromENToPT(ability)!;
-  }
 }
