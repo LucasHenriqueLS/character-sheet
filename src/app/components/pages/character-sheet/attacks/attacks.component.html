@@ -1,5 +1,27 @@
 <mat-card class="attacks">
-  <div *ngFor="let weapon of characterService.character.weapons">
+  <mat-card class="attack">
+    <mat-card class="name">
+      <p><span>Nome da Arma.</span> Tipo da Arma; Mãos Necessárias</p>
+    </mat-card>
+    <mat-card>
+        <p>Ataque</p>
+    </mat-card>
+    <mat-card>
+        <p>Alcance, Número de Alvos</p>
+    </mat-card>
+    <mat-card class="damage-type">
+        <mat-card>
+            <p>Dado de Dano</p>
+        </mat-card>
+        <mat-card>
+            <p>Dano</p>
+        </mat-card>
+        <mat-card>
+            <p>Tipo de Dano</p>
+        </mat-card>
+    </mat-card>
+  </mat-card>
+  <div *ngFor="let weapon of weapons">
     <app-attack [weapon]="weapon"></app-attack>
   </div>
     <mat-card class="add-button-container">

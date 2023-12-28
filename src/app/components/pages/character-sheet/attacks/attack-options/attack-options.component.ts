@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CharacterService } from 'src/app/services/character.service';
 
 export interface Weapon {
+  id: string;
   position: number;
   name: string;
   type: string;
@@ -17,26 +18,40 @@ export interface Weapon {
 
 const WEAPON_DATA: Weapon[] = [
   {
+    id: 'Lâmina (Muito Pequena)',
     position: 1,
     name: 'Adaga',
-    type: 'Arma Corpo a Corpo',
+    type: 'Arma Corpo a Corpo ou à Distância',
     hands: 'Uma mão',
-    range: '1,5 m',
+    range: '1,5 m ou 6/18 m',
     targets: 'um alvo',
     damageDie: '1d4',
     damateType: 'perfurante',
     properties: ['Acuidade','Leve','Arremesso (alcance 6/18)']
   },
   {
+    id: 'Lâmina (Média)',
     position: 2,
     name: 'Espada Longa',
     type: 'Arma Corpo a Corpo',
-    hands: 'Uma mão',
+    hands: 'Uma mão ou Duas mãos',
     range: '1,5 m',
     targets: 'um alvo',
-    damageDie: '1d8',
+    damageDie: '1d8 ou 1d10',
     damateType: 'cortante',
-    properties: ['Acuidade','Leve','Arremesso (alcance 6/18)']
+    properties: []
+  },
+  {
+    id: 'Arco (Grande)',
+    position: 3,
+    name: 'Arco Longo',
+    type: 'Arma à Distância',
+    hands: 'Duas mãos',
+    range: '45/180 m',
+    targets: 'um alvo',
+    damageDie: '1d8',
+    damateType: 'perfurante',
+    properties: ['Munição']
   }
 ];
 

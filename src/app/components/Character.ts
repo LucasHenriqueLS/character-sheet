@@ -40,10 +40,15 @@ export class Character {
   public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
     ["Força", new Map([
       ["Armas", new Map([
-        ["Lâminas (muito pequenas)", 0],  // Adagas
-        ["Lâminas (pequenas)", 0],        // Espadas Curtas
-        ["Lâminas (médias)", 0],          // Espadas Longas
-        ["Lâminas (grandes)", 0]          // Espadas Grandes
+        ["Lâmina (Muito Pequena)", 0],  // Adagas
+        ["Lâmina (Pequena)", 0],        // Espadas Curtas
+        ["Lâmina (Média)", 0],          // Espadas Longas
+        ["Lâmina (Grande)", 0]          // Espadas Grandes
+      ])]
+    ])],
+    ["Destreza", new Map([
+      ["Armas", new Map([
+        ["Arco (Grande)", 0],  // Arco Longo
       ])]
     ])],
     ["Inteligência", new Map([
@@ -83,6 +88,7 @@ export class Character {
     ["smell", 0]
   ]);
   public weapons: Weapon[] = [];
+  // public armor: Armor;
   public characteristics: Characteristic[] = [
     {
       name: 'Ancestralidade Feérica',
@@ -104,4 +110,10 @@ export class Characteristic {
   public source: string = '';
   public sourceType: string = '';
   public description: string = '';
+}
+
+export class Armor { // Tem que melhorar
+  public armorClass: number = 0;
+  public limiteDexterityModifier: number | undefined = 0;
+  public isUseShield: string = 'pequeno, médio ou grande';
 }

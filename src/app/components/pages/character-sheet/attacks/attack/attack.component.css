@@ -3,7 +3,7 @@
     background-color: rgb(200, 200, 200);
     border-radius: 15px;
     display: grid;
-    grid-template-columns: 20% 30% auto;
+    grid-template-columns: 10% 40% auto;
     row-gap: 3px;
     column-gap: 6px;
     align-items: center;
@@ -64,6 +64,6 @@
     background-color: rgb(220, 220, 220);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 30% 20% auto;
+    grid-template-columns: 40% 20% auto;
     gap: 3px;
 }
