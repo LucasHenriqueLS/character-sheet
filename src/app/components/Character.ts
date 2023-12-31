@@ -136,12 +136,12 @@ export class Spellcasting {
     [1, {
           totalSlots: 4,
           currentSlots: 2,
-          spells: [
-                    { name: 'Mísseis Mágicos', level: 1, isPrepared: true },
-                    { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
-                    { name: 'Sono', level: 1, isPrepared: false },
-                    { name: 'Armadura Arcana', level: 1, isPrepared: false },
-                  ]
+          spells: new Map([
+                    ['Mísseis Mágicos', { name: 'Mísseis Mágicos', level: 1, isPrepared: true }],
+                    ['Mãos Flamejantes', { name: 'Mãos Flamejantes', level: 1, isPrepared: true }],
+                    ['Sono', { name: 'Sono', level: 1, isPrepared: false }],
+                    ['Armadura Arcana', { name: 'Armadura Arcana', level: 1, isPrepared: false }],
+                  ])
         }
     ]
   ])
@@ -150,7 +150,7 @@ export class Spellcasting {
 export class SpellPerLevel {
   public totalSlots: number = 0;
   public currentSlots: number = 0;
-  public spells: Spell[] = [];
+  public spells: Map<string, Spell> = new Map();
 }
 
 export class Spell {

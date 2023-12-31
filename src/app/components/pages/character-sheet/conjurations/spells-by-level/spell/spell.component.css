@@ -1,0 +1,88 @@
+.spell {
+    width: 400px;
+    height: 28px;
+    padding: 2px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 24px auto 40px;
+    gap: 2px;
+}
+
+.is-prepared {
+    height: 24px;
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.is-prepared input {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(80, 80, 80);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+}
+
+.is-prepared input:checked {
+    background-color: rgb(120, 120, 120);
+}
+
+.name {
+    height: 24px;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+}
+
+.name-form-field {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.name-form-field input {
+    background-color: rgb(220, 220, 220);
+    height: 80%;
+    width: 95%;
+    border-radius: 5px;
+    border: 0px;
+    color: rgb(20, 20, 20);
+    font-size: 13px;
+    font-weight: bold;
+    text-align: start;
+    justify-self: center;
+    align-self: center;
+}
+
+.delete-button {
+    height: 24px;
+    width: 24px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+    
+.delete-button button {
+    height: 21px;
+    width: 21px;
+    padding: 0px;
+    margin-right: 3px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+    
+.delete-button button mat-icon {
+    font-size: 20px;
+    justify-self: center;
+    align-self: center;
+}

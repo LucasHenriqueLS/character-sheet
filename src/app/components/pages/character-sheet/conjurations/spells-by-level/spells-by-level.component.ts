@@ -16,6 +16,6 @@ export class SpellsByLevelComponent {
   @Input() level!: number;
 
   get spells(): Spell[] {
-    return this.characterService.character.spellcasting.spellsByLevel.get(this.level)!.spells;
+    return Array.from(this.characterService.character.spellcasting.spellsByLevel.get(this.level)!.spells.values());
   }
 }

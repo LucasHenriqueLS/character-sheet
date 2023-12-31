@@ -120,9 +120,9 @@
     display: grid;
     justify-self: center;
     align-self: center;
-  }
+}
     
-  .delete-button button {
+.delete-button button {
     height: 27px;
     width: 27px;
     padding: 0px;
@@ -130,9 +130,9 @@
     display: grid;
     justify-self: center;
     align-self: center;
-  }
+}
     
-  .delete-button button mat-icon {
+.delete-button button mat-icon {
     justify-self: center;
     align-self: center;
-  }
+}
