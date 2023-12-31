@@ -47,6 +47,7 @@ import { SpecializedSkillGroupComponent } from './components/pages/character-she
 import { SpecializedSkillComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill/specialized-skill.component';
 import { HitDiceComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-dice.component';
 import { HitDieComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-die/hit-die.component';
+import { SpellComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spell/spell.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { HitDieComponent } from './components/pages/character-sheet/combat-stats
     SpecializedSkillGroupComponent,
     SpecializedSkillComponent,
     HitDiceComponent,
-    HitDieComponent
+    HitDieComponent,
+    SpellComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Spell } from 'src/app/components/Character';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-spells-by-level',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class SpellsByLevelComponent {
 
+  constructor(
+    private readonly characterService: CharacterService
+  ) { }
+
+  @Input() level!: number;
+
+  get spells(): Spell[] {
+    return this.characterService.character.spellcasting.spellsByLevel.get(this.level)!.spells;
+  }
 }

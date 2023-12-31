@@ -11,7 +11,9 @@
         </mat-card>
     </mat-card>
     <mat-card>
-        <p>xxxxxxxxxxxxxxxxxxx</p>
+        <div *ngFor="let spell of spells">
+            <app-spell [spell]="spell"></app-spell>
+        </div>
     </mat-card>
     <mat-card>
         <p>xxxxxxxxxx xxxxxxx xxxxxx</p>

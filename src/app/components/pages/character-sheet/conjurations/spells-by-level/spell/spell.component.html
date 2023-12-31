@@ -1,0 +1,13 @@
+<mat-card class="spell">
+    <div class="is-prepared">
+        <mat-checkbox [(ngModel)]="isPrepared"></mat-checkbox>
+    </div>
+    <div class="spell-name">
+        <form class="spell-name-form-field">
+            <input type="text" placeholder="-" name="spell-name-form-field-input" [(ngModel)]="name" required>
+        </form>
+    </div>
+    <mat-card class="delete-button">
+        <button mat-icon-button color="warn" (click)="removeSpell()"><mat-icon>delete</mat-icon></button>
+    </mat-card>
+</mat-card>

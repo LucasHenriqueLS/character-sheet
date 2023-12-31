@@ -107,6 +107,7 @@ export class Character {
       description: 'Graças ao seu sangue élfico, você possui uma visão superior no escuro. Você consegue enxergar até 18 metros na meia-luz como se fosse dia e, na escuridão, como se fosse meia-luz. Na escuridão você só consegue discernir tons de cinza.'
     }
   ];
+  public spellcasting: Spellcasting = new Spellcasting();
 }
 
 export class Characteristic {
@@ -125,4 +126,35 @@ export class Armor { // Tem que melhorar
 export class HitDie {
   public total: number = 0;
   public remaining: number = 0;
+}
+
+export class Spellcasting {
+  public spellcastingAbility: string = '';
+  public spellSaveDC: number = 0;
+  public spellAttackBonus: number = 0;
+  public spellsByLevel: Map<number, SpellPerLevel> = new Map([
+    [1, {
+          totalSlots: 4,
+          currentSlots: 2,
+          spells: [
+                    { name: 'Mísseis Mágicos', level: 1, isPrepared: true },
+                    { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
+                    { name: 'Sono', level: 1, isPrepared: false },
+                    { name: 'Armadura Arcana', level: 1, isPrepared: false },
+                  ]
+        }
+    ]
+  ])
+}
+
+export class SpellPerLevel {
+  public totalSlots: number = 0;
+  public currentSlots: number = 0;
+  public spells: Spell[] = [];
+}
+
+export class Spell {
+  public name: string = '';
+  public level: number = 0;
+  public isPrepared: boolean = false;
 }
