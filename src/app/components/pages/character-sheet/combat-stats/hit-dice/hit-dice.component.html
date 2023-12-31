@@ -1,1 +1,11 @@
-<p>hit-dice works!</p>
+<mat-card class="hit-dice">
+    <h2>DADOS DE VIDA</h2>
+    <div>
+        <app-hit-die *ngFor="let hitDie of hitDice" [hitDie]="hitDie"></app-hit-die>
+    </div>
+    <mat-card class="add-button-container">
+        <mat-card class="add-button">
+            <button mat-icon-button color="primary" (click)="addNewHitDie()"><mat-icon>add</mat-icon></button>
+        </mat-card>
+    </mat-card>
+</mat-card>

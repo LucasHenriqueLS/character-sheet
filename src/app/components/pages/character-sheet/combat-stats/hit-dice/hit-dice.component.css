@@ -1,0 +1,57 @@
+.hit-dice {
+  width: 200px;
+  padding: 3px;
+  background-color: rgb(180, 180, 180);
+  border-radius: 15px;
+  display: grid;
+  justify-content: center;
+}
+
+.hit-dice div {
+  display: grid;
+  gap: 4px;
+}
+
+.hit-dice h2 {
+  margin: 3px 0px 2px 0px;
+  color: rgb(0, 120, 40);
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: rgb(20, 20, 20);
+  font-size: 18px;
+  font-weight: bold;
+  justify-self: center;
+  align-self: center;
+}
+
+.add-button-container {
+  margin-top: 5px;
+  background-color: rgb(200, 200, 200);
+  height: 33px;
+  width: 33px;
+  padding: 3px;
+  border-radius: 11px;
+  display: grid;
+}
+
+.add-button {
+  background-color: rgb(220, 220, 220);
+  height: 27px;
+  width: 27px;
+  border-radius: 8px;
+  display: grid;
+}
+
+.add-button button {
+  height: 24px;
+  width: 24px;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+
+.add-button button mat-icon {
+  justify-self: center;
+  align-self: center;
+}

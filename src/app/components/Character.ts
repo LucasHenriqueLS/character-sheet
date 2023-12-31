@@ -7,6 +7,10 @@ export class Character {
   public maxLifePoints: number = 200;
   public currentLifePoints: number = 100;
   public temporaryLifePoints: number = 5;
+  public hitDice: Map<string, HitDie> = new Map([
+    ["d8", { total: 1, remaining: 1 }],
+    ["d12", { total: 5, remaining: 2 }]
+  ]);
   public abilities: Map<string, number> = new Map([
     ["Força", 0],
     ["Destreza", 0],
@@ -116,4 +120,9 @@ export class Armor { // Tem que melhorar
   public armorClass: number = 0;
   public limiteDexterityModifier: number | undefined = 0;
   public isUseShield: string = 'pequeno, médio ou grande';
+}
+
+export class HitDie {
+  public total: number = 0;
+  public remaining: number = 0;
 }
