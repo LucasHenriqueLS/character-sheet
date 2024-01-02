@@ -48,6 +48,8 @@ import { SpecializedSkillComponent } from './components/pages/character-sheet/sp
 import { HitDiceComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-dice.component';
 import { HitDieComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-die/hit-die.component';
 import { SpellComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spell/spell.component';
+import { ProficiencyBonusComponent } from './components/pages/character-sheet/proficiency-bonus/proficiency-bonus.component';
+import { InspirationComponent } from './components/pages/character-sheet/inspiration/inspiration.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { SpellComponent } from './components/pages/character-sheet/conjurations/
     SpecializedSkillComponent,
     HitDiceComponent,
     HitDieComponent,
-    SpellComponent
+    SpellComponent,
+    ProficiencyBonusComponent,
+    InspirationComponent
   ],
   imports: [
     BrowserModule,

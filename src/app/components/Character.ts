@@ -4,6 +4,7 @@ export class Character {
   [key: string]: any;
   public id: string = '';
   public name: string = '';
+  public inspirations: number = 0;
   public maxLifePoints: number = 200;
   public currentLifePoints: number = 100;
   public temporaryLifePoints: number = 5;
@@ -11,6 +12,7 @@ export class Character {
     ["d8", { total: 1, remaining: 1 }],
     ["d12", { total: 5, remaining: 2 }]
   ]);
+  public proficiencyBonus: ProficiencyBonus = new ProficiencyBonus();
   public abilities: Map<string, number> = new Map([
     ["Força", 0],
     ["Destreza", 0],
@@ -126,6 +128,11 @@ export class Armor { // Tem que melhorar
 export class HitDie {
   public total: number = 0;
   public remaining: number = 0;
+}
+
+export class ProficiencyBonus {
+  public total: number = 0;
+  public current: number = 0;
 }
 
 export class Spellcasting {
