@@ -1,6 +1,6 @@
 <mat-card class="inspiration">
-  <input type="checkbox" name="inspiration-1-input" [(ngModel)]="inspiration_1" (input)="updateInspirations()" required>
-  <input type="checkbox" name="inspiration-2-input" [(ngModel)]="inspiration_2" (input)="updateInspirations()" required>
-  <input type="checkbox" name="inspiration-3-input" [(ngModel)]="inspiration_3" (input)="updateInspirations()" required>
+  <input type="checkbox" name="inspiration-1-input" [(ngModel)]="inspirations.inspiration1" (change)="updateInspirations()" required>
+  <input type="checkbox" name="inspiration-2-input" [(ngModel)]="inspirations.inspiration2" (change)="updateInspirations()" required>
+  <input type="checkbox" name="inspiration-3-input" [(ngModel)]="inspirations.inspiration3" (change)="updateInspirations()" required>
   <h3>Inspiração</h3>
 </mat-card>

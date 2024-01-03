@@ -12,32 +12,14 @@ export class InspirationComponent {
     private characterService: CharacterService
   ) { }
 
-  public inspiration_1: boolean = false;
-  public inspiration_2: boolean = false;
-  public inspiration_3: boolean = false;
+  public inspirations = {
+    inspiration1: false,
+    inspiration2: false,
+    inspiration3: false
+  };
 
   updateInspirations(): void {
-
-    if (
-      this.inspiration_1 &&
-      this.inspiration_2 &&
-      this.inspiration_3
-      ) {
-        this.characterService.character.inspirations = 3;
-    } else if (
-      this.inspiration_1 && this.inspiration_2 ||
-      this.inspiration_2 && this.inspiration_3 ||
-      this.inspiration_1 && this.inspiration_3
-      ) {
-        this.characterService.character.inspirations = 2;
-      } else if (
-        this.inspiration_1 ||
-        this.inspiration_2 ||
-        this.inspiration_3
-      ) {
-        this.characterService.character.inspirations = 1;
-    } else {
-      this.characterService.character.inspirations = 0;
-    }
+    this.characterService.character.inspirations = Object.values(this.inspirations).filter(value => value).length;
+    console.log(this.characterService.character.inspirations);
   }
 }
