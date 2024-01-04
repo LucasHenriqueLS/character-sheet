@@ -1,16 +1,21 @@
 .combat-stats {
-    height: 350px;
-    margin: 10px;
-    padding: 5px;
-    background-color: rgb(180, 180, 180);
-    border-radius:15px;
-    display: grid;
-    gap: 5px;
+  height: 350px;
+  margin: 10px;
+  padding: 5px;
+  background-color: rgb(180, 180, 180);
+  border-radius:15px;
+  display: grid;
+  gap: 5px;
 }
 
 .combat-stats mat-card {
-    padding: 5px;
-    background-color: rgb(200, 200, 200);
-    border-radius:10px;
-    display: grid;
+  padding: 5px;
+  background-color: rgb(200, 200, 200);
+  border-radius:10px;
+  display: grid;
+}
+
+.hit-dice-and-death-saves {
+  display: grid;
+  grid-template-columns: auto auto;
 }

@@ -50,6 +50,8 @@ import { HitDieComponent } from './components/pages/character-sheet/combat-stats
 import { SpellComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spell/spell.component';
 import { ProficiencyBonusComponent } from './components/pages/character-sheet/proficiency-bonus/proficiency-bonus.component';
 import { InspirationComponent } from './components/pages/character-sheet/inspiration/inspiration.component';
+import { InformationsComponent } from './components/pages/character-sheet/informations/informations.component';
+import { DeathSavesComponent } from './components/pages/character-sheet/combat-stats/death-saves/death-saves.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ import { InspirationComponent } from './components/pages/character-sheet/inspira
     HitDieComponent,
     SpellComponent,
     ProficiencyBonusComponent,
-    InspirationComponent
+    InspirationComponent,
+    InformationsComponent,
+    DeathSavesComponent
   ],
   imports: [
     BrowserModule,

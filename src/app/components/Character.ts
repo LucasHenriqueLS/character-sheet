@@ -12,6 +12,7 @@ export class Character {
     ["d8", { total: 1, remaining: 1 }],
     ["d12", { total: 5, remaining: 2 }]
   ]);
+  public deathSaves: DeathSaves = new DeathSaves();
   public proficiencyBonus: ProficiencyBonus = new ProficiencyBonus();
   public abilities: Map<string, number> = new Map([
     ["Força", 0],
@@ -128,6 +129,11 @@ export class Armor { // Tem que melhorar
 export class HitDie {
   public total: number = 0;
   public remaining: number = 0;
+}
+
+export class DeathSaves {
+  public successes: number = 0;
+  public failures: number = 0;
 }
 
 export class ProficiencyBonus {

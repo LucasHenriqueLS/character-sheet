@@ -1,0 +1,9 @@
+.successes {
+  width: 250px;
+  height: 40px;
+  padding-left: 10px;
+  background-color: rgb(180, 180, 180);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 20px 20px 20px auto;
+}
