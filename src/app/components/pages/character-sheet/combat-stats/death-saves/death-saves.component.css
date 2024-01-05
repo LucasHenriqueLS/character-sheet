@@ -1,9 +1,63 @@
-.successes {
-  width: 250px;
-  height: 40px;
-  padding-left: 10px;
+.death-saves {
+  width: 200px;
+  padding: 3px;
   background-color: rgb(180, 180, 180);
-  border-radius: 20px;
+  border-radius: 15px;
   display: grid;
-  grid-template-columns: 20px 20px 20px auto;
+  justify-content: center;
+}
+
+.death-save {
+  width: 195px;
+  height: 35px;
+  padding: 0px 10px 0px 10px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 11px;
+  display: grid;
+  grid-template-columns: auto 20px 20px 20px;
+  align-items: center;
+}
+
+.death-save h3 {
+  margin: 0px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.successes h3 {
+  color: rgb(245, 245, 245);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 180, 25);
+}
+
+.failures h3 {
+  color: rgb(245, 245, 245);
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: rgb(40, 40, 40);
+}
+
+.death-saves h2 {
+  margin: 8px 0px 2px 0px;
+  color: rgb(175, 175, 175);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+input {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid rgb(80, 80, 80);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+}
+
+input:checked {
+  background-color: rgb(120, 120, 120);
 }
