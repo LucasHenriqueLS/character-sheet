@@ -1,15 +1,17 @@
 <mat-card class="death-saves">
-  <mat-card class="death-save successes">
-    <h3>Sucessos</h3>
-    <input type="checkbox" name="successes-1-input" [(ngModel)]="successes1" [disabled]="characterService.character.deathSaves.successes > 1" required>
-    <input type="checkbox" name="successes-2-input" [(ngModel)]="successes2" [disabled]="characterService.character.deathSaves.successes < 1 || characterService.character.deathSaves.successes > 2" required>
-    <input type="checkbox" name="successes-3-input" [(ngModel)]="successes3" [disabled]="characterService.character.deathSaves.successes < 2" required>
-  </mat-card>
-  <mat-card class="death-save failures">
-    <h3>Fracassos</h3>
-    <input type="checkbox" name="failures-1-input" [(ngModel)]="failures1" [disabled]="characterService.character.deathSaves.failures > 1" required>
-    <input type="checkbox" name="failures-2-input" [(ngModel)]="failures2" [disabled]="characterService.character.deathSaves.failures < 1 || characterService.character.deathSaves.failures > 2" required>
-    <input type="checkbox" name="failures-3-input" [(ngModel)]="failures3" [disabled]="characterService.character.deathSaves.failures < 2" required>
-  </mat-card>
+  <div>
+    <mat-card class="death-save successes">
+      <h3>Sucessos</h3>
+      <input type="checkbox" name="successes-1-input" [(ngModel)]="successes1" [disabled]="characterService.character.deathSaves.successes > 1" required>
+      <input type="checkbox" name="successes-2-input" [(ngModel)]="successes2" [disabled]="characterService.character.deathSaves.successes < 1 || characterService.character.deathSaves.successes > 2" required>
+      <input type="checkbox" name="successes-3-input" [(ngModel)]="successes3" [disabled]="characterService.character.deathSaves.successes < 2" required>
+    </mat-card>
+    <mat-card class="death-save failures">
+      <h3>Fracassos</h3>
+      <input type="checkbox" name="failures-1-input" [(ngModel)]="failures1" [disabled]="characterService.character.deathSaves.failures > 1" required>
+      <input type="checkbox" name="failures-2-input" [(ngModel)]="failures2" [disabled]="characterService.character.deathSaves.failures < 1 || characterService.character.deathSaves.failures > 2" required>
+      <input type="checkbox" name="failures-3-input" [(ngModel)]="failures3" [disabled]="characterService.character.deathSaves.failures < 2" required>
+    </mat-card>
+  </div>
   <h2>RESISTÊNCIA À MORTE</h2>
 </mat-card>
