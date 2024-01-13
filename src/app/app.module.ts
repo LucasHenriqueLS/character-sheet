@@ -52,6 +52,7 @@ import { ProficiencyBonusComponent } from './components/pages/character-sheet/pr
 import { InspirationComponent } from './components/pages/character-sheet/inspiration/inspiration.component';
 import { InformationsComponent } from './components/pages/character-sheet/informations/informations.component';
 import { DeathSavesComponent } from './components/pages/character-sheet/combat-stats/death-saves/death-saves.component';
+import { CharacterSheetHeaderComponent } from './components/pages/character-sheet/character-sheet-header/character-sheet-header.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { DeathSavesComponent } from './components/pages/character-sheet/combat-s
     ProficiencyBonusComponent,
     InspirationComponent,
     InformationsComponent,
-    DeathSavesComponent
+    DeathSavesComponent,
+    CharacterSheetHeaderComponent
   ],
   imports: [
     BrowserModule,

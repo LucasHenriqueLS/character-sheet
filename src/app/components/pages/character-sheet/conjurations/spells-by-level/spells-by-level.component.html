@@ -1,19 +1,29 @@
 <mat-card class="spells-by-level">
     <mat-card class="level-stats">
-        <mat-card>
+        <div class="level">
+            <input type="text" placeholder="-" name="level-input" [(ngModel)]="level" (change)="changeSpellsPerLevel()" required>
+        </div>
+        <div class="total-slots">
+            <input type="text" placeholder="-" name="total-slots-input" [(ngModel)]="totalSlots" required>
+        </div>
+        <div class="current-slots">
+            <input type="text" placeholder="-" name="current-slots-input" [(ngModel)]="currentSlots" required>
+        </div>
+        <mat-card class="delete-button">
+            <button mat-icon-button color="warn" (click)="removeSpellsPerLevel()"><mat-icon>delete</mat-icon></button>
+        </mat-card>
+        <!-- <mat-card>
             <p><span>1</span>°</p>
         </mat-card>
         <mat-card>
-            <p>4</p>
+            <input type="text" placeholder="-" name="die-form-field-input" [(ngModel)]="total" required>
         </mat-card>
         <mat-card>
             <p>2</p>
-        </mat-card>
+        </mat-card> -->
     </mat-card>
-    <mat-card>
-        <div *ngFor="let spell of spells">
-            <app-spell [spell]="spell"></app-spell>
-        </div>
+    <mat-card class="spells">
+        <app-spell *ngFor="let spell of spells" [spell]="spell"></app-spell>
     </mat-card>
 </mat-card>
 

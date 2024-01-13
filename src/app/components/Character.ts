@@ -3,7 +3,14 @@ import { Weapon } from "./pages/character-sheet/attacks/attack-options/attack-op
 export class Character {
   [key: string]: any;
   public id: string = '';
-  public name: string = '';
+  public name: string = 'Eöl de Raveen-Há';
+  public alignment: string = 'LN';
+  public race: string = 'Elfo (da Lua)';
+  public sex: string = 'Masculino';
+  public combatantClass: string = 'Mago - 5° Nível';
+  public backgroud: string = 'Sábio (Pesquisador)';
+  public experience: number = 14800;
+  public description: string = 'Eöl é alto (1,74 metros), magro (60 kg) e aparenta ser jovem (128 anos). Ele possui pele azul pálida, longos cabelos pretos lisos e olhos verdes vibrantes.';
   public inspirations: number = 0;
   public maxLifePoints: number = 200;
   public currentLifePoints: number = 100;

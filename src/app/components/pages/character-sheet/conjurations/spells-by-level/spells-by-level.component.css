@@ -2,10 +2,6 @@
     padding: 3px;
     background-color: rgb(200, 200, 200);
     border-radius: 15px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
 }
 
 .spells-by-level mat-card {
@@ -44,10 +40,10 @@
     display: grid;
 }
 
-.spells-by-level .level-stats mat-card p {
+.spells-by-level .level-stats mat-card input {
     font-size: 22px;
 }
 
-.spells-by-level .level-stats mat-card p span {
+.spells-by-level .level-stats mat-card input span {
     font-weight: bold;
 }
