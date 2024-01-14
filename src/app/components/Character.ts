@@ -118,6 +118,7 @@ export class Character {
     }
   ];
   public spellcasting: Spellcasting = new Spellcasting();
+  public inventory: Inventory = new Inventory();
 }
 
 export class Characteristic {
@@ -125,12 +126,6 @@ export class Characteristic {
   public source: string = '';
   public sourceType: string = '';
   public description: string = '';
-}
-
-export class Armor { // Tem que melhorar
-  public armorClass: number = 0;
-  public limiteDexterityModifier: number | undefined = 0;
-  public isUseShield: string = 'pequeno, médio ou grande';
 }
 
 export class HitDie {
@@ -177,4 +172,23 @@ export class Spell {
   public name: string = '';
   public level: number = 0;
   public isPrepared: boolean = false;
+}
+
+export class Inventory {
+  public clothing: Clothing = new Clothing();
+  public sheaths: Sheaths[] = [];
+}
+
+export class Sheaths {
+
+}
+
+export class Clothing {
+  public armorClass: number = 0;
+  public limiteDexterityModifier: number = 0;
+}
+
+export class Armor extends Clothing { // Tem que melhorar
+  
+  public isUseShield: string = 'pequeno, médio ou grande';
 }

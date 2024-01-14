@@ -1,0 +1,104 @@
+<mat-card class="inventory" style="background-color: rgb(255, 0, 0); width: 800px;">
+
+    <mat-card class="wearables">
+    
+        
+        <mat-card class="armor">
+
+            <div class="example-container">
+                <h2>Armadura</h2>
+              
+                <div id="all" cdkDropList [cdkDropListData]="all" cdkDropListConnectedTo="even" class="example-list" (cdkDropListDropped)="drop($event)" [cdkDropListEnterPredicate]="noReturnPredicate">
+                    <div *ngFor="let number of all" class="example-box" [cdkDragData]="number" cdkDrag>{{number}}</div>
+                </div>
+            </div>
+        </mat-card>
+    
+        <mat-card class="set-of-clothes">
+        
+            Conjunto de roupa
+        </mat-card>
+    </mat-card>
+
+    <mat-card class="sheaths">
+    
+        
+        <mat-card class="left-sheaths">
+    
+            Bainhas à esquerda
+        </mat-card>
+    
+        <mat-card class="shields-and-weapons">
+        
+            <mat-card class="shields">
+        
+                Escudos
+            </mat-card>
+
+            <mat-card class="weapons">
+        
+                Armas
+            </mat-card>
+        </mat-card>
+
+        <mat-card class="right-sheaths">
+    
+            Bainhas à direita
+        </mat-card>
+    </mat-card>
+
+    <mat-card class="storage-containers">
+    
+        <mat-card class="left-purse">
+        
+            Bolsa à esquerda
+        </mat-card>
+
+        <mat-card class="backpack">
+
+            <div class="example-container">
+                <h2>Mochila</h2>
+
+                <div id="even" cdkDropList [cdkDropListData]="even" cdkDropListConnectedTo="all" class="example-list" (cdkDropListDropped)="drop($event)" [cdkDropListEnterPredicate]="evenPredicate">
+                    <div *ngFor="let number of even" class="example-box" cdkDrag [cdkDragData]="number">{{number}}</div>
+                </div>
+            </div>
+        </mat-card>
+
+        <mat-card class="right-purse">
+        
+            Bolsa à direita
+        </mat-card>
+
+        <mat-card class="left-belt">
+    
+            Cinto à esquerda
+        </mat-card>
+
+        <mat-card class="center-belt">
+    
+            Cinto central
+        </mat-card>
+
+        <mat-card class="right-belt">
+    
+            Cinto à direita
+        </mat-card>
+
+        <mat-card class="bag">
+    
+            Sacos
+        </mat-card>
+    </mat-card>
+
+    <mat-card class="holding-in-hands">
+
+        <div class="example-container">
+            <h2>Área de Transferência</h2>
+          
+            <div id="all" cdkDropList [cdkDropListData]="all" cdkDropListConnectedTo="even" class="example-list" (cdkDropListDropped)="drop($event)" [cdkDropListEnterPredicate]="noReturnPredicate">
+                <div *ngFor="let number of all" class="example-box" [cdkDragData]="number" cdkDrag>{{number}}</div>
+            </div>
+        </div>
+    </mat-card>
+</mat-card>

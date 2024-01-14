@@ -13,7 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TextFieldModule } from '@angular/cdk/text-field';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ import { InspirationComponent } from './components/pages/character-sheet/inspira
 import { InformationsComponent } from './components/pages/character-sheet/informations/informations.component';
 import { DeathSavesComponent } from './components/pages/character-sheet/combat-stats/death-saves/death-saves.component';
 import { CharacterSheetHeaderComponent } from './components/pages/character-sheet/character-sheet-header/character-sheet-header.component';
+import { InventoryComponent } from './components/pages/character-sheet/inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,8 @@ import { CharacterSheetHeaderComponent } from './components/pages/character-shee
     InspirationComponent,
     InformationsComponent,
     DeathSavesComponent,
-    CharacterSheetHeaderComponent
+    CharacterSheetHeaderComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +111,9 @@ import { CharacterSheetHeaderComponent } from './components/pages/character-shee
     MatDialogModule,
     MatCheckboxModule,
     TextFieldModule,
-    MatSliderModule
+    MatSliderModule,
+    CdkDropList,
+    CdkDrag
   ],
   providers: [],
   bootstrap: [AppComponent]
