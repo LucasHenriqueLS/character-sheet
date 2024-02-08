@@ -19,37 +19,38 @@
 
 
 
-
-<mat-card class="section_1">
-    <app-character-sheet-header style="margin-bottom: 20px;"></app-character-sheet-header>
-</mat-card>
-<mat-card class="section_2">
-    <mat-card class="section_2__1">
-        <mat-card class="section_2__1___1">
-            <mat-card class="section_2__1___1____1">
-                <app-ability-scores></app-ability-scores>
-            </mat-card>
-            <mat-card class="section_2__1___1____2">
-                <app-inspiration style="margin: 0px 0px 20px 10px;"></app-inspiration>
-                <app-proficiency-bonus style="margin-left: 10px;"></app-proficiency-bonus>
-                <app-saving-throws></app-saving-throws>
-                <app-skills></app-skills>
-            </mat-card>
-        </mat-card>
-        <mat-card class="section_1__1___2">
-            <app-senses></app-senses>
-            <app-specialized-skills></app-specialized-skills>
-        </mat-card>
+<mat-card class="character-sheet">
+    <mat-card class="section_1">
+        <app-character-sheet-header></app-character-sheet-header>
     </mat-card>
-    <mat-card class="section_2__2">
-        <app-combat-stats></app-combat-stats>
-        <app-attacks></app-attacks>
-        <!-- <app-conjurations></app-conjurations> -->
+    <mat-card class="section_2">
+        <div class="section_2__1">
+            <div class="section_2__1___1">
+                <div class="section_2__1___1____1">
+                    <app-ability-scores></app-ability-scores>
+                </div>
+                <div class="section_2__1___1____2">
+                    <app-inspiration></app-inspiration>
+                    <app-proficiency-bonus></app-proficiency-bonus>
+                    <app-saving-throws></app-saving-throws>
+                    <app-skills></app-skills>
+                </div>
+            </div>
+            <div class="section_1__1___2">
+                <app-senses></app-senses>
+                <app-specialized-skills></app-specialized-skills>
+            </div>
+        </div>
+        <div class="section_2__2">
+            <app-combat-stats></app-combat-stats>
+            <app-attacks></app-attacks>
+            <!-- <app-conjurations></app-conjurations> -->
+        </div>
+        <div class="section_2__3">
+            <app-characteristics></app-characteristics>
+        </div>
     </mat-card>
-    <mat-card class="section_2__3">
-        <app-characteristics></app-characteristics>
+    <mat-card>
+        <app-inventory style="margin: 20px;"></app-inventory>
     </mat-card>
-</mat-card>
-<mat-card>
-    <app-inventory style="margin: 20px;"></app-inventory>
 </mat-card>

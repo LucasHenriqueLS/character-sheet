@@ -1,6 +1,7 @@
 .proficiency-bonus {
-  width: 250px;
+  width: 238px;
   height: 40px;
+  margin: 0px 0px 10px 15px;
   background-color: rgb(180, 180, 180);
   border-radius: 20px;
   display: grid;
