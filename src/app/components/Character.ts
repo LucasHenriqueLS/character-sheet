@@ -101,12 +101,12 @@ export class Character {
   ]);
   public weapons: Weapon[] = [];
   public wieldedItems: WieldableItem[] = [
-    { item: new Item('', 0, '', '', ''), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Item('', 1, '', '', ''), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Lâmina (Muito Pequena)', 2, 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Lâmina (Média)', 3, 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Arco (Grande)', 4, 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Shield ('Escudo Médio (mediano)', 5, 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
+    { item: new Item('', '', '', ''), id: '1111', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Item('', '', '', ''), id: '2222', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Lâmina (Muito Pequena)', 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), id: '3333', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Lâmina (Média)', 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), id: '4444', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Arco (Grande)', 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), id: '5555', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield ('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
   ];
   // public armor: Armor;
   public characteristics: Characteristic[] = [
@@ -201,20 +201,19 @@ export class Armor extends Clothing { // Tem que melhorar
 
 export class WieldableItem {
   public item!: Weapon | Shield | Item;
+  public id: string = '';
   public isWieldedInTheRightHand: boolean = false;
   public isWieldedInTheLeftHand: boolean = false;
 }
 
 export class Item {
-  public id: string = '';
-  public position: number = 0;
+  public classification: string = '';
   public name: string = '';
   public hands: string = '';
   public description: string = '';
 
-  constructor(id: string, position: number, name: string, hands: string, description: string) {
-    this.id = id;
-    this.position = position;
+  constructor(classification: string, name: string, hands: string, description: string) {
+    this.classification = classification;
     this.name = name;
     this.hands = hands;
     this.description = description;
@@ -229,8 +228,8 @@ export class Weapon extends Item {
   public damateType: string = '';
   public properties: string[] = [];
 
-  constructor(id: string, position: number, name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[]) {
-    super(id, position, name, hands, description);
+  constructor(classification: string, name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[]) {
+    super(classification, name, hands, description);
     this.type = type;
     this.range = range;
     this.targets = targets;
@@ -243,8 +242,8 @@ export class Weapon extends Item {
 export class Shield extends Weapon {
   public coverageBonus: number = 0;
 
-  constructor(id: string, position: number, name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[], coverageBonus: number) {
-    super(id, position, name, hands, description, type, range, targets, damageDie, damateType, properties);
+  constructor(classification: string,name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[], coverageBonus: number) {
+    super(classification, name, hands, description, type, range, targets, damageDie, damateType, properties);
     this.coverageBonus = coverageBonus;
   }
 }

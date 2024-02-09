@@ -30,13 +30,11 @@ export class WieldedItemComponent {
   }
 
   wieldOrUnwieldInTheLeftHand(): void {
-    console.log(this.wieldedItem.isWieldedInTheLeftHand);
     const a = this.characterService.character.wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheLeftHand);
     this.wieldedItem.isWieldedInTheLeftHand = !this.wieldedItem.isWieldedInTheLeftHand;
-    console.log(this.wieldedItem.isWieldedInTheLeftHand);
-    console.log(this.wieldedItem);
     if (this.wieldedItem.isWieldedInTheLeftHand) {
       if (a !== undefined) {
+        this.characterService.character.wieldedItems.findIndex(a);
         this.characterService.character.wieldedItems.splice(a.item.position, 1);
         a.isWieldedInTheLeftHand = false;
         a.item.position++;
@@ -46,12 +44,9 @@ export class WieldedItemComponent {
       this.wieldedItem.item.position = 0;
       this.characterService.character.wieldedItems.unshift(this.wieldedItem);
     } else {
-      console.log(this.wieldedItem.item.position);
       this.characterService.character.wieldedItems.splice(this.wieldedItem.item.position, 1);
       this.wieldedItem.item.position++;
-      console.log(this.wieldedItem.item.position);
       this.characterService.character.wieldedItems.splice(this.wieldedItem.item.position, 0, this.wieldedItem);
-      console.log(this.wieldedItem.item.position);
     }
   }
 }

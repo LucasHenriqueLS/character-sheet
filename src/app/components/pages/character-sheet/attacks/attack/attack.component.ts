@@ -38,13 +38,13 @@ export class AttackComponent {
         this.damageBonus = calculateAbilityModifier(strength);
       }
       this.attackBonus = this.damageBonus;
-      if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(this.weapon.id)) {
-        this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(this.weapon.id)!;
+      if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(this.weapon.classification)) {
+        this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(this.weapon.classification)!;
       }
     } else {
       this.attackBonus = this.damageBonus = calculateAbilityModifier(this.character.abilities.get('Destreza')!);
-      if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(this.weapon.id)) {
-        this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(this.weapon.id)!;
+      if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(this.weapon.classification)) {
+        this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(this.weapon.classification)!;
       }
     }
   }

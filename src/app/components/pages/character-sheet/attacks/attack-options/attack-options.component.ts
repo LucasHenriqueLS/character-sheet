@@ -6,7 +6,7 @@ import { Weapon } from 'src/app/components/Character';
 
 const WEAPON_DATA: Weapon[] = [
   {
-    id: 'Lâmina (Muito Pequena)',
+    classification: 'Lâmina (Muito Pequena)',
     position: 1,
     name: 'Adaga',
     type: 'Arma Corpo a Corpo ou à Distância',
@@ -19,7 +19,7 @@ const WEAPON_DATA: Weapon[] = [
     description: ''
   },
   {
-    id: 'Lâmina (Média)',
+    classification: 'Lâmina (Média)',
     position: 2,
     name: 'Espada Longa',
     type: 'Arma Corpo a Corpo',
@@ -32,7 +32,7 @@ const WEAPON_DATA: Weapon[] = [
     description: ''
   },
   {
-    id: 'Arco (Grande)',
+    classification: 'Arco (Grande)',
     position: 3,
     name: 'Arco Longo',
     type: 'Arma à Distância',
