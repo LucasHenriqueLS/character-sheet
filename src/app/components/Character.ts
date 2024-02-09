@@ -1,5 +1,3 @@
-import { Weapon } from "./pages/character-sheet/attacks/attack-options/attack-options.component";
-
 export class Character {
   [key: string]: any;
   public id: string = '';
@@ -102,6 +100,14 @@ export class Character {
     ["smell", 0]
   ]);
   public weapons: Weapon[] = [];
+  public wieldedItems: WieldableItem[] = [
+    { item: new Item('', 0, '', '', ''), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Item('', 1, '', '', ''), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Lâmina (Muito Pequena)', 2, 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Lâmina (Média)', 3, 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Arco (Grande)', 4, 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield ('Escudo Médio (mediano)', 5, 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
+  ];
   // public armor: Armor;
   public characteristics: Characteristic[] = [
     {
@@ -147,7 +153,7 @@ export class Spellcasting {
   public spellcastingAbility: string = '';
   public spellSaveDC: number = 0;
   public spellAttackBonus: number = 0;
-  public spellsByLevel: Map<number, SpellPerLevel> = new Map([
+  public spellsByLevel: Map<number, SpellByLevel> = new Map([
     [1, {
           totalSlots: 4,
           currentSlots: 2,
@@ -162,7 +168,7 @@ export class Spellcasting {
   ])
 }
 
-export class SpellPerLevel {
+export class SpellByLevel {
   public totalSlots: number = 0;
   public currentSlots: number = 0;
   public spells: Map<string, Spell> = new Map();
@@ -191,4 +197,54 @@ export class Clothing {
 export class Armor extends Clothing { // Tem que melhorar
   
   public isUseShield: string = 'pequeno, médio ou grande';
+}
+
+export class WieldableItem {
+  public item!: Weapon | Shield | Item;
+  public isWieldedInTheRightHand: boolean = false;
+  public isWieldedInTheLeftHand: boolean = false;
+}
+
+export class Item {
+  public id: string = '';
+  public position: number = 0;
+  public name: string = '';
+  public hands: string = '';
+  public description: string = '';
+
+  constructor(id: string, position: number, name: string, hands: string, description: string) {
+    this.id = id;
+    this.position = position;
+    this.name = name;
+    this.hands = hands;
+    this.description = description;
+  }
+}
+
+export class Weapon extends Item {
+  public type: string = '';
+  public range: string = '';
+  public targets: string = '';
+  public damageDie: string = '';
+  public damateType: string = '';
+  public properties: string[] = [];
+
+  constructor(id: string, position: number, name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[]) {
+    super(id, position, name, hands, description);
+    this.type = type;
+    this.range = range;
+    this.targets = targets;
+    this.damageDie = damageDie;
+    this.damateType = damateType;
+    this.properties = properties;
+  }
+}
+
+export class Shield extends Weapon {
+  public coverageBonus: number = 0;
+
+  constructor(id: string, position: number, name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[], coverageBonus: number) {
+    super(id, position, name, hands, description, type, range, targets, damageDie, damateType, properties);
+    this.coverageBonus = coverageBonus;
+  }
 }

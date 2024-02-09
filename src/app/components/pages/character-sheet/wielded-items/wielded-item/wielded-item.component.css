@@ -1,0 +1,111 @@
+.wielded-item {
+    padding: 6px 3px 3px 6px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    gap: 3px;
+    align-items: center;
+}
+
+.wielded-item .left-hand, .wielded-item .right-hand {
+    height: 45px;
+    width: 45px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 8px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item .left-hand button, .wielded-item .right-hand button {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item .left-hand button mat-icon {
+    transform: scaleX(-1);
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item .right-hand button mat-icon {
+    justify-self: center;
+    align-self: center;
+} 
+
+.wielded-item .weapon {
+    padding: 6px 3px 3px 6px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 10% 40% auto;
+    row-gap: 3px;
+    column-gap: 6px;
+    align-items: center;
+    opacity: 0.2;
+}
+
+.wielded-item mat-card {
+    height: 27px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    display: grid;
+}
+
+.wielded-item mat-card p {
+    justify-self: center;
+    align-self: center;
+    margin: 0px;
+    color: rgb(20, 20, 20);
+    font-size: 12px;
+}
+
+.wielded-item .name-and-edit-buttons {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-right: 3px;
+  display: grid;
+  grid-template-columns: auto 7.5%;
+  gap: 3px;
+}
+
+.wielded-item .name p {
+    justify-self: start;
+    margin-left: 6px;
+    font-style: italic;
+}
+
+.wielded-item .name p span {
+    font-weight: bold;
+}
+
+.wielded-item .edit-buttons button {
+    height: 27px;
+    width: 27px;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item .edit-buttons button mat-icon {
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item .damage-type {
+    height: 33px;
+    padding: 3px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 40% 20% auto;
+    gap: 3px;
+}

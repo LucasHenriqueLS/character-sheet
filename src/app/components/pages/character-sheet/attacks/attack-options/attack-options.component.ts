@@ -2,19 +2,7 @@ import { Component } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { CharacterService } from 'src/app/services/character.service';
-
-export interface Weapon {
-  id: string;
-  position: number;
-  name: string;
-  type: string;
-  hands: string;
-  range: string;
-  targets: string;
-  damageDie: string;
-  damateType: string;
-  properties: string[];
-}
+import { Weapon } from 'src/app/components/Character';
 
 const WEAPON_DATA: Weapon[] = [
   {
@@ -27,7 +15,8 @@ const WEAPON_DATA: Weapon[] = [
     targets: 'um alvo',
     damageDie: '1d4',
     damateType: 'perfurante',
-    properties: ['Acuidade','Leve','Arremesso (alcance 6/18)']
+    properties: ['Acuidade','Leve','Arremesso (alcance 6/18)'],
+    description: ''
   },
   {
     id: 'Lâmina (Média)',
@@ -39,7 +28,8 @@ const WEAPON_DATA: Weapon[] = [
     targets: 'um alvo',
     damageDie: '1d8 ou 1d10',
     damateType: 'cortante',
-    properties: []
+    properties: [],
+    description: ''
   },
   {
     id: 'Arco (Grande)',
@@ -51,7 +41,8 @@ const WEAPON_DATA: Weapon[] = [
     targets: 'um alvo',
     damageDie: '1d8',
     damateType: 'perfurante',
-    properties: ['Munição']
+    properties: ['Munição'],
+    description: ''
   }
 ];
 

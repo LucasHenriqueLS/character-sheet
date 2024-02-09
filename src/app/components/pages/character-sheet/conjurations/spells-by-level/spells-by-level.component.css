@@ -22,12 +22,12 @@
 }
 
 .spells-by-level .level-stats {
-    width: 102px;
+    width: 200px;
     height: 36px;
     margin: 0px 3px 0px 0px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 50px 50px 50px;
     gap: 3px;
 }
 
@@ -36,6 +36,7 @@
     height: 30px;
     margin: 0px;
     padding: 0px;
+    border-radius: 20px;
     background-color: rgb(240, 240, 240);
     display: grid;
 }

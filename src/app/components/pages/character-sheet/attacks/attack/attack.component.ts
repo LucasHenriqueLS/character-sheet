@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Weapon } from '../attack-options/attack-options.component';
 import { CharacterService } from 'src/app/services/character.service';
-import { Character } from 'src/app/components/Character';
+import { Character, Weapon } from 'src/app/components/Character';
 import { calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({

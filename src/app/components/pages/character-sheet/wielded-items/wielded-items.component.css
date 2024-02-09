@@ -1,0 +1,88 @@
+.wielded-items {
+    padding: 5px;
+    background-color: rgb(180, 180, 180);
+    border-radius:15px;
+    display: grid;
+    gap: 5px;
+}
+
+.add-button-container {
+    background-color: rgb(200, 200, 200);
+    height: 33px;
+    width: 33px;
+    padding: 3px;
+    border-radius: 11px;
+    display: grid;
+}
+
+.add-button {
+    background-color: rgb(220, 220, 220);
+    height: 27px;
+    width: 27px;
+    border-radius: 8px;
+    display: grid;
+}
+
+.add-button button {
+    height: 24px;
+    width: 24px;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.add-button button mat-icon {
+    justify-self: center;
+    align-self: center;
+}
+
+.wielded-item {
+  padding: 6px 3px 3px 6px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 10% 40% auto;
+  row-gap: 3px;
+  column-gap: 6px;
+  align-items: center;
+}
+
+.wielded-item mat-card {
+  height: 27px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 8px;
+  display: grid;
+}
+
+.wielded-item mat-card p {
+  justify-self: center;
+  align-self: center;
+  margin: 0px;
+  color: rgb(20, 20, 20);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.wielded-item .name {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-right: 3px;
+}
+
+.wielded-item .name p {
+  justify-self: start;
+  margin-left: 6px;
+  font-style: italic;
+}
+
+.wielded-item .damage-type {
+  height: 33px;
+  padding: 3px;
+  background-color: rgb(220, 220, 220);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 40% 20% auto;
+  gap: 3px;
+}

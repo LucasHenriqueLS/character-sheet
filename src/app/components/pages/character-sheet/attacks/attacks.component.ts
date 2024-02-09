@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AttackOptionsComponent, Weapon } from './attack-options/attack-options.component';
+import { AttackOptionsComponent, } from './attack-options/attack-options.component';
 import { CharacterService } from 'src/app/services/character.service';
+import { Weapon } from 'src/app/components/Character';
 
 @Component({
   selector: 'app-attacks',

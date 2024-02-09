@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Spell, SpellPerLevel } from 'src/app/components/Character';
+import { Spell, SpellByLevel } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 import { MapUtils } from 'src/app/util/util';
 
@@ -15,12 +15,12 @@ export class SpellsByLevelComponent {
   ) { }
 
   @Input() level!: number;
-  @Input() spellPerLevel!: SpellPerLevel;
+  private spellByLevel!: SpellByLevel;
 
   private privateLevel!: number;
 
   get totalSlots(): number {
-    return this.spellPerLevel.totalSlots;
+    return this.spellByLevel.totalSlots;
   }
 
   set totalSlots(totalSlots: number) {
@@ -28,7 +28,7 @@ export class SpellsByLevelComponent {
   }
 
   get currentSlots(): number {
-    return this.spellPerLevel.currentSlots;
+    return this.spellByLevel.currentSlots;
   }
 
   set currentSlots(currentSlots: number) {
@@ -36,10 +36,11 @@ export class SpellsByLevelComponent {
   }
 
   get spells(): Spell[] {
-    return Array.from(this.spellPerLevel.spells.values());
+    return Array.from(this.spellByLevel.spells.values());
   }
 
   ngOnInit() {
+    this.spellByLevel = this.characterService.character.spellcasting.spellsByLevel.get(this.level)!;
     this.privateLevel = this.level;
   }
 

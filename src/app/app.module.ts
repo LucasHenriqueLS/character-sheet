@@ -55,6 +55,8 @@ import { InformationsComponent } from './components/pages/character-sheet/inform
 import { DeathSavesComponent } from './components/pages/character-sheet/combat-stats/death-saves/death-saves.component';
 import { CharacterSheetHeaderComponent } from './components/pages/character-sheet/character-sheet-header/character-sheet-header.component';
 import { InventoryComponent } from './components/pages/character-sheet/inventory/inventory.component';
+import { WieldedItemsComponent } from './components/pages/character-sheet/wielded-items/wielded-items.component';
+import { WieldedItemComponent } from './components/pages/character-sheet/wielded-items/wielded-item/wielded-item.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { InventoryComponent } from './components/pages/character-sheet/inventory
     InformationsComponent,
     DeathSavesComponent,
     CharacterSheetHeaderComponent,
-    InventoryComponent
+    InventoryComponent,
+    WieldedItemsComponent,
+    WieldedItemComponent
   ],
   imports: [
     BrowserModule,
