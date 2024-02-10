@@ -58,6 +58,8 @@ import { InventoryComponent } from './components/pages/character-sheet/inventory
 import { WieldedItemsComponent } from './components/pages/character-sheet/wielded-items/wielded-items.component';
 import { WieldedItemComponent } from './components/pages/character-sheet/wielded-items/wielded-item/wielded-item.component';
 import { ArmorClassComponent } from './components/pages/character-sheet/combat-stats/armor-class/armor-class.component';
+import { SpeedComponent } from './components/pages/character-sheet/combat-stats/speed/speed.component';
+import { InitiativeComponent } from './components/pages/character-sheet/combat-stats/initiative/initiative.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,9 @@ import { ArmorClassComponent } from './components/pages/character-sheet/combat-s
     InventoryComponent,
     WieldedItemsComponent,
     WieldedItemComponent,
-    ArmorClassComponent
+    ArmorClassComponent,
+    SpeedComponent,
+    InitiativeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,18 @@
 <mat-card class="combat-stats">
-  <mat-card>
-    <app-armor-class></app-armor-class>
-  </mat-card>  
-  <mat-card>
-        <app-life-points></app-life-points>
+    <div style="display: grid; grid-template-columns: 360px auto auto; align-items: center; gap: 3px;">
+        <app-armor-class></app-armor-class>
+        <app-initiative></app-initiative>
+        <app-speed></app-speed>
+    </div>
+    <mat-card>
+          <app-life-points></app-life-points>
     </mat-card>
     <div class="hit-dice-and-death-saves">
-      <div class="hit-dice">
-          <app-hit-dice></app-hit-dice>
-      </div>
-      <div class="death-saves">
-        <app-death-saves></app-death-saves>
-      </div>
+        <div class="hit-dice">
+            <app-hit-dice></app-hit-dice>
+        </div>
+        <div class="death-saves">
+          <app-death-saves></app-death-saves>
+        </div>
     </div>
 </mat-card>
