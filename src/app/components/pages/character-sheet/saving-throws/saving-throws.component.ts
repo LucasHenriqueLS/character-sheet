@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-saving-throws',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class SavingThrowsComponent {
 
+  constructor(
+    public readonly characterService: CharacterService
+  ) { }
+
+  get savingThrows(): string[] {
+    return Array.from(this.characterService.character.savingThrows.keys());
+  }
 }

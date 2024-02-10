@@ -13,7 +13,6 @@ export class SkillGroupComponent {
   ) { }
 
   @Input() ability!: string;
-  @Input() skillOrOrSavingThrow!: string;
 
   get skills(): string[] {
     return Array.from(this.characterService.character.skills.get(this.ability)!.keys());

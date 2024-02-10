@@ -1,12 +1,14 @@
 <mat-card class="saving-throw-card">
     <div class="proficiency-bonus">
-        <p>+4</p>
+      <form class="proficiency-bonus-form-field">
+        <input type="text" placeholder="-" name="proficiency-bonus-form-field-input" [(ngModel)]="proficiencyBonus" required>
+      </form>
     </div>
     <div class="modifier">
-        <p>+8</p>
+        <p>{{ (modifier >= 0 ? '+' : '') + modifier }}</p>
     </div>
     <div class="saving-throw">
-        <p>Destreza<p>
+        <p>{{ savingThrow }}<p>
     </div>
 </mat-card>
 

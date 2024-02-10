@@ -1,8 +1,6 @@
-<mat-card class="skill-group" [ngClass]="{
-    'specialized-skill-group': skillOrOrSavingThrow === 'specialized-skill',
-  }">
+<mat-card class="skill-group">
     <h2>{{ ability }}</h2>
     <div>
-        <app-skill *ngFor="let skill of skills" [skill]="skill" [ability]="ability" [skillOrOrSavingThrow]="skillOrOrSavingThrow"></app-skill>
+        <app-skill *ngFor="let skill of skills" [skill]="skill" [ability]="ability"></app-skill>
     </div>
 </mat-card>

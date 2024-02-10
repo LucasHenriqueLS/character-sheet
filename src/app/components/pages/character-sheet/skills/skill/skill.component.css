@@ -8,14 +8,6 @@
     grid-template-columns: 40px 40px auto;
 }
 
-.specialized-skill {
-    width: 400px;
-}
-
-.saving-throws {
-    left: 0px;
-}
-
 .proficiency-bonus {
     width: 30px;
     height: 30px;

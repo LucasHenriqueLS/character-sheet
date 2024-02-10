@@ -18,7 +18,7 @@ export class SkillComponent {
 
   @Input() skill!: string;
   @Input() ability!: string;
-  @Input() skillOrOrSavingThrow!: string;
+  @Input() skillOrSavingThrow!: string;
 
   public modifier: number = 0;
 

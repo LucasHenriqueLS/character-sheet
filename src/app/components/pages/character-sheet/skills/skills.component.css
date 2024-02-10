@@ -20,25 +20,3 @@
     display: grid;
     gap: 10px;
 }
-
-/* .skills div mat-card {
-    width: 244px;
-    padding: 3px;
-    background-color: rgb(200, 200, 200);
-    border-radius: 15px;
-}
-
-.skills div mat-card h2 {
-    margin: 2px 0px 5px 7px;
-    color: rgb(160, 160, 160);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(20, 20, 20);
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.skills div mat-card div {
-    position: relative;
-    display: grid;
-    gap: 3px;
-} */

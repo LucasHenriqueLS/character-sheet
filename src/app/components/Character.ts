@@ -27,6 +27,14 @@ export class Character {
     ["Sabedoria", 0],
     ["Carisma", 0]
   ]);
+  public savingThrows: Map<string, number> = new Map([
+    ["Força", 0],
+    ["Destreza", 0],
+    ["Constituição", 0],
+    ["Inteligência", 0],
+    ["Sabedoria", 0],
+    ["Carisma", 0]
+  ]);
   public skills: Map<string, Map<string, number>> = new Map([
     ["Força", new Map([
       ["Atletismo", 0]
@@ -47,7 +55,7 @@ export class Character {
       ["Eloquência", 0],
       ["Enganação", 0],
       ["Intimidação", 0]
-    ])],
+    ])]
   ]);
   public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
     ["Força", new Map([
