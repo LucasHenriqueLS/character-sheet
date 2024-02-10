@@ -12,7 +12,6 @@ export class CharacterSheetHeaderComponent {
     private readonly characterService: CharacterService
   ) { }
 
-
   get name(): string {
     return this.characterService.character.name;
   }

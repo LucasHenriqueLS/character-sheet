@@ -156,24 +156,43 @@ export class Spellcasting {
   public spellSaveDC: number = 0;
   public spellAttackBonus: number = 0;
   public spellsByLevel: Map<number, SpellByLevel> = new Map([
+    [0, {
+      totalSlots: 0,
+      currentSlots: 0,
+      spells: [
+        { name: 'Raio de Gelo', level: 0, isPrepared: true },
+        { name: 'Raio de Fogo', level: 0, isPrepared: true }
+      ]
+    }
+    ],
     [1, {
           totalSlots: 4,
           currentSlots: 2,
-          spells: new Map([
-                    ['Mísseis Mágicos', { name: 'Mísseis Mágicos', level: 1, isPrepared: true }],
-                    ['Mãos Flamejantes', { name: 'Mãos Flamejantes', level: 1, isPrepared: true }],
-                    ['Sono', { name: 'Sono', level: 1, isPrepared: false }],
-                    ['Armadura Arcana', { name: 'Armadura Arcana', level: 1, isPrepared: false }],
-                  ])
+          spells: [
+            { name: 'Mísseis Mágicos', level: 1, isPrepared: true },
+            { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
+            { name: 'Sono', level: 1, isPrepared: false },
+            { name: 'Armadura Arcana', level: 1, isPrepared: false },
+          ]
         }
-    ]
+    ],
+    [2, {
+      totalSlots: 2,
+      currentSlots: 2,
+      spells: [
+        { name: 'Arma Mágica', level: 2, isPrepared: true },
+        { name: 'Escuridão', level: 2, isPrepared: false },
+        { name: 'Raio Ardente', level: 2, isPrepared: true },
+      ]
+    }
+]
   ])
 }
 
 export class SpellByLevel {
   public totalSlots: number = 0;
   public currentSlots: number = 0;
-  public spells: Map<string, Spell> = new Map();
+  public spells: Spell[] = [];
 }
 
 export class Spell {

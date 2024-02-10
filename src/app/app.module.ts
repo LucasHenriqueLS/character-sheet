@@ -34,8 +34,8 @@ import { LifePointsComponent } from './components/pages/character-sheet/combat-s
 import { CombatStatsComponent } from './components/pages/character-sheet/combat-stats/combat-stats.component';
 import { AttacksComponent } from './components/pages/character-sheet/attacks/attacks.component';
 import { AttackComponent } from './components/pages/character-sheet/attacks/attack/attack.component';
-import { ConjurationsComponent } from './components/pages/character-sheet/conjurations/conjurations.component';
-import { SpellsByLevelComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spells-by-level.component';
+import { SpellcastingComponent } from './components/pages/character-sheet/spellcasting/spellcasting.component';
+import { SpellsByLevelComponent } from './components/pages/character-sheet/spellcasting/spells-by-level/spells-by-level.component';
 import { AbilityScoreComponent } from './components/pages/character-sheet/ability-scores/ability-score/ability-score.component';
 import { AttackOptionsComponent } from './components/pages/character-sheet/attacks/attack-options/attack-options.component';
 import { CharacteristicComponent } from './components/pages/character-sheet/characteristics/characteristic/characteristic.component';
@@ -48,7 +48,7 @@ import { SpecializedSkillGroupComponent } from './components/pages/character-she
 import { SpecializedSkillComponent } from './components/pages/character-sheet/specialized-skills/specialized-skill-group/specialized-skill/specialized-skill.component';
 import { HitDiceComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-dice.component';
 import { HitDieComponent } from './components/pages/character-sheet/combat-stats/hit-dice/hit-die/hit-die.component';
-import { SpellComponent } from './components/pages/character-sheet/conjurations/spells-by-level/spell/spell.component';
+import { SpellComponent } from './components/pages/character-sheet/spellcasting/spells-by-level/spell/spell.component';
 import { ProficiencyBonusComponent } from './components/pages/character-sheet/proficiency-bonus/proficiency-bonus.component';
 import { InspirationComponent } from './components/pages/character-sheet/inspiration/inspiration.component';
 import { InformationsComponent } from './components/pages/character-sheet/informations/informations.component';
@@ -78,7 +78,7 @@ import { InitiativeComponent } from './components/pages/character-sheet/combat-s
     CombatStatsComponent,
     AttacksComponent,
     AttackComponent,
-    ConjurationsComponent,
+    SpellcastingComponent,
     SpellsByLevelComponent,
     AbilityScoreComponent,
     AttackOptionsComponent,

@@ -1,0 +1,10 @@
+<mat-card class="spellcasting">
+    <mat-card class="spells-by-level">
+        <app-spells-by-level *ngFor="let level of levels" [level]="level" [spellByLevel]="getSpellByLevel(level)"></app-spells-by-level>
+    </mat-card>
+    <mat-card class="add-button-container">
+        <mat-card class="add-button">
+            <button mat-icon-button color="primary" (click)="addNewSpellsByLevel()"><mat-icon>add</mat-icon></button>
+        </mat-card>
+    </mat-card>
+</mat-card>

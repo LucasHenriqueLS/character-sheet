@@ -1,29 +1,25 @@
 <mat-card class="spells-by-level">
-    <mat-card class="level-stats">
+    <mat-card class="level-stats" [ngClass]="{'is-trick': level === 0}">
         <mat-card class="level">
             <input type="text" placeholder="-" name="level-input" [(ngModel)]="level" (change)="changeSpellsPerLevel()" required>
         </mat-card>
-        <mat-card class="total-slots">
+        <mat-card class="total-slots" *ngIf="!(level === 0)">
             <input type="text" placeholder="-" name="total-slots-input" [(ngModel)]="totalSlots" required>
         </mat-card>
-        <mat-card class="current-slots">
+        <mat-card class="current-slots" *ngIf="!(level === 0)">
             <input type="text" placeholder="-" name="current-slots-input" [(ngModel)]="currentSlots" required>
         </mat-card>
         <mat-card class="delete-button">
-            <button mat-icon-button color="warn" (click)="removeSpellsPerLevel()"><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="removeSpellsPerLevel()" [disabled]="!isTheHighestLevel()"><mat-icon>delete</mat-icon></button>
         </mat-card>
-        <!-- <mat-card>
-            <p><span>1</span>°</p>
-        </mat-card>
-        <mat-card>
-            <input type="text" placeholder="-" name="die-form-field-input" [(ngModel)]="total" required>
-        </mat-card>
-        <mat-card>
-            <p>2</p>
-        </mat-card> -->
     </mat-card>
     <mat-card class="spells">
         <app-spell *ngFor="let spell of spells" [spell]="spell"></app-spell>
+    </mat-card>
+    <mat-card class="add-button-container">
+        <mat-card class="add-button">
+            <button mat-icon-button color="primary" (click)="addNewSpell()"><mat-icon>add</mat-icon></button>
+        </mat-card>
     </mat-card>
 </mat-card>
 

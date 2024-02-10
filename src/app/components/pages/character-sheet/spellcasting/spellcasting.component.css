@@ -1,0 +1,46 @@
+.spellcasting {
+    padding: 3px;
+    background-color: rgb(140, 140, 140);
+    border-radius:15px;
+}
+
+.spells-by-level {
+  background-color: rgb(160, 160, 160);
+  padding: 3px;
+  border-radius: 12px;
+  display: grid;
+  gap: 3px;
+}
+
+.add-button-container {
+    margin-top: 5px;
+    background-color: rgb(200, 200, 200);
+    height: 33px;
+    width: 33px;
+    padding: 3px;
+    border-radius: 11px;
+    display: grid;
+  }
+  
+  .add-button {
+    background-color: rgb(220, 220, 220);
+    height: 27px;
+    width: 27px;
+    border-radius: 8px;
+    display: grid;
+  }
+  
+  .add-button button {
+    height: 24px;
+    width: 24px;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+  }
+  
+  .add-button button mat-icon {
+    justify-self: center;
+    align-self: center;
+  }

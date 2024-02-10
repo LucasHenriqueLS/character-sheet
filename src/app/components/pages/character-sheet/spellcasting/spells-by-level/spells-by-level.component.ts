@@ -15,7 +15,7 @@ export class SpellsByLevelComponent {
   ) { }
 
   @Input() level!: number;
-  private spellByLevel!: SpellByLevel;
+  @Input() spellByLevel!: SpellByLevel;
 
   private privateLevel!: number;
 
@@ -40,7 +40,6 @@ export class SpellsByLevelComponent {
   }
 
   ngOnInit() {
-    this.spellByLevel = this.characterService.character.spellcasting.spellsByLevel.get(this.level)!;
     this.privateLevel = this.level;
   }
 
@@ -53,7 +52,16 @@ export class SpellsByLevelComponent {
     }
   }
 
+  isTheHighestLevel(): boolean {
+    return this.level === Array.from(this.characterService.character.spellcasting.spellsByLevel.keys()).reduce((currentLevel, nextLevel) => currentLevel >= nextLevel ? currentLevel : nextLevel);
+  }
+
   removeSpellsPerLevel() {
     this.characterService.character.spellcasting.spellsByLevel.delete(this.level);
+  }
+
+  addNewSpell() {
+    this.spellByLevel.spells.push({ name: '', level: this.level, isPrepared: false });
+    this.characterService.emitUpdate();
   }
 }

@@ -1,0 +1,108 @@
+.spells-by-level {
+    background-color: rgb(180, 180, 180);
+    padding: 3px;
+    border-radius: 9px;
+}
+
+.spells-by-level .level-stats {
+    height: 36px;
+    width: 202px;
+    background-color: rgb(200, 200, 200);
+    margin-bottom: 5px;
+    padding: 3px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 50px 50px 50px 40px;
+    gap: 3px;
+}
+
+.is-trick {
+    width: 96px !important;
+    grid-template-columns: 50px 40px !important;
+}
+
+.level, .total-slots, .current-slots {
+    border-radius: 6px;
+    background-color: rgb(220, 220, 220);
+    display: grid;
+}
+
+.level-stats input {
+    background-color: rgb(240, 240, 240);
+    width: 75%;
+    height: 75%;
+    border-radius: 5px;
+    border: 0px;
+    color: rgb(100, 185, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(20, 20, 20);
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.delete-button {
+    height: 30px;
+    margin-right: 4px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+    
+.delete-button button {
+    height: 27px;
+    width: 27px;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+    
+.delete-button button mat-icon {
+    justify-self: center;
+    align-self: center;
+}
+
+.spells {
+    background-color: rgb(200, 200, 200);
+    padding: 3px;
+    border-radius: 16px;
+    display: grid;
+    gap: 3px;
+}
+
+.add-button-container {
+    margin-top: 5px;
+    background-color: rgb(200, 200, 200);
+    height: 33px;
+    width: 33px;
+    padding: 3px;
+    border-radius: 11px;
+    display: grid;
+}
+  
+.add-button {
+    background-color: rgb(220, 220, 220);
+    height: 27px;
+    width: 27px;
+    border-radius: 8px;
+    display: grid;
+}
+  
+.add-button button {
+    height: 24px;
+    width: 24px;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+  
+.add-button button mat-icon {
+    justify-self: center;
+    align-self: center;
+}

@@ -1,5 +1,4 @@
 .spell {
-    width: 400px;
     height: 28px;
     padding: 2px;
     background-color: rgb(220, 220, 220);
@@ -7,14 +6,20 @@
     display: grid;
     grid-template-columns: 24px auto 40px;
     gap: 2px;
+    justify-items: center;
+    align-items: center;
+}
+
+.is-trick {
+    grid-template-columns: auto 40px;
 }
 
 .is-prepared {
     height: 24px;
     width: 100%;
     display: grid;
-    justify-self: center;
-    align-self: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .is-prepared input {
@@ -25,8 +30,6 @@
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
-    justify-self: center;
-    align-self: center;
 }
 
 .is-prepared input:checked {
@@ -36,17 +39,14 @@
 .name {
     height: 24px;
     width: 100%;
-    justify-self: center;
-    align-self: center;
-    display: grid;
 }
 
 .name-form-field {
     height: 100%;
     width: 100%;
     display: grid;
-    justify-self: center;
-    align-self: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .name-form-field input {
@@ -59,8 +59,6 @@
     font-size: 13px;
     font-weight: bold;
     text-align: start;
-    justify-self: center;
-    align-self: center;
 }
 
 .delete-button {

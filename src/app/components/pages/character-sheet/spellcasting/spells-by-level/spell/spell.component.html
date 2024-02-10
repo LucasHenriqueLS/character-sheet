@@ -1,5 +1,5 @@
-<mat-card class="spell">
-    <div class="is-prepared">
+<mat-card class="spell" [ngClass]="{'is-trick': spell.level === 0}">
+    <div class="is-prepared" *ngIf="!(spell.level === 0)">
         <input type="checkbox" name="name-form-field-input" [(ngModel)]="isPrepared" required>
     </div>
     <div class="name">

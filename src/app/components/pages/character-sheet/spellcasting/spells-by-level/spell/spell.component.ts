@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Spell } from 'src/app/components/Character';
+import { Character, Spell } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
+import { MapUtils } from 'src/app/util/util';
 
 @Component({
   selector: 'app-spell',
@@ -12,6 +13,8 @@ export class SpellComponent {
   constructor(
     private readonly characterService: CharacterService
   ) { }
+
+  private character!: Character;
 
   @Input() spell!: Spell;
 
@@ -31,13 +34,14 @@ export class SpellComponent {
     this.spell.name = name;
   }
 
-  // changeSpell(): void {
-  //   this.character.specializedSkills.get(this.ability)!.set(this.groupName, MapUtils.changeKey(this.character.specializedSkills.get(this.ability)!.get(this.groupName)!, this.privateSpecializedSkill, this.specializedSkill));
-  //   this.characterService.emitUpdate();
-  //   this.privateSpecializedSkill = this.specializedSkill;
-  // }
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
+  }
 
   removeSpell() {
-    this.characterService.character.spellcasting.spellsByLevel.get(this.spell.level)!.spells.delete(this.spell.name);
+    const spells = this.character.spellcasting.spellsByLevel.get(this.spell.level)!.spells;
+    spells.splice(spells.findIndex(spell => spell.name === this.name), 1);
   }
 }
