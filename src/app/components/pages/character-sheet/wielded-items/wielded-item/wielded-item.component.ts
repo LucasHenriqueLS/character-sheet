@@ -66,6 +66,11 @@ export class WieldedItemComponent {
         if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
           this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
         }
+        const armor = this.character.armor;
+        const weildedShields: WieldableItem[] = this.characterService.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
+        const shields: Shield[] = weildedShields.map(weildedShield => weildedShield.item as Shield);
+        const shield: Shield | undefined = shields.length > 0 ? shields.reduce((currentShield, nextShield) => currentShield.coverageBonus >= nextShield.coverageBonus ? currentShield : nextShield) : undefined;
+        this.attackBonus += (armor ? armor.armorPenalty : 0) + (shield ? shield.armorPenalty : 0);
       }
     }
   }

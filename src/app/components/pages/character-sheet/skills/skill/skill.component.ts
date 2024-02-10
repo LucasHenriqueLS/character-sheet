@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Character } from 'src/app/components/Character';
+import { Character, Shield, WieldableItem } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 import { calculateAbilityModifier } from 'src/app/util/util';
 
@@ -18,17 +18,27 @@ export class SkillComponent {
 
   @Input() skill!: string;
   @Input() ability!: string;
-  @Input() skillOrSavingThrow!: string;
 
-  public modifier: number = 0;
+  private _modifier: number = 0;
 
   get proficiencyBonus(): number {
     return this.character.skills.get(this.ability)!.get(this.skill)!;
   }
-
+  
   set proficiencyBonus(proficiencyBonus: number) {
     this.character.skills.get(this.ability)!.set(this.skill, Number(proficiencyBonus));
     this.characterService.emitUpdate();
+  }
+
+  get modifier(): number {
+    if (this.ability === 'Destreza' || this.skill === 'Atletismo') {
+      const armor = this.character.armor;
+      const weildedShields: WieldableItem[] = this.characterService.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
+      const shields: Shield[] = weildedShields.map(weildedShield => weildedShield.item as Shield);
+      const shield: Shield | undefined = shields.length > 0 ? shields.reduce((currentShield, nextShield) => currentShield.coverageBonus >= nextShield.coverageBonus ? currentShield : nextShield) : undefined;
+      return this._modifier + (armor ? armor.armorPenalty : 0) + (shield ? shield.armorPenalty : 0);
+    }
+    return this._modifier;
   }
 
   ngOnInit(): void {
@@ -39,6 +49,6 @@ export class SkillComponent {
   }
 
   updateSkillModifier() {
-    this.modifier = this.proficiencyBonus + calculateAbilityModifier(this.character.abilities.get(this.ability)!);
+    this._modifier = this.proficiencyBonus + calculateAbilityModifier(this.character.abilities.get(this.ability)!);
   }
 }
