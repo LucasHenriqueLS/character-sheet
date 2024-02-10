@@ -101,14 +101,15 @@ export class Character {
   ]);
   public weapons: Weapon[] = [];
   public wieldedItems: WieldableItem[] = [
-    { item: new Item('', '', '', ''), id: '1111', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Item('', '', '', ''), id: '2222', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Item('Tocha Média', 'Tocha', 'Uma mão', 'Faz fogo e brilha.'), id: '1111', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Item('Varinha Média', 'Varinha das Maravilhas Maravilhosas', 'Uma mão', 'Lança magias maravilhosas de forma maravilhosamente maravilhosa.'), id: '2222', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
     { item: new Weapon('Lâmina (Muito Pequena)', 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), id: '3333', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
     { item: new Weapon('Lâmina (Média)', 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), id: '4444', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
     { item: new Weapon('Arco (Grande)', 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), id: '5555', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Shield ('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
+    { item: new Shield ('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield ('Escudo Médio (leve)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d3', 'contuntende', [], 1), id: '7777', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
   ];
-  // public armor: Armor;
+  public armor: Armor = new Armor(8, -3, 2);
   public characteristics: Characteristic[] = [
     {
       name: 'Ancestralidade Feérica',
@@ -190,13 +191,20 @@ export class Sheaths {
 }
 
 export class Clothing {
-  public armorClass: number = 0;
-  public limiteDexterityModifier: number = 0;
+  
 }
 
-export class Armor extends Clothing { // Tem que melhorar
-  
-  public isUseShield: string = 'pequeno, médio ou grande';
+export class Armor extends Clothing {
+  public armorBonus: number = 0;
+  public armorPenalty: number = 0;
+  public limiteDexterityModifier: number = 0;
+
+  constructor(armorBonus: number, armorPenalty: number, limiteDexterityModifier: number) {
+    super();
+    this.armorBonus = armorBonus;
+    this.armorPenalty = armorPenalty;
+    this.limiteDexterityModifier = limiteDexterityModifier;
+  }
 }
 
 export class WieldableItem {

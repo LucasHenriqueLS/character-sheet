@@ -1,19 +1,31 @@
 <mat-card class="wielded-item">
-    <mat-card class="left-hand">
+    <mat-card class="left-hand" [ngClass]="{'wielded': !wieldedItem.isWieldedInTheLeftHand}">
         <button mat-icon-button color="primary" (click)="wieldOrUnwieldInTheLeftHand()"><mat-icon>front_hand</mat-icon></button>
     </mat-card>
-    <div class="weapon" *ngIf="weapon !== undefined">
+    <div class="item" *ngIf="item !== undefined" [ngClass]="{'wielded': (!wieldedItem.isWieldedInTheLeftHand && !wieldedItem.isWieldedInTheRightHand)}">
+        <div class="name-and-edit-buttons">
+            <mat-card class="name">
+                <p><span>{{ item.name + '. ' }}</span> {{ item.hands }}</p>
+            </mat-card>
+            <mat-card class="edit-buttons">
+              <button mat-icon-button color="warn" (click)="removeWieldedItem()"><mat-icon>delete</mat-icon></button>
+            </mat-card>
+        </div>
+        <mat-card class="description">
+            <p>{{ item.description }}</p>
+        </mat-card>
+    </div>
+    <div class="weapon" *ngIf="weapon !== undefined" [ngClass]="{'wielded': (!wieldedItem.isWieldedInTheLeftHand && !wieldedItem.isWieldedInTheRightHand)}">
         <div class="name-and-edit-buttons">
             <mat-card class="name">
                 <p><span>{{ weapon.name + '. ' }}</span> {{ weapon.type + '; ' + weapon.hands }}</p>
             </mat-card>
             <mat-card class="edit-buttons">
-              <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+              <button mat-icon-button color="warn" (click)="removeWieldedItem()"><mat-icon>delete</mat-icon></button>
             </mat-card>
         </div>
         <mat-card>
-            <!-- <p>{{ (attackBonus >= 0 ? '+' : '') + attackBonus }}</p> -->
-            <p>+2</p>
+            <p>{{ (attackBonus >= 0 ? '+' : '') + attackBonus }}</p>
         </mat-card>
         <mat-card>
             <p>{{ weapon.range + ', ' + weapon.targets }}</p>
@@ -23,28 +35,44 @@
                 <p>{{ weapon.damageDie }}</p>
             </mat-card>
             <mat-card>
-                <!-- <p>{{ (damageBonus >= 0 ? '+' : '') + damageBonus }}</p> -->
-                <p>+2</p>
+                <p>{{ (damageBonus >= 0 ? '+' : '') + damageBonus }}</p>
             </mat-card>
             <mat-card>
                 <p>{{ weapon.damateType }}</p>
             </mat-card>
         </mat-card>
     </div>
-    <div *ngIf="item !== undefined">
-        <div class="name-and-edit-buttons">
+    <div class="shield" *ngIf="shield !== undefined" [ngClass]="{'wielded': (!wieldedItem.isWieldedInTheLeftHand && !wieldedItem.isWieldedInTheRightHand)}">
+        <div class="name-coverage-bonus-and-edit-buttons">
             <mat-card class="name">
-                <p><span>{{ item.name + '. ' }}</span> {{ item.hands }}</p>
+                <p><span>{{ shield.name + '. ' }}</span> {{ shield.type + '; ' + shield.hands }}</p>
+            </mat-card>
+            <mat-card class="coverage-bonus">
+                <p>{{ '+' + shield.coverageBonus }}</p>
             </mat-card>
             <mat-card class="edit-buttons">
-              <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+              <button mat-icon-button color="warn" (click)="removeWieldedItem()"><mat-icon>delete</mat-icon></button>
             </mat-card>
         </div>
         <mat-card>
-            <p>{{ item.description }}</p>
+            <p>{{ (attackBonus >= 0 ? '+' : '') + attackBonus }}</p>
+        </mat-card>
+        <mat-card>
+            <p>{{ shield.range + ', ' + shield.targets }}</p>
+        </mat-card>
+        <mat-card class="damage-type">
+            <mat-card>
+                <p>{{ shield.damageDie }}</p>
+            </mat-card>
+            <mat-card>
+                <p>{{ (damageBonus >= 0 ? '+' : '') + damageBonus }}</p>
+            </mat-card>
+            <mat-card>
+                <p>{{ shield.damateType }}</p>
+            </mat-card>
         </mat-card>
     </div>
-    <mat-card class="right-hand">
-        <button mat-icon-button color="primary"><mat-icon>front_hand</mat-icon></button>
+    <mat-card class="right-hand" [ngClass]="{'wielded': !wieldedItem.isWieldedInTheRightHand}">
+        <button mat-icon-button color="primary" (click)="wieldOrUnwieldInTheRightHand()"><mat-icon>front_hand</mat-icon></button>
     </mat-card>
 </mat-card>

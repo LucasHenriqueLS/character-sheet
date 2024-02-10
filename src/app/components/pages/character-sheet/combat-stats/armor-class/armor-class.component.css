@@ -1,0 +1,84 @@
+.armor-class {
+    height: 63px;
+    width: 303px;
+    padding: 3px;
+    background-color: rgb(220, 220, 220);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 27% 27% 27% 27%;
+    gap: 2px;
+}
+
+.armor-class mat-card {
+    background-color: rgb(240, 240, 240);
+}
+
+.dodge-bonus-title {
+    margin-bottom: 2px;
+    display: grid;
+}
+
+.dodge-bonus {
+    height: 32px;
+    display: grid;
+}
+
+.armor-bonus-title {
+    position: relative;
+    right: 10px;
+    margin-bottom: 2px;
+    display: grid;
+}
+
+.armor-bonus {
+    position: relative;
+    right: 10px;
+    height: 36px;
+    display: grid;
+}
+
+.shield-bonus-title {
+    position: relative;
+    right: 20px;
+    margin-bottom: 2px;
+    display: grid;
+}
+
+.shield-bonus {
+    position: relative;
+    right: 20px;
+    height: 40px;
+    display: grid;
+}
+
+.hit-title {
+    position: relative;
+    right: 30px;
+    margin-bottom: 2px;
+    display: grid;
+}
+
+.hit {
+    position: relative;
+    right: 30px;
+    height: 44px;
+    display: grid;
+}
+
+h6 {
+    margin: 0px;
+    color: rgb(0, 0, 0);
+    font-size: 8px;
+    justify-self: center;
+}
+
+p {
+    margin: 0px;
+    color: rgb(160, 160, 160);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(20, 20, 20);
+    font-size: 23px;
+    font-weight: bold;
+    justify-self: center;
+    align-self: center;
+}

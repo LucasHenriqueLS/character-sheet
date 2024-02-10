@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Character, Item, Shield, Weapon, WieldableItem } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
+import { calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-wielded-item',
@@ -29,24 +30,107 @@ export class WieldedItemComponent {
     return (this.wieldedItem.item.constructor === Shield) ? this.wieldedItem.item : undefined;
   }
 
+  public attackBonus!: number;
+  public damageBonus!: number;
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+      this.updateAttackAndDamageBonusModifier();
+    });
+  }
+
+  updateAttackAndDamageBonusModifier() {
+    let item: Weapon | Shield | undefined;
+    if (this.wieldedItem.item.constructor === Weapon) {
+      item = this.weapon;
+    }
+    if (this.wieldedItem.item.constructor === Shield) {
+      item = this.shield;
+    }
+    if (item) {
+      if (item.type.includes('Arma Corpo a Corpo')) {
+        const strength: number = this.character.abilities.get('Força')!;
+        if (item.properties.includes('Acuidade')) {
+          const dexterity: number = this.character.abilities.get('Destreza')!;
+          this.damageBonus = calculateAbilityModifier((strength >= dexterity) ? strength : dexterity);
+        } else {
+          this.damageBonus = calculateAbilityModifier(strength);
+        }
+        this.attackBonus = this.damageBonus;
+        if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(item.classification)) {
+          this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(item.classification)!;
+        }
+      } else {
+        this.attackBonus = this.damageBonus = calculateAbilityModifier(this.character.abilities.get('Destreza')!);
+        if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
+          this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
+        }
+      }
+    }
+  }
+
   wieldOrUnwieldInTheLeftHand(): void {
-    const a = this.characterService.character.wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheLeftHand);
+    const wieldedItems = this.characterService.character.wieldedItems;
+    const previouslyWieldedItem = wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheLeftHand);
     this.wieldedItem.isWieldedInTheLeftHand = !this.wieldedItem.isWieldedInTheLeftHand;
     if (this.wieldedItem.isWieldedInTheLeftHand) {
-      if (a !== undefined) {
-        this.characterService.character.wieldedItems.findIndex(a);
-        this.characterService.character.wieldedItems.splice(a.item.position, 1);
-        a.isWieldedInTheLeftHand = false;
-        a.item.position++;
-        this.characterService.character.wieldedItems.splice(a.item.position, 0, a);
+      if (previouslyWieldedItem !== undefined) {
+        previouslyWieldedItem.isWieldedInTheLeftHand = false;
       }
-      this.characterService.character.wieldedItems.splice(this.wieldedItem.item.position, 1);
-      this.wieldedItem.item.position = 0;
-      this.characterService.character.wieldedItems.unshift(this.wieldedItem);
+      let index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
+      wieldedItems.splice(index, 1);
+      const a = wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheLeftHand || wieldedItem.isWieldedInTheRightHand);
+      if (a) {
+        index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === a.id);
+        wieldedItems.splice(index, 1);
+        wieldedItems.unshift(a);
+        wieldedItems.splice(1, 0, this.wieldedItem);
+      } else {
+        wieldedItems.splice(0, 0, this.wieldedItem);
+      }
     } else {
-      this.characterService.character.wieldedItems.splice(this.wieldedItem.item.position, 1);
-      this.wieldedItem.item.position++;
-      this.characterService.character.wieldedItems.splice(this.wieldedItem.item.position, 0, this.wieldedItem);
+      const index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
+      if (wieldedItems.find(wieldedItem => (wieldedItem.isWieldedInTheLeftHand || wieldedItem.isWieldedInTheRightHand) && wieldedItem.id !== this.wieldedItem.id)) {
+        wieldedItems.splice(index, 1);
+        wieldedItems.splice(1, 0, this.wieldedItem);
+      }
     }
+  }
+
+  wieldOrUnwieldInTheRightHand(): void {
+    const wieldedItems = this.characterService.character.wieldedItems;
+    const previouslyWieldedItem = wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheRightHand);
+    this.wieldedItem.isWieldedInTheRightHand = !this.wieldedItem.isWieldedInTheRightHand;
+    if (this.wieldedItem.isWieldedInTheRightHand) {
+      if (previouslyWieldedItem !== undefined) {
+        previouslyWieldedItem.isWieldedInTheRightHand = false;
+      }
+      let index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
+      wieldedItems.splice(index, 1);
+      const a = wieldedItems.find(wieldedItem => wieldedItem.isWieldedInTheLeftHand || wieldedItem.isWieldedInTheRightHand);
+      if (a) {
+        index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === a.id);
+        wieldedItems.splice(index, 1);
+        wieldedItems.unshift(a);
+        wieldedItems.splice(1, 0, this.wieldedItem);
+      } else {
+        wieldedItems.splice(0, 0, this.wieldedItem);
+      }
+    } else {
+      const index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
+      wieldedItems.splice(index, 1);
+      wieldedItems.splice(index, 0, this.wieldedItem);
+      if (wieldedItems.find(wieldedItem => (wieldedItem.isWieldedInTheLeftHand || wieldedItem.isWieldedInTheRightHand) && wieldedItem.id !== this.wieldedItem.id)) {
+        wieldedItems.splice(index, 1);
+        wieldedItems.splice(1, 0, this.wieldedItem);
+      }
+    }
+  }
+
+  removeWieldedItem() {
+    const wieldedItems = this.characterService.character.wieldedItems;
+    const index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
+    wieldedItems.splice(index, 1);
   }
 }

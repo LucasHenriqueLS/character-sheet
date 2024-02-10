@@ -7,7 +7,7 @@ import { Weapon } from 'src/app/components/Character';
 const WEAPON_DATA: Weapon[] = [
   {
     classification: 'Lâmina (Muito Pequena)',
-    position: 1,
+    // position: 1,
     name: 'Adaga',
     type: 'Arma Corpo a Corpo ou à Distância',
     hands: 'Uma mão',
@@ -20,7 +20,7 @@ const WEAPON_DATA: Weapon[] = [
   },
   {
     classification: 'Lâmina (Média)',
-    position: 2,
+    // position: 2,
     name: 'Espada Longa',
     type: 'Arma Corpo a Corpo',
     hands: 'Uma mão ou Duas mãos',
@@ -33,7 +33,7 @@ const WEAPON_DATA: Weapon[] = [
   },
   {
     classification: 'Arco (Grande)',
-    position: 3,
+    // position: 3,
     name: 'Arco Longo',
     type: 'Arma à Distância',
     hands: 'Duas mãos',
@@ -88,6 +88,6 @@ export class AttackOptionsComponent {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${/* row.position +*/ 1}`;
   }
 }

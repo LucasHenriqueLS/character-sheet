@@ -37,9 +37,13 @@
 .wielded-item .right-hand button mat-icon {
     justify-self: center;
     align-self: center;
-} 
+}
 
-.wielded-item .weapon {
+.wielded {
+    opacity: 0.2;
+}
+
+.wielded-item .weapon, .wielded-item .shield {
     padding: 6px 3px 3px 6px;
     background-color: rgb(200, 200, 200);
     border-radius: 15px;
@@ -48,7 +52,27 @@
     row-gap: 3px;
     column-gap: 6px;
     align-items: center;
-    opacity: 0.2;
+}
+
+.wielded-item .item {
+    padding: 6px 3px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wielded-item .item .name {
+    margin-left: 3px;
+}
+
+.wielded-item .item .description {
+    margin: 0px 3px;
+    padding: 0px 6px;
+    justify-content: start;
 }
 
 .wielded-item mat-card {
@@ -75,9 +99,18 @@
   gap: 3px;
 }
 
+.wielded-item .name-coverage-bonus-and-edit-buttons {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-right: 3px;
+    display: grid;
+    grid-template-columns: auto 10% 7.5%;
+    gap: 3px;
+  }
+
 .wielded-item .name p {
     justify-self: start;
-    margin-left: 6px;
+    margin: 0px 6px;
     font-style: italic;
 }
 

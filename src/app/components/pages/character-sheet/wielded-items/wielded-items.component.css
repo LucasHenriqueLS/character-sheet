@@ -65,9 +65,15 @@
   font-weight: bold;
 }
 
-.wielded-item .name {
+.name-and-coverage-bonus {
   grid-column-start: 1;
   grid-column-end: 4;
+  display: grid;
+  grid-template-columns: auto 30%;
+  gap: 6px;
+}
+
+.wielded-item .coverage-bonus {
   margin-right: 3px;
 }
 

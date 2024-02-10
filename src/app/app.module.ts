@@ -57,6 +57,7 @@ import { CharacterSheetHeaderComponent } from './components/pages/character-shee
 import { InventoryComponent } from './components/pages/character-sheet/inventory/inventory.component';
 import { WieldedItemsComponent } from './components/pages/character-sheet/wielded-items/wielded-items.component';
 import { WieldedItemComponent } from './components/pages/character-sheet/wielded-items/wielded-item/wielded-item.component';
+import { ArmorClassComponent } from './components/pages/character-sheet/combat-stats/armor-class/armor-class.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { WieldedItemComponent } from './components/pages/character-sheet/wielded
     CharacterSheetHeaderComponent,
     InventoryComponent,
     WieldedItemsComponent,
-    WieldedItemComponent
+    WieldedItemComponent,
+    ArmorClassComponent
   ],
   imports: [
     BrowserModule,

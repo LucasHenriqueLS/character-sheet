@@ -1,4 +1,31 @@
 <mat-card class="wielded-items">
+  <mat-card class="wielded-item">
+    <div class="name-and-coverage-bonus">
+      <mat-card class="name">
+        <p><span>Nome da Arma.</span> Tipo da Arma; Mãos Necessárias</p>
+      </mat-card>
+      <mat-card class="coverage-bonus">
+        <p>Bônus de Cobertura</p>
+      </mat-card>
+    </div>
+    <mat-card>
+        <p>Ataque</p>
+    </mat-card>
+    <mat-card>
+        <p>Alcance, Número de Alvos</p>
+    </mat-card>
+    <mat-card class="damage-type">
+        <mat-card>
+            <p>Dado de Dano</p>
+        </mat-card>
+        <mat-card>
+            <p>Dano</p>
+        </mat-card>
+        <mat-card>
+            <p>Tipo de Dano</p>
+        </mat-card>
+    </mat-card>
+  </mat-card>
     <div *ngFor="let wieldedItem of wieldedItems">
       <app-wielded-item [wieldedItem]="wieldedItem"></app-wielded-item>
     </div>
