@@ -52,15 +52,16 @@ export class Character {
   public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
     ["Força", new Map([
       ["Armas", new Map([
-        ["Lâmina (Muito Pequena)", 0],  // Adagas
-        ["Lâmina (Pequena)", 0],        // Espadas Curtas
-        ["Lâmina (Média)", 0],          // Espadas Longas
-        ["Lâmina (Grande)", 0]          // Espadas Grandes
+        ["Espada Média (muito leve)", 0],  // Adagas
+        ["Espada Média (leve)", 0],        // Espadas Curtas
+        ["Espada Média (mediana)", 0],          // Espadas Longas
+        ["Espada Média (pesada)", 0],          // Espadas Grandes
+        ["Escudo Médio (leve)", 0]
       ])]
     ])],
     ["Destreza", new Map([
       ["Armas", new Map([
-        ["Arco (Grande)", 0],  // Arco Longo
+        ["Arco Médio (mediano)", 0],  // Arco Longo
       ])]
     ])],
     ["Inteligência", new Map([
@@ -103,13 +104,13 @@ export class Character {
   public wieldedItems: WieldableItem[] = [
     { item: new Item('Tocha Média', 'Tocha', 'Uma mão', 'Faz fogo e brilha.'), id: '1111', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
     { item: new Item('Varinha Média', 'Varinha das Maravilhas Maravilhosas', 'Uma mão', 'Lança magias maravilhosas de forma maravilhosamente maravilhosa.'), id: '2222', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Lâmina (Muito Pequena)', 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), id: '3333', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Lâmina (Média)', 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), id: '4444', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Weapon('Arco (Grande)', 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), id: '5555', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Shield ('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
-    { item: new Shield ('Escudo Médio (leve)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d3', 'contuntende', [], 1), id: '7777', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
+    { item: new Weapon('Espada Média (muito leve)', 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), id: '3333', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Espada Média (mediana)', 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), id: '4444', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Arco Médio (mediano)', 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), id: '5555', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield ('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2, -2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield ('Escudo Médio (leve)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo',  '1,5 m', 'um alvo', '1d3', 'contuntende', [], 1, -1), id: '7777', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
   ];
-  public armor: Armor = new Armor(8, -3, 2);
+  public armor: Armor = new Armor('Peitoral de Placas', 125, 8, -3, 2); /* new Armor('Conjunto de Placas', 135, 13, -5, 0); */
   public characteristics: Characteristic[] = [
     {
       name: 'Ancestralidade Feérica',
@@ -182,7 +183,7 @@ export class Spell {
 }
 
 export class Inventory {
-  public clothing: Clothing = new Clothing();
+  // public clothing: Clothing = new Clothing();
   public sheaths: Sheaths[] = [];
 }
 
@@ -191,7 +192,13 @@ export class Sheaths {
 }
 
 export class Clothing {
-  
+  public name: string = '';
+  public fit: number = 0;
+
+  constructor(name: string, fit: number) {
+    this.name = name;
+    this.fit = fit;
+  }
 }
 
 export class Armor extends Clothing {
@@ -199,8 +206,8 @@ export class Armor extends Clothing {
   public armorPenalty: number = 0;
   public limiteDexterityModifier: number = 0;
 
-  constructor(armorBonus: number, armorPenalty: number, limiteDexterityModifier: number) {
-    super();
+  constructor(name: string, fit: number, armorBonus: number, armorPenalty: number, limiteDexterityModifier: number) {
+    super(name, fit);
     this.armorBonus = armorBonus;
     this.armorPenalty = armorPenalty;
     this.limiteDexterityModifier = limiteDexterityModifier;
@@ -249,9 +256,11 @@ export class Weapon extends Item {
 
 export class Shield extends Weapon {
   public coverageBonus: number = 0;
+  public armorPenalty: number = 0;
 
-  constructor(classification: string,name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[], coverageBonus: number) {
+  constructor(classification: string,name: string, hands: string, description: string, type: string, range: string, targets: string, damageDie: string, damateType: string, properties: string[], coverageBonus: number, armorPenalty: number) {
     super(classification, name, hands, description, type, range, targets, damageDie, damateType, properties);
     this.coverageBonus = coverageBonus;
+    this.armorPenalty = armorPenalty;
   }
 }

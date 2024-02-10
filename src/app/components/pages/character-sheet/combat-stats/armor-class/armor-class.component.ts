@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Character, Shield, WieldableItem } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
+import { calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-armor-class',
@@ -15,8 +16,12 @@ export class ArmorClassComponent {
 
   private character!: Character;
 
+  get name(): string {
+    return this.character.armor.name;
+  }
+
   get dodgeBonus(): number {
-    return 10 + this.character.abilities.get('Destreza')! + this.character.armor.armorPenalty;
+    return 10 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier) + this.character.armor.armorPenalty; // Math.min( + (shield ? shield.armorPenalty : 0), 10 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier));
   }
 
   get armorBonus(): number {

@@ -1,16 +1,38 @@
 .armor-class {
-    height: 63px;
-    width: 303px;
+    width: 360px;
     padding: 3px;
-    background-color: rgb(220, 220, 220);
-    display: grid;
-    align-items: center;
-    grid-template-columns: 27% 27% 27% 27%;
-    gap: 2px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
 }
 
 .armor-class mat-card {
     background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+}
+
+.armor-class .name {
+    height: 23px;
+    color: rgb(160, 160, 160);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(20, 20, 20);
+    font-size: 23px;
+    font-weight: bold;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.armor-class .name h3 {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.armor-class .armor-class-limits {
+    height: 63px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 94.5px 94.5px 94.5px 94.5px;
+    gap: 2px;
 }
 
 .dodge-bonus-title {

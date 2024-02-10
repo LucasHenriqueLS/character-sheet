@@ -1,34 +1,39 @@
 <mat-card class="armor-class">
-    <div>
-        <mat-card class="dodge-bonus-title">
-            <h6>Bônus de Esquiva</h6>
-        </mat-card>
-        <mat-card class="dodge-bonus">
-          <p>{{ '\<' + dodgeBonus }}</p>
-        </mat-card>
-    </div>
-    <div>
-        <mat-card class="armor-bonus-title">
-            <h6>Bônus de Armadura</h6>
-        </mat-card>
-        <mat-card class="armor-bonus">
-            <p>{{ (dodgeBonus + 1) + '-' + (dodgeBonus + armorBonus) }}</p>
-        </mat-card>
-    </div>
-    <div>
-        <mat-card class="shield-bonus-title">
-            <h6>Bônus de Escudo</h6>
-        </mat-card>
-        <mat-card class="shield-bonus">
-            <p>{{ shieldBonus > 0 ? shieldBonus > 1 ? (dodgeBonus + armorBonus + 1) + '-' + (dodgeBonus + armorBonus + shieldBonus) : (dodgeBonus + armorBonus + shieldBonus) : 0 }}</p>
-        </mat-card>
-    </div>
-    <div>
-        <mat-card class="hit-title">
-            <h6>Acerto</h6>
-        </mat-card>
-        <mat-card class="hit">
-            <p>{{ hit + '>' }}</p>
-        </mat-card>
+    <mat-card class="name">
+        <h3>{{ name }}</h3>
+    </mat-card>
+    <div class="armor-class-limits">
+        <div>
+            <mat-card class="dodge-bonus-title">
+                <h6>Bônus de Esquiva</h6>
+            </mat-card>
+            <mat-card class="dodge-bonus">
+              <p>{{ '\<' + (dodgeBonus < 0 ? '(' + dodgeBonus + ')' : dodgeBonus) }}</p>
+            </mat-card>
+        </div>
+        <div>
+            <mat-card class="armor-bonus-title">
+                <h6>Bônus de Armadura</h6>
+            </mat-card>
+            <mat-card class="armor-bonus">
+                <p>{{ ((dodgeBonus + 1) < 0 ? '(' + (dodgeBonus + 1) + ')' : (dodgeBonus + 1)) + '-' + ((dodgeBonus + armorBonus) < 0 ? '(' + (dodgeBonus + armorBonus) + ')' : (dodgeBonus + armorBonus)) }}</p>
+            </mat-card>
+        </div>
+        <div>
+            <mat-card class="shield-bonus-title">
+                <h6>Bônus de Escudo</h6>
+            </mat-card>
+            <mat-card class="shield-bonus">
+                <p>{{ shieldBonus > 0 ? shieldBonus > 1 ? ((dodgeBonus + armorBonus + 1) < 0 ? '(' + (dodgeBonus + armorBonus + 1) + ')' : (dodgeBonus + armorBonus + 1)) + '-' + ((dodgeBonus + armorBonus + shieldBonus) < 0 ? '(' + (dodgeBonus + armorBonus + shieldBonus) + ')' : (dodgeBonus + armorBonus + shieldBonus)) : ((dodgeBonus + armorBonus + shieldBonus) < 0 ? '(' + (dodgeBonus + armorBonus + shieldBonus) + ')' : (dodgeBonus + armorBonus + shieldBonus)) : 0 }}</p>
+            </mat-card>
+        </div>
+        <div>
+            <mat-card class="hit-title">
+                <h6>Acerto</h6>
+            </mat-card>
+            <mat-card class="hit">
+                <p>{{ (hit < 0 ? '(' + hit + ')' : hit) + '>' }}</p>
+            </mat-card>
+        </div>
     </div>
 </mat-card>
