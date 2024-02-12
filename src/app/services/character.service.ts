@@ -16,6 +16,8 @@ export class CharacterService {
   private characterSource = new BehaviorSubject<Character>(new Character());
   public character$ = this.characterSource.asObservable();
 
+  public dadosCarregados: boolean = false;
+
   get character(): Character {
     return this.characterSource.getValue();
   }
@@ -108,7 +110,8 @@ export class CharacterService {
       // a.specializedSkills.get('Inteligência')?.get('Conhecimentos')?.set('Culinária', 4);
       // this.character = a;
       // this.emitUpdate();
-      this.character = character
+      this.character = character;
+      this.dadosCarregados = true;
       console.log('Foi!');
 
   }

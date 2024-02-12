@@ -13,4 +13,8 @@ export class CharacterSheetComponent {
   constructor(
     private readonly characterService: CharacterService
   ) { }
+
+  get dadosCarregados(): boolean {
+    return this.characterService.dadosCarregados;
+  }
 }
