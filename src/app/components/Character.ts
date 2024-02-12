@@ -1,7 +1,7 @@
 export class Character {
   [key: string]: any;
   public id: string = '';
-  public name: string = 'Eöl de Raveen-Há';
+  public name: string = '';
   public alignment: string = 'LN';
   public race: string = 'Elfo (da Lua)';
   public sex: string = 'Masculino';
@@ -14,6 +14,7 @@ export class Character {
   public currentLifePoints: number = 100;
   public temporaryLifePoints: number = 5;
   public hitDice: Map<string, HitDie> = new Map([
+    ["d6", { total: 4, remaining: 4 }],
     ["d8", { total: 1, remaining: 1 }],
     ["d12", { total: 5, remaining: 2 }]
   ]);
@@ -57,52 +58,7 @@ export class Character {
       ["Intimidação", 0]
     ])]
   ]);
-  public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
-    ["Força", new Map([
-      ["Armas", new Map([
-        ["Espada Média (muito leve)", 0],  // Adagas
-        ["Espada Média (leve)", 0],        // Espadas Curtas
-        ["Espada Média (mediana)", 0],          // Espadas Longas
-        ["Espada Média (pesada)", 0],          // Espadas Grandes
-        ["Escudo Médio (leve)", 0]
-      ])]
-    ])],
-    ["Destreza", new Map([
-      ["Armas", new Map([
-        ["Arco Médio (mediano)", 0],  // Arco Longo
-      ])]
-    ])],
-    ["Inteligência", new Map([
-      ["Conhecimentos", new Map([
-        ["Arcano", 0],
-        ["História", 0],
-        ["Natureza", 0],
-        ["Religião", 0]
-      ])],
-      ["Ferramentas", new Map([
-        ["Ferramentas de Ferreiro", 0],
-        ["Suprimentos de Alquimista", 0],
-        ["Kits de Venenos", 0],
-        ["Ferramentas de Ladrão", 0]
-      ])]
-    ])],
-    ["Sabedoria", new Map([
-      ["Profissões", new Map([
-        ["Cervejeito", 0],
-        ["Cozinheiro", 0],
-        ["Curtidor", 0],
-        ["Lenhador", 0]
-      ])]
-    ])],
-    ["Carisma", new Map([
-      ["Atuações", new Map([
-        ["Dramaturgia", 0],
-        ["Dança", 0],
-        ["Oratória", 0],
-        ["Instrumentos de Corda", 0]
-      ])]
-    ])]
-  ]);
+  public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map();
   public senses: Map<string, number> = new Map([
     ["vision", 0],
     ["hearing", 0],
@@ -169,7 +125,7 @@ export class Spellcasting {
       currentSlots: 0,
       spells: [
         { name: 'Raio de Gelo', level: 0, isPrepared: true },
-        { name: 'Raio de Fogo', level: 0, isPrepared: true }
+        // { name: 'Raio de Fogo', level: 0, isPrepared: true }
       ]
     }
     ],
@@ -178,9 +134,9 @@ export class Spellcasting {
           currentSlots: 2,
           spells: [
             { name: 'Mísseis Mágicos', level: 1, isPrepared: true },
-            { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
-            { name: 'Sono', level: 1, isPrepared: false },
-            { name: 'Armadura Arcana', level: 1, isPrepared: false },
+            // { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
+            // { name: 'Sono', level: 1, isPrepared: false },
+            // { name: 'Armadura Arcana', level: 1, isPrepared: false },
           ]
         }
     ],
@@ -189,8 +145,8 @@ export class Spellcasting {
       currentSlots: 2,
       spells: [
         { name: 'Arma Mágica', level: 2, isPrepared: true },
-        { name: 'Escuridão', level: 2, isPrepared: false },
-        { name: 'Raio Ardente', level: 2, isPrepared: true },
+        // { name: 'Escuridão', level: 2, isPrepared: false },
+        // { name: 'Raio Ardente', level: 2, isPrepared: true },
       ]
     }
 ]

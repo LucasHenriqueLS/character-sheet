@@ -11,7 +11,7 @@ import { calculateAbilityModifier } from 'src/app/util/util';
 export class WieldedItemComponent {
 
   constructor(
-    private characterService: CharacterService
+    private readonly characterService: CharacterService
   ) { }
 
   private character!: Character;
@@ -58,14 +58,14 @@ export class WieldedItemComponent {
           this.damageBonus = calculateAbilityModifier(strength);
         }
         this.attackBonus = this.damageBonus;
-        if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(item.classification)) {
-          this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(item.classification)!;
-        }
+        // if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(item.classification)) {
+        //   this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(item.classification)!;
+        // }
       } else {
         this.attackBonus = this.damageBonus = calculateAbilityModifier(this.character.abilities.get('Destreza')!);
-        if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
-          this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
-        }
+        // if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
+        //   this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
+        // }
         const armor = this.character.armor;
         const weildedShields: WieldableItem[] = this.characterService.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
         const shields: Shield[] = weildedShields.map(weildedShield => weildedShield.item as Shield);

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
-import { MapUtils } from 'src/app/util/util';
+import { MapUtil } from 'src/app/util/util';
 
 @Component({
   selector: 'app-hit-die',
@@ -47,7 +47,7 @@ export class HitDieComponent {
     if (this.character.hitDice.has(this.hitDie)) {
       this.removeHitDie();
     } else {
-      this.character.hitDice = MapUtils.changeKey(this.character.hitDice, this.privateHitDie, this.hitDie);
+      this.character.hitDice = MapUtil.changeKey(this.character.hitDice, this.privateHitDie, this.hitDie);
       this.characterService.emitUpdate();
       this.privateHitDie = this.hitDie;
     }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Character, Spell } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
-import { MapUtils } from 'src/app/util/util';
+import { MapUtil } from 'src/app/util/util';
 
 @Component({
   selector: 'app-spell',

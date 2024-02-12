@@ -13,12 +13,20 @@ export class HitDiceComponent {
     public readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get hitDice(): string[] {
-    return Array.from(this.characterService.character.hitDice.keys());
+    return Array.from(this.character.hitDice.keys());
+  }
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 
   addNewHitDie() {
-    this.characterService.character.hitDice.set("", { total: 0, remaining: 0 });
+    this.character.hitDice.set("", { total: 0, remaining: 0 });
     this.characterService.emitUpdate();
   }
 }

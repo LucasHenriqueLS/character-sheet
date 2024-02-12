@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
-import { MapUtils, calculateAbilityModifier } from 'src/app/util/util';
+import { MapUtil, calculateAbilityModifier } from 'src/app/util/util';
 
 @Component({
   selector: 'app-specialized-skill',
@@ -42,7 +42,7 @@ export class SpecializedSkillComponent {
   }
 
   changeSpecializedSkill(): void {
-    this.character.specializedSkills.get(this.ability)!.set(this.groupName, MapUtils.changeKey(this.character.specializedSkills.get(this.ability)!.get(this.groupName)!, this.privateSpecializedSkill, this.specializedSkill));
+    this.character.specializedSkills.get(this.ability)!.set(this.groupName, MapUtil.changeKey(this.character.specializedSkills.get(this.ability)!.get(this.groupName)!, this.privateSpecializedSkill, this.specializedSkill));
     this.characterService.emitUpdate();
     this.privateSpecializedSkill = this.specializedSkill;
   }

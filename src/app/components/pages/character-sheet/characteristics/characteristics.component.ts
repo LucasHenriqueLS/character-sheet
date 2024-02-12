@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Characteristic } from 'src/app/components/Character';
+import { Character, Characteristic } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -10,10 +10,18 @@ import { CharacterService } from 'src/app/services/character.service';
 export class CharacteristicsComponent {
 
   constructor(
-    public characterService: CharacterService
-  ) {}
+    public readonly characterService: CharacterService
+  ) { }
+
+  private character!: Character;
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
+  }
 
   addNewCharacteristic() {
-    this.characterService.character.characteristics.push(new Characteristic);
+    this.character.characteristics.push(new Characteristic);
   }
 }

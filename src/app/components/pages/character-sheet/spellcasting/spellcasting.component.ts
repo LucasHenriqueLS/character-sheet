@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SpellByLevel } from 'src/app/components/Character';
+import { Character, SpellByLevel } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -13,20 +13,28 @@ export class SpellcastingComponent {
     public readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get levels(): number[] {
-    return Array.from(this.characterService.character.spellcasting.spellsByLevel.keys());
+    return Array.from(this.character.spellcasting.spellsByLevel.keys());
+  }
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 
   getSpellByLevel(level: number): SpellByLevel {
-    return this.characterService.character.spellcasting.spellsByLevel.get(level)!;
+    return this.character.spellcasting.spellsByLevel.get(level)!;
   }
 
   addNewSpellsByLevel() {
-    this.characterService.character.spellcasting.spellsByLevel.set(this.getNextSpellLevel(), new SpellByLevel())
+    this.character.spellcasting.spellsByLevel.set(this.getNextSpellLevel(), new SpellByLevel())
   }
 
   private getNextSpellLevel(): number {
-    const spellsByLevel = Array.from(this.characterService.character.spellcasting.spellsByLevel.keys());
+    const spellsByLevel = Array.from(this.character.spellcasting.spellsByLevel.keys());
     return spellsByLevel.length > 0 ? spellsByLevel.reduce((currentLevel, nextLevel) => currentLevel >= nextLevel ? currentLevel : nextLevel) + 1 : 0;
   }
 }

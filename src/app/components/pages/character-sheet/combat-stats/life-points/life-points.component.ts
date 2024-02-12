@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -12,31 +13,39 @@ export class LifePointsComponent {
     public readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get currentLifePoints(): number {
-    return this.characterService.character.currentLifePoints;
+    return this.character.currentLifePoints;
   }
 
   set currentLifePoints(currentLifePoints: number) {
-    this.characterService.character.currentLifePoints = Number(currentLifePoints);
+    this.character.currentLifePoints = Number(currentLifePoints);
   }
 
   get maxLifePoints(): number {
-    return this.characterService.character.maxLifePoints;
+    return this.character.maxLifePoints;
   }
 
   set maxLifePoints(maxLifePoints: number) {
-    this.characterService.character.maxLifePoints = Number(maxLifePoints);
+    this.character.maxLifePoints = Number(maxLifePoints);
   }
 
   maxTemporaryLifePoints: number = 20;
   previousCurrentTemporaryLifePoints: number = 20;
 
   get currentTemporaryLifePoints(): number {
-    return this.characterService.character.temporaryLifePoints;
+    return this.character.temporaryLifePoints;
   }
 
   set currentTemporaryLifePoints(currentTemporaryLifePoints: number) {
-    this.characterService.character.temporaryLifePoints = Number(currentTemporaryLifePoints);
+    this.character.temporaryLifePoints = Number(currentTemporaryLifePoints);
+  }
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 
   onChangeTemporaryLifePoints() {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -12,67 +13,75 @@ export class CharacterSheetHeaderComponent {
     private readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get name(): string {
-    return this.characterService.character.name;
+    return this.character.name;
   }
   
   set name(name: string) {
-    this.characterService.character.name = name;
+    this.character.name = name;
   }
 
   get alignment(): string {
-    return this.characterService.character.alignment;
+    return this.character.alignment;
   }
   
   set alignment(alignment: string) {
-    this.characterService.character.alignment = alignment;
+    this.character.alignment = alignment;
   }
 
   get race(): string {
-    return this.characterService.character.race;
+    return this.character.race;
   }
   
   set race(race: string) {
-    this.characterService.character.race = race;
+    this.character.race = race;
   }
 
   get sex(): string {
-    return this.characterService.character.sex;
+    return this.character.sex;
   }
   
   set sex(sex: string) {
-    this.characterService.character.sex = sex;
+    this.character.sex = sex;
   }
 
   get combatantClass(): string {
-    return this.characterService.character.combatantClass;
+    return this.character.combatantClass;
   }
   
   set combatantClass(combatantClass: string) {
-    this.characterService.character.combatantClass = combatantClass;
+    this.character.combatantClass = combatantClass;
   }
 
   get backgroud(): string {
-    return this.characterService.character.backgroud;
+    return this.character.backgroud;
   }
   
   set backgroud(backgroud: string) {
-    this.characterService.character.backgroud = backgroud;
+    this.character.backgroud = backgroud;
   }
 
   get experience(): number {
-    return this.characterService.character.experience;
+    return this.character.experience;
   }
   
   set experience(experience: number) {
-    this.characterService.character.experience = +experience;
+    this.character.experience = +experience;
   }
 
   get description(): string {
-    return this.characterService.character.description;
+    return this.character.description;
   }
   
   set description(description: string) {
-    this.characterService.character.description = description;
+    this.character.description = description;
+  }
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 }

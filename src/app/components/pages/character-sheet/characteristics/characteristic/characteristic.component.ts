@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Characteristic } from 'src/app/components/Character';
+import { Character, Characteristic } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -10,13 +10,21 @@ import { CharacterService } from 'src/app/services/character.service';
 export class CharacteristicComponent {
 
   constructor(
-    public characterService: CharacterService
-  ) {}
+    public readonly characterService: CharacterService
+  ) { }
+
+  private character!: Character;
 
   @Input() characteristic!: Characteristic;
   @Input() position!: number;
+
+  ngOnInit(): void {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
+  }
   
   removeCharacteristic() {
-    this.characterService.character.characteristics.splice(this.position, 1);
+    this.character.characteristics.splice(this.position, 1);
   }
 }

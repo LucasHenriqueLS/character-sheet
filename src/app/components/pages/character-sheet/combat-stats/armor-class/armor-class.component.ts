@@ -11,7 +11,7 @@ import { calculateAbilityModifier } from 'src/app/util/util';
 export class ArmorClassComponent {
 
   constructor(
-    private characterService: CharacterService
+    private readonly characterService: CharacterService
   ) { }
 
   private character!: Character;
@@ -29,7 +29,7 @@ export class ArmorClassComponent {
   }
 
   get shieldBonus(): number {
-    const weildedShields: WieldableItem[] = this.characterService.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
+    const weildedShields: WieldableItem[] = this.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
     const shields: Shield[] = weildedShields.map(weildedShield => weildedShield.item as Shield);
     const shield: Shield | undefined = shields.length > 0 ? shields.reduce((currentShield, nextShield) => currentShield.coverageBonus >= nextShield.coverageBonus ? currentShield : nextShield) : undefined;
     return shield ? shield.coverageBonus : 0;

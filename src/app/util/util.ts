@@ -1,3 +1,5 @@
+import MapifyTs from "mapify-ts";
+
 export function calculateAbilityModifier(score: number): number {
   return Math.floor((score - 10) / 2);
 }
@@ -104,7 +106,7 @@ export class TranslateFromTo {
   }
 }
 
-export class MapUtils {
+export class MapUtil {
 
   public static changeKey<K, V>(map: Map<K, V>, oldKey: K, newKey: K): Map<K, V> {
     if (!map.has(oldKey))
@@ -121,5 +123,15 @@ export class MapUtils {
       }
     }
     return newMap;
+  }
+
+  public static deserialize(obj: any): Map<any, any> {
+    const map = new Map<any, any>();
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        map.set(key, obj[key]);
+      }
+    }
+    return map;
   }
 }
