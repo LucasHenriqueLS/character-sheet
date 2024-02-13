@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -12,19 +13,29 @@ export class ProficiencyBonusComponent {
     private readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get total(): number {
-    return this.characterService.character.proficiencyBonus.total;
+    return this.character.proficiencyBonus.total;
   }
 
   set total(total: number) {
-    this.characterService.character.proficiencyBonus.total = +total;
+    this.character.proficiencyBonus.total = +total;
+    this.characterService.emitUpdate();
   }
 
   get current(): number {
-    return this.characterService.character.proficiencyBonus.current;
+    return this.character.proficiencyBonus.current;
   }
 
   set current(current: number) {
-    this.characterService.character.proficiencyBonus.current = +current;
+    this.character.proficiencyBonus.current = +current;
+    this.characterService.emitUpdate();
+  }
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 }

@@ -21,7 +21,7 @@ export class ArmorClassComponent {
   }
 
   get dodgeBonus(): number {
-    return 10 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier) + this.character.armor.armorPenalty; // Math.min( + (shield ? shield.armorPenalty : 0), 10 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier));
+    return 9 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier) + this.character.armor.armorPenalty; // Math.min( + (shield ? shield.armorPenalty : 0), 10 + Math.min(calculateAbilityModifier(this.character.abilities.get('Destreza')!), this.character.armor.limiteDexterityModifier));
   }
 
   get armorBonus(): number {

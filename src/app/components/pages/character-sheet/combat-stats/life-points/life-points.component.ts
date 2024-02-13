@@ -21,6 +21,7 @@ export class LifePointsComponent {
 
   set currentLifePoints(currentLifePoints: number) {
     this.character.currentLifePoints = Number(currentLifePoints);
+    this.characterService.emitUpdate();
   }
 
   get maxLifePoints(): number {
@@ -29,6 +30,7 @@ export class LifePointsComponent {
 
   set maxLifePoints(maxLifePoints: number) {
     this.character.maxLifePoints = Number(maxLifePoints);
+    this.characterService.emitUpdate();
   }
 
   maxTemporaryLifePoints: number = 20;
@@ -40,6 +42,7 @@ export class LifePointsComponent {
 
   set currentTemporaryLifePoints(currentTemporaryLifePoints: number) {
     this.character.temporaryLifePoints = Number(currentTemporaryLifePoints);
+    this.characterService.emitUpdate();
   }
 
   ngOnInit(): void {

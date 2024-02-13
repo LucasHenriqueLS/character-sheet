@@ -26,6 +26,7 @@ export class HitDieComponent {
 
   set total(total: number) {
     this.character.hitDice.get(this.privateHitDie)!.total = Number(total);
+    this.characterService.emitUpdate();
   }
 
   get remaining(): number {
@@ -34,6 +35,7 @@ export class HitDieComponent {
 
   set remaining(remaining: number) {
     this.character.hitDice.get(this.privateHitDie)!.remaining = Number(remaining);
+    this.characterService.emitUpdate();
   }
 
   ngOnInit() {

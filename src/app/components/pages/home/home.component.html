@@ -1,3 +1,7 @@
 <p>Página de Home</p>
-<!-- <app-character-sheet></app-character-sheet> -->
-<a routerLink="/character-sheet">Ficha de Personagem</a>
+<mat-card>
+    <button *ngFor="let characterName of characterNames" (click)="toCharacterSheet(characterName.id)">{{ characterName.name }}</button>
+</mat-card>
+<mat-card>
+    <button (click)="createNewCharacter()">Criar novo personagem</button>
+</mat-card>

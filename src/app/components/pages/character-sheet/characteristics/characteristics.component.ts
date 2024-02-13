@@ -15,6 +15,10 @@ export class CharacteristicsComponent {
 
   private character!: Character;
 
+  get characteristics(): Characteristic[] {
+    return this.character.characteristics;
+  }
+
   ngOnInit(): void {
     this.characterService.character$.subscribe(character => {
       this.character = character;
@@ -23,5 +27,6 @@ export class CharacteristicsComponent {
 
   addNewCharacteristic() {
     this.character.characteristics.push(new Characteristic);
+    this.characterService.emitUpdate();
   }
 }

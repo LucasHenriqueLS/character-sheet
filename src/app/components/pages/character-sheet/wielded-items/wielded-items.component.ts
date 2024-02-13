@@ -10,10 +10,18 @@ import { CharacterService } from 'src/app/services/character.service';
 export class WieldedItemsComponent {
 
   constructor(
-    private characterService: CharacterService
+    private readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   get wieldedItems(): WieldableItem[] {
-    return this.characterService.character.wieldedItems;
+    return this.character.wieldedItems;
+  }
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 }

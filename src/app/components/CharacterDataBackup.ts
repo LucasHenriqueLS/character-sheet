@@ -2,18 +2,22 @@ export class Character {
   [key: string]: any;
   public id: string = '';
   public name: string = '';
-  public alignment: string = '';
-  public race: string = '';
-  public sex: string = '';
-  public combatantClass: string = '';
-  public backgroud: string = '';
-  public experience: number = 0;
-  public description: string = '';
+  public alignment: string = 'LN';
+  public race: string = 'Elfo (da Lua)';
+  public sex: string = 'Masculino';
+  public combatantClass: string = 'Mago - 5° Nível';
+  public backgroud: string = 'Sábio (Pesquisador)';
+  public experience: number = 14800;
+  public description: string = 'Eöl é alto (1,74 metros), magro (60 kg) e aparenta ser jovem (128 anos). Ele possui pele azul pálida, longos cabelos pretos lisos e olhos verdes vibrantes.';
   public inspirations: number = 0;
-  public maxLifePoints: number = 0;
-  public currentLifePoints: number = 0;
-  public temporaryLifePoints: number = 0;
-  public hitDice: Map<string, HitDie> = new Map();
+  public maxLifePoints: number = 200;
+  public currentLifePoints: number = 100;
+  public temporaryLifePoints: number = 5;
+  public hitDice: Map<string, HitDie> = new Map([
+    ["d6", { total: 4, remaining: 4 }],
+    ["d8", { total: 1, remaining: 1 }],
+    ["d12", { total: 5, remaining: 2 }]
+  ]);
   public deathSaves: DeathSaves = new DeathSaves();
   public speed: number = 0;
   public proficiencyBonus: ProficiencyBonus = new ProficiencyBonus();
@@ -55,33 +59,37 @@ export class Character {
       ["Intimidação", 0]
     ])]
   ]);
-  public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map([
-    ["Força", new Map([
-      ["Armas", new Map()]
-    ])],
-    ["Destreza", new Map([
-      ["Armas", new Map()]
-    ])],
-    ["Inteligência", new Map([
-      ["Conhecimentos", new Map()],
-      ["Ferramentas", new Map()]
-    ])],
-    ["Sabedoria", new Map([
-      ["Profissões", new Map()]
-    ])],
-    ["Carisma", new Map([
-      ["Atuações", new Map()]
-    ])]
-  ]);
+  public specializedSkills: Map<string, Map<string, Map<string, number>>> = new Map();
   public senses: Map<string, number> = new Map([
     ["vision", 0],
     ["hearing", 0],
     ["smell", 0]
   ]);
   public weapons: Weapon[] = [];
-  public wieldedItems: WieldableItem[] = [];
-  public armor: Armor = new Armor('Sem armadura', 0, 0, 0, Infinity);
-  public characteristics: Characteristic[] = [];
+  public wieldedItems: WieldableItem[] = [
+    { item: new Item('Tocha Média', 'Tocha', 'Uma mão', 'Faz fogo e brilha.'), id: '1111', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Item('Varinha Média', 'Varinha das Maravilhas Maravilhosas', 'Uma mão', 'Lança magias maravilhosas de forma maravilhosamente maravilhosa.'), id: '2222', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Espada Média (muito leve)', 'Adaga', 'Uma mão', '', 'Arma Corpo a Corpo ou à Distância', '1,5 m ou 6/18 m', 'um alvo', '1d4', 'perfurante', ['Acuidade','Leve','Arremesso (alcance 6/18)']), id: '3333', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Espada Média (mediana)', 'Espada Longa', 'Uma mão ou Duas mãos', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d8 ou 1d10', 'cortante', []), id: '4444', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Weapon('Arco Médio (mediano)', 'Arco Longo', 'Duas mãos', '', 'Arma à Distância', '45/180 m', 'um alvo', '1d8', 'perfurante', ['Munição']), id: '5555', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield('Escudo Médio (mediano)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d4', 'contuntende', [], 2, -2), id: '6666', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false },
+    { item: new Shield('Escudo Médio (leve)', 'Escudo', 'Uma mão', '', 'Arma Corpo a Corpo', '1,5 m', 'um alvo', '1d3', 'contuntende', [], 1, -1), id: '7777', isWieldedInTheRightHand: false, isWieldedInTheLeftHand: false }
+  ];
+  public armor: Armor = new Armor('Peitoral de Placas', 125, 8, -3, 2); /* new Armor('Conjunto de Placas', 135, 13, -5, 0); */
+  public characteristics: Characteristic[] = [
+    {
+      name: 'Ancestralidade Feérica',
+      source: 'Raça',
+      sourceType: 'por ser meio-elfo',
+      description: 'Nenhum tipo de magia pode colocá-lo para dormir, e você tem vantagem em salvaguardas contra ser enfeitiçado.'
+    },
+    // {
+    //   name: 'Visão no Escuro',
+    //   source: 'Raça',
+    //   sourceType: 'por ser meio-elfo',
+    //   description: 'Graças ao seu sangue élfico, você possui uma visão superior no escuro. Você consegue enxergar até 18 metros na meia-luz como se fosse dia e, na escuridão, como se fosse meia-luz. Na escuridão você só consegue discernir tons de cinza.'
+    // }
+  ];
   public spellcasting: Spellcasting = new Spellcasting();
   public inventory: Inventory = new Inventory();
 }
@@ -112,7 +120,38 @@ export class Spellcasting {
   public spellcastingAbility: string = '';
   public spellSaveDC: number = 0;
   public spellAttackBonus: number = 0;
-  public spellsByLevel: Map<number, SpellByLevel> = new Map()
+  public spellsByLevel: Map<number, SpellByLevel> = new Map([
+    [0, {
+      totalSlots: 0,
+      currentSlots: 0,
+      spells: [
+        { name: 'Raio de Gelo', level: 0, isPrepared: true },
+        // { name: 'Raio de Fogo', level: 0, isPrepared: true }
+      ]
+    }
+    ],
+    [1, {
+          totalSlots: 4,
+          currentSlots: 2,
+          spells: [
+            { name: 'Mísseis Mágicos', level: 1, isPrepared: true },
+            // { name: 'Mãos Flamejantes', level: 1, isPrepared: true },
+            // { name: 'Sono', level: 1, isPrepared: false },
+            // { name: 'Armadura Arcana', level: 1, isPrepared: false },
+          ]
+        }
+    ],
+    [2, {
+      totalSlots: 2,
+      currentSlots: 2,
+      spells: [
+        { name: 'Arma Mágica', level: 2, isPrepared: true },
+        // { name: 'Escuridão', level: 2, isPrepared: false },
+        // { name: 'Raio Ardente', level: 2, isPrepared: true },
+      ]
+    }
+]
+  ])
 }
 
 export class SpellByLevel {
@@ -151,7 +190,7 @@ export class Armor extends Clothing {
   public armorPenalty: number = 0;
   public limiteDexterityModifier: number = 0;
 
-  constructor(name: string = '', fit: number = 0, armorBonus: number = 0, armorPenalty: number = 0, limiteDexterityModifier: number = 0) {
+  constructor(name: string, fit: number, armorBonus: number, armorPenalty: number, limiteDexterityModifier: number) {
     super(name, fit);
     this.armorBonus = armorBonus;
     this.armorPenalty = armorPenalty;

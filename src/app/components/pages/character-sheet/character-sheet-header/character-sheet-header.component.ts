@@ -21,6 +21,7 @@ export class CharacterSheetHeaderComponent {
   
   set name(name: string) {
     this.character.name = name;
+    this.characterService.emitUpdate();
   }
 
   get alignment(): string {
@@ -29,6 +30,7 @@ export class CharacterSheetHeaderComponent {
   
   set alignment(alignment: string) {
     this.character.alignment = alignment;
+    this.characterService.emitUpdate();
   }
 
   get race(): string {
@@ -37,6 +39,7 @@ export class CharacterSheetHeaderComponent {
   
   set race(race: string) {
     this.character.race = race;
+    this.characterService.emitUpdate();
   }
 
   get sex(): string {
@@ -45,6 +48,7 @@ export class CharacterSheetHeaderComponent {
   
   set sex(sex: string) {
     this.character.sex = sex;
+    this.characterService.emitUpdate();
   }
 
   get combatantClass(): string {
@@ -53,6 +57,7 @@ export class CharacterSheetHeaderComponent {
   
   set combatantClass(combatantClass: string) {
     this.character.combatantClass = combatantClass;
+    this.characterService.emitUpdate();
   }
 
   get backgroud(): string {
@@ -61,6 +66,7 @@ export class CharacterSheetHeaderComponent {
   
   set backgroud(backgroud: string) {
     this.character.backgroud = backgroud;
+    this.characterService.emitUpdate();
   }
 
   get experience(): number {
@@ -69,6 +75,7 @@ export class CharacterSheetHeaderComponent {
   
   set experience(experience: number) {
     this.character.experience = +experience;
+    this.characterService.emitUpdate();
   }
 
   get description(): string {
@@ -77,6 +84,7 @@ export class CharacterSheetHeaderComponent {
   
   set description(description: string) {
     this.character.description = description;
+    this.characterService.emitUpdate();
   }
 
   ngOnInit(): void {

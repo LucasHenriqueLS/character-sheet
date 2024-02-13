@@ -1,17 +1,17 @@
 <mat-card class="hit-die">
     <div class="die">
         <form class="die-form-field">
-            <input type="text" placeholder="-" name="die-form-field-input" [(ngModel)]="hitDie" (change)="changeHitDie()" required>
+            <input type="text" placeholder="d?" name="die-form-field-input" [(ngModel)]="hitDie" (change)="changeHitDie()" required>
         </form>
     </div>
     <div class="total">
         <form class="total-form-field">
-            <input type="text" placeholder="-" name="total-form-field-input" [(ngModel)]="total" required>
+            <input type="text" placeholder="0" name="total-form-field-input" [(ngModel)]="total" required>
         </form>
     </div>
     <div class="remaining">
         <form class="remaining-form-field">
-            <input type="text" placeholder="-" name="remaining-form-field-input" [(ngModel)]="remaining" required>
+            <input type="text" placeholder="0" name="remaining-form-field-input" [(ngModel)]="remaining" required>
         </form>
     </div>
     <mat-card class="delete-button">

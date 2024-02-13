@@ -21,6 +21,7 @@ export class DeathSavesComponent {
 
   set successes1(successes1: boolean) {
     this.character.deathSaves.successes += successes1 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   get successes2(): boolean {
@@ -29,6 +30,7 @@ export class DeathSavesComponent {
 
   set successes2(successes2: boolean) {
     this.character.deathSaves.successes += successes2 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   get successes3(): boolean {
@@ -37,6 +39,7 @@ export class DeathSavesComponent {
 
   set successes3(successes3: boolean) {
     this.character.deathSaves.successes += successes3 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   get failures1(): boolean {
@@ -45,6 +48,7 @@ export class DeathSavesComponent {
 
   set failures1(failures1: boolean) {
     this.character.deathSaves.failures += failures1 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   get failures2(): boolean {
@@ -53,6 +57,7 @@ export class DeathSavesComponent {
 
   set failures2(failures2: boolean) {
     this.character.deathSaves.failures += failures2 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   get failures3(): boolean {
@@ -61,6 +66,7 @@ export class DeathSavesComponent {
 
   set failures3(failures3: boolean) {
     this.character.deathSaves.failures += failures3 ? 1 : -1;
+    this.characterService.emitUpdate();
   }
 
   ngOnInit(): void {

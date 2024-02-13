@@ -26,7 +26,7 @@ export class HitDiceComponent {
   }
 
   addNewHitDie() {
-    this.character.hitDice.set("", { total: 0, remaining: 0 });
+    this.character.hitDice.set('', { total: 0, remaining: 0 });
     this.characterService.emitUpdate();
   }
 }

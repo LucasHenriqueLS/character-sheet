@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -9,6 +10,14 @@ import { CharacterService } from 'src/app/services/character.service';
 export class SensesComponent {
 
   constructor(
-    public characterService: CharacterService
-  ) {}
+    public readonly characterService: CharacterService
+  ) { }
+
+  private character!: Character;
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
+  }
 }

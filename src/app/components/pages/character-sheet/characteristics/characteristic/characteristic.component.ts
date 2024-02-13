@@ -18,6 +18,33 @@ export class CharacteristicComponent {
   @Input() characteristic!: Characteristic;
   @Input() position!: number;
 
+  get name(): string {
+    return this.characteristic.name;
+  }
+
+  set name(name: string) {
+    this.characteristic.name = name;
+    this.characterService.emitUpdate();
+  }
+
+  get source(): string {
+    return this.characteristic.source;
+  }
+
+  set source(source: string) {
+    this.characteristic.source = source;
+    this.characterService.emitUpdate();
+  }
+
+  get description(): string {
+    return this.characteristic.description;
+  }
+
+  set description(description: string) {
+    this.characteristic.description = description;
+    this.characterService.emitUpdate();
+  }
+
   ngOnInit(): void {
     this.characterService.character$.subscribe(character => {
       this.character = character;
@@ -26,5 +53,6 @@ export class CharacteristicComponent {
   
   removeCharacteristic() {
     this.character.characteristics.splice(this.position, 1);
+    this.characterService.emitUpdate();
   }
 }

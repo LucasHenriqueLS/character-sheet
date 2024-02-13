@@ -41,7 +41,7 @@
     border-radius: 15px;
     display: grid;
     justify-self: center;
-    grid-template-columns: 50px auto 100px auto auto;
+    grid-template-columns: 150px auto 100px auto auto;
     gap: 8px;
 }
 

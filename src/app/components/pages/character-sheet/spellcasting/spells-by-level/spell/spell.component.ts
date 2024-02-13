@@ -24,6 +24,7 @@ export class SpellComponent {
 
   set isPrepared(isPrepared: boolean) {
     this.spell.isPrepared = isPrepared;
+    this.characterService.emitUpdate();
   }
 
   get name(): string {
@@ -32,6 +33,7 @@ export class SpellComponent {
 
   set name(name: string) {
     this.spell.name = name;
+    this.characterService.emitUpdate();
   }
 
   ngOnInit() {
@@ -43,5 +45,6 @@ export class SpellComponent {
   removeSpell() {
     const spells = this.character.spellcasting.spellsByLevel.get(this.spell.level)!.spells;
     spells.splice(spells.findIndex(spell => spell.name === this.name), 1);
+    this.characterService.emitUpdate();
   }
 }

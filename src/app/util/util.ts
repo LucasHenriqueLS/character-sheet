@@ -1,4 +1,8 @@
-import MapifyTs from "mapify-ts";
+import { v4 as uuidv4 } from 'uuid';
+
+export function generateUUID(): string {
+  return uuidv4();
+}
 
 export function calculateAbilityModifier(score: number): number {
   return Math.floor((score - 10) / 2);

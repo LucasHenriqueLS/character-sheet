@@ -14,7 +14,7 @@ const WEAPON_DATA: Weapon[] = [
     range: '1,5 m ou 6/18 m',
     targets: 'um alvo',
     damageDie: '1d4',
-    damateType: 'perfurante',
+    damageType: 'perfurante',
     properties: ['Acuidade','Leve','Arremesso (alcance 6/18)'],
     description: ''
   },
@@ -27,7 +27,7 @@ const WEAPON_DATA: Weapon[] = [
     range: '1,5 m',
     targets: 'um alvo',
     damageDie: '1d8 ou 1d10',
-    damateType: 'cortante',
+    damageType: 'cortante',
     properties: [],
     description: ''
   },
@@ -40,7 +40,7 @@ const WEAPON_DATA: Weapon[] = [
     range: '45/180 m',
     targets: 'um alvo',
     damageDie: '1d8',
-    damateType: 'perfurante',
+    damageType: 'perfurante',
     properties: ['Munição'],
     description: ''
   }

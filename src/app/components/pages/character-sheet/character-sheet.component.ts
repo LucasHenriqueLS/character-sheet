@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import MapifyTs from 'mapify-ts';
+import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -11,10 +10,16 @@ import { CharacterService } from 'src/app/services/character.service';
 export class CharacterSheetComponent {
 
   constructor(
+    private route: ActivatedRoute,
     private readonly characterService: CharacterService
   ) { }
 
-  get dadosCarregados(): boolean {
-    return this.characterService.dadosCarregados;
+  private characterId!: string;
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.characterId = params['characterId'];
+      this.characterService.loadCharacterById(this.characterId);
+    });
   }
 }

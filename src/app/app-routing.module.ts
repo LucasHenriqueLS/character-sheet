@@ -7,7 +7,7 @@ import { CharacterSheetComponent } from './components/pages/character-sheet/char
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'character-sheet', component: CharacterSheetComponent }
+  { path: 'character-sheet/:characterId', component: CharacterSheetComponent }
 ];
 
 @NgModule({

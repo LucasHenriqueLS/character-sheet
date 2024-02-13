@@ -58,14 +58,14 @@ export class WieldedItemComponent {
           this.damageBonus = calculateAbilityModifier(strength);
         }
         this.attackBonus = this.damageBonus;
-        // if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(item.classification)) {
-        //   this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(item.classification)!;
-        // }
+        if (this.character.specializedSkills.get('Força')!.get('Armas')!.has(item.classification)) {
+          this.attackBonus += this.character.specializedSkills.get('Força')!.get('Armas')!.get(item.classification)!;
+        }
       } else {
         this.attackBonus = this.damageBonus = calculateAbilityModifier(this.character.abilities.get('Destreza')!);
-        // if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
-        //   this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
-        // }
+        if (this.character.specializedSkills.get('Destreza')!.get('Armas')!.has(item.classification)) {
+          this.attackBonus += this.character.specializedSkills.get('Destreza')!.get('Armas')!.get(item.classification)!;
+        }
         const armor = this.character.armor;
         const weildedShields: WieldableItem[] = this.characterService.character.wieldedItems.filter(wieldedItem => (wieldedItem.isWieldedInTheLeftHand && wieldedItem.item.constructor === Shield) || (wieldedItem.isWieldedInTheRightHand && wieldedItem.item.constructor === Shield));
         const shields: Shield[] = weildedShields.map(weildedShield => weildedShield.item as Shield);
@@ -101,6 +101,7 @@ export class WieldedItemComponent {
         wieldedItems.splice(1, 0, this.wieldedItem);
       }
     }
+    this.characterService.emitUpdate();
   }
 
   wieldOrUnwieldInTheRightHand(): void {
@@ -131,11 +132,13 @@ export class WieldedItemComponent {
         wieldedItems.splice(1, 0, this.wieldedItem);
       }
     }
+    this.characterService.emitUpdate();
   }
 
   removeWieldedItem() {
     const wieldedItems = this.characterService.character.wieldedItems;
     const index = wieldedItems.findIndex(wieldedItem => wieldedItem.id === this.wieldedItem.id);
     wieldedItems.splice(index, 1);
+    this.characterService.emitUpdate();
   }
 }

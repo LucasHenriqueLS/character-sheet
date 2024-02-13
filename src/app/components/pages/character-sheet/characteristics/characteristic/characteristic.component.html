@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>
       <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
-        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristic.name" required>
+        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="name" required>
       </form>
       <mat-card class="delete-button">
         <button mat-icon-button color="warn" (click)="removeCharacteristic()"><mat-icon>delete</mat-icon></button>
@@ -10,13 +10,13 @@
     </mat-card-title>
     <mat-card-subtitle>
       <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
-        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristic.source" required>
+        <input type="text" placeholder="-" name="seuCampo" [(ngModel)]="source" required>
       </form>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form #seuFormulario="ngForm" class="proficiency-bonus-form-field">
-      <textarea cdkTextareaAutosize type="text" placeholder="-" name="seuCampo" [(ngModel)]="characteristic.description" required></textarea>
+      <textarea cdkTextareaAutosize type="text" placeholder="-" name="seuCampo" [(ngModel)]="description" required></textarea>
     </form>
   </mat-card-content>
 </mat-card>

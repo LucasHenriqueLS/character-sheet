@@ -22,23 +22,26 @@ export class SpellsByLevelComponent {
   private privateLevel!: number;
 
   get totalSlots(): number {
-    return this.spellByLevel.totalSlots;
+    return this.character.spellcasting.spellsByLevel.get(this.level)!.totalSlots;
   }
 
   set totalSlots(totalSlots: number) {
-    this.totalSlots = totalSlots;
+    this.character.spellcasting.spellsByLevel.get(this.level)!.totalSlots = +totalSlots;
+    this.characterService.emitUpdate();
   }
 
   get currentSlots(): number {
-    return this.spellByLevel.currentSlots;
+    return this.character.spellcasting.spellsByLevel.get(this.level)!.currentSlots;
   }
 
   set currentSlots(currentSlots: number) {
-    this.currentSlots = currentSlots;
+    this.character.spellcasting.spellsByLevel.get(this.level)!.currentSlots = +currentSlots;
+    this.characterService.emitUpdate();
   }
 
   get spells(): Spell[] {
-    return Array.from(this.spellByLevel.spells.values());
+    this.character;
+    return Array.from(this.character.spellcasting.spellsByLevel.get(this.level)!.spells.values());
   }
 
   ngOnInit() {
@@ -53,6 +56,7 @@ export class SpellsByLevelComponent {
       this.removeSpellsPerLevel();
     } else {
       this.character.spellcasting.spellsByLevel = MapUtil.changeKey(this.character.spellcasting.spellsByLevel, this.privateLevel, this.level);
+      this.characterService.emitUpdate();
       this.privateLevel = this.level;
     }
   }
@@ -63,10 +67,11 @@ export class SpellsByLevelComponent {
 
   removeSpellsPerLevel() {
     this.character.spellcasting.spellsByLevel.delete(this.level);
+    this.characterService.emitUpdate();
   }
 
   addNewSpell() {
-    this.spellByLevel.spells.push({ name: '', level: this.level, isPrepared: false });
+    this.character.spellcasting.spellsByLevel.get(this.level)!.spells.push({ name: '', level: this.level, isPrepared: false });
     this.characterService.emitUpdate();
   }
 }

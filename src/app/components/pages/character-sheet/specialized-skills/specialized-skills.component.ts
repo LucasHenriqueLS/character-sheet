@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Character } from 'src/app/components/Character';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -12,13 +13,21 @@ export class SpecializedSkillsComponent {
     public readonly characterService: CharacterService
   ) { }
 
+  private character!: Character;
+
   public ability!: string;
 
   get abilities(): string[] {
-    return Array.from(this.characterService.character.specializedSkills.keys());
+    return Array.from(this.character.specializedSkills.keys());
   }
 
   public getGroupNames(ability: string): string[] {
-    return Array.from(this.characterService.character.specializedSkills.get(ability)!.keys());
+    return Array.from(this.character.specializedSkills.get(ability)!.keys());
+  }
+
+  ngOnInit() {
+    this.characterService.character$.subscribe(character => {
+      this.character = character;
+    });
   }
 }

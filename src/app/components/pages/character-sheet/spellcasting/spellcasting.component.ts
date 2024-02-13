@@ -30,7 +30,8 @@ export class SpellcastingComponent {
   }
 
   addNewSpellsByLevel() {
-    this.character.spellcasting.spellsByLevel.set(this.getNextSpellLevel(), new SpellByLevel())
+    this.character.spellcasting.spellsByLevel.set(this.getNextSpellLevel(), new SpellByLevel());
+    this.characterService.emitUpdate();
   }
 
   private getNextSpellLevel(): number {
