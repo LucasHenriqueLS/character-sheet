@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import MapifyTs from 'mapify-ts';
 import { CharacterNameDto } from '../dtos/CharacterNameDto';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,11 @@ export class CharacterService {
   }
 
   getAllCharacterIdsAndNames(): Observable<CharacterNameDto[]> {
-    return this.http.get<CharacterNameDto[]>('http://192.168.3.27:10000/character/get-all-character-names');
+    return this.http.get<CharacterNameDto[]>(`${environment.UNREAL_REALMS_CREATURES_API_URL}/character/get-all-character-names`);
   }
 
   async loadCharacterById(id: string): Promise<void> {
-    const response = await this.http.get<any>(`http://192.168.3.27:10000/character/get-by-id/${id}`).toPromise();
+    const response = await this.http.get<any>(`${environment.UNREAL_REALMS_CREATURES_API_URL}/character/get-by-id/${id}`).toPromise();
 
       const data: any = MapifyTs.serialize(response);
       const character: Character = new Character();
@@ -113,13 +114,13 @@ export class CharacterService {
   
   async save(newCharacter: Character) {
     const data = MapifyTs.serialize(newCharacter);
-    const character = await this.http.post<Character>('http://192.168.3.27:10000/character', data).toPromise();
+    const character = await this.http.post<Character>(`${environment.UNREAL_REALMS_CREATURES_API_URL}/character`, data).toPromise();
     console.log(character);
   }
   
   async update() {
     const data = MapifyTs.serialize(this.character);
-    const character = await this.http.post<Character>('http://192.168.3.27:10000/character', data).toPromise();
+    const character = await this.http.post<Character>(`${environment.UNREAL_REALMS_CREATURES_API_URL}/character`, data).toPromise();
     console.log(character);
   }
 }
