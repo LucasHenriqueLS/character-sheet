@@ -23,7 +23,6 @@ export class HomeComponent {
     this.characterService.getAllCharacterIdsAndNames().subscribe(
       (data) => {
         this.characterNames = data;
-        console.log(this.characterNames);
       },
       (error) => {
         console.error('Erro ao obter dados:', error);

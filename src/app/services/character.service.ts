@@ -31,11 +31,11 @@ export class CharacterService {
   }
 
   getAllCharacterIdsAndNames(): Observable<CharacterNameDto[]> {
-    return this.http.get<CharacterNameDto[]>('http://localhost:10000/character/get-all-character-names');
+    return this.http.get<CharacterNameDto[]>('http://192.168.3.27:10000/character/get-all-character-names');
   }
 
   async loadCharacterById(id: string): Promise<void> {
-    const response = await this.http.get<any>(`http://localhost:10000/character/get-by-id/${id}`).toPromise();
+    const response = await this.http.get<any>(`http://192.168.3.27:10000/character/get-by-id/${id}`).toPromise();
 
       const data: any = MapifyTs.serialize(response);
       const character: Character = new Character();
@@ -113,13 +113,13 @@ export class CharacterService {
   
   async save(newCharacter: Character) {
     const data = MapifyTs.serialize(newCharacter);
-    const character = await this.http.post<Character>('http://localhost:10000/character', data).toPromise();
+    const character = await this.http.post<Character>('http://192.168.3.27:10000/character', data).toPromise();
     console.log(character);
   }
   
   async update() {
     const data = MapifyTs.serialize(this.character);
-    const character = await this.http.post<Character>('http://localhost:10000/character', data).toPromise();
+    const character = await this.http.post<Character>('http://192.168.3.27:10000/character', data).toPromise();
     console.log(character);
   }
 }
